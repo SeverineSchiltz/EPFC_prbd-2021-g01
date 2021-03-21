@@ -1,6 +1,6 @@
 ﻿using PRBD_Framework;
 
-namespace prbd_2021_g01
+namespace prbd_2021_g01.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using PRBD_Framework;
 
-namespace prbd_2021_g01
+namespace prbd_2021_g01.Model
 {
-    public class Model : DbContextBase {
+    public class EcoleContext : DbContextBase {
 
         public static readonly ILoggerFactory _loggerFactory = LoggerFactory.Create(builder => {
             builder.AddConsole();

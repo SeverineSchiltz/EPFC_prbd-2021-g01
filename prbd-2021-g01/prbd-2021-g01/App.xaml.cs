@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using PRBD_Framework;
+using prbd_2021_g01.Model;
 
 namespace prbd_2021_g01
 {
@@ -10,7 +11,7 @@ namespace prbd_2021_g01
     /// </summary>
     public partial class App : ApplicationBase
     {
-        public static Model Context { get => Context<Model>(); }
+        public static EcoleContext Context { get => Context<EcoleContext>(); }
 
         protected override void OnStartup(StartupEventArgs e)
         {
