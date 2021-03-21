@@ -1,0 +1,96 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Desk Severine\\EPFC_BachInfo\\BachProjets\\PRWB2021\\projects\\prbd-2021-g01\\prbd-2021-g01\\PRBD_Framework\\PRBD_Framework.csproj": {}
+  },
+  "projects": {
+    "D:\\Desk Severine\\EPFC_BachInfo\\BachProjets\\PRWB2021\\projects\\prbd-2021-g01\\prbd-2021-g01\\PRBD_Framework\\PRBD_Framework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Desk Severine\\EPFC_BachInfo\\BachProjets\\PRWB2021\\projects\\prbd-2021-g01\\prbd-2021-g01\\PRBD_Framework\\PRBD_Framework.csproj",
+        "projectName": "PRBD_Framework",
+        "projectPath": "D:\\Desk Severine\\EPFC_BachInfo\\BachProjets\\PRWB2021\\projects\\prbd-2021-g01\\prbd-2021-g01\\PRBD_Framework\\PRBD_Framework.csproj",
+        "packagesPath": "C:\\Users\\sever\\.nuget\\packages\\",
+        "outputPath": "D:\\Desk Severine\\EPFC_BachInfo\\BachProjets\\PRWB2021\\projects\\prbd-2021-g01\\prbd-2021-g01\\PRBD_Framework\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sever\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.31, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
