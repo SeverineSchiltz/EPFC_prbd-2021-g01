@@ -8,6 +8,10 @@
     ".NETCoreApp,Version=v5.0": {
       "prbd-2021-g01/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.3",
+          "Microsoft.EntityFrameworkCore.Proxies": "5.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
+          "Microsoft.Extensions.Logging.Console": "5.0.0",
           "PRBD_Framework": "1.0.0"
         },
         "runtime": {

@@ -1,17 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+using PRBD_Framework;
 
 namespace prbd_2021_g01
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : ApplicationBase
     {
+        public static Model Context { get => Context<Model>(); }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Context.Database.EnsureDeleted();
+            Context.Database.EnsureCreated();
+            Context.SeedData();
+
+        }
+
+        protected override void OnRefreshData()
+        {
+            // pour plus tard
+        }
+
     }
 }

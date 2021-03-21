@@ -65,11 +65,9 @@ D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\bin\Debug\net5.0-windows\PRBD_Framework.pdb
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\bin\Debug\net5.0-windows\PRBD_Framework.dll.config
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01.csprojAssemblyReference.cache
-D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\MainWindow.g.cs
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\App.g.cs
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01_MarkupCompile.cache
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01_MarkupCompile.lref
-D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\MainWindow.baml
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01.g.resources
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01.GeneratedMSBuildEditorConfig.editorconfig
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01.AssemblyInfoInputs.cache
@@ -80,3 +78,6 @@ D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\ref\prbd-2021-g01.dll
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01.pdb
 D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\prbd-2021-g01.genruntimeconfig.cache
+D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\View\MainView.g.cs
+D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Desk Severine\EPFC_BachInfo\BachProjets\PRWB2021\projects\prbd-2021-g01\prbd-2021-g01\prbd-2021-g01\obj\Debug\net5.0-windows\View\MainView.baml
