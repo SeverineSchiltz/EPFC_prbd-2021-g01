@@ -53,7 +53,7 @@ namespace prbd_2021_g01
         }
 
        
-        public DbSet<Course> Course2 { get; set; }
+        public DbSet<Course> Course { get; set; }
 
     }
 }
