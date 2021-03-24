@@ -22,7 +22,7 @@ namespace prbd_2021_g01.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
-
+                
             //// l'entité Member participe à une relation one-to-many ...
             //modelBuilder.Entity<Member>()
             //    // avec, du côté many, la propriété MessagesSent ...
@@ -47,13 +47,27 @@ namespace prbd_2021_g01.Model
 
             //add data
 
+            var testTeacher1 = new Teacher("testTeacher1", "test2021");
+            //Teachers.AddRange(new[] { testTeacher }); // when we need to create many objects
+
+            var testTeacher2 = new Teacher("testTeacher2", "test2021");
+
+            var testStudent = new Student("testStudent", "test2021");
+
+            Users.AddRange(testTeacher1, testTeacher2, testStudent);   
+
             SaveChanges();
 
             Database.CommitTransaction();
         }
 
        
-        public DbSet<Course> Course { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
+        public DbSet<Quiz> Quizz { get; set; }
 
     }
 }
