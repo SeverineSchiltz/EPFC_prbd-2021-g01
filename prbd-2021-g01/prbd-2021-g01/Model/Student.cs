@@ -15,7 +15,7 @@ namespace prbd_2021_g01.Model {
         // To check
         //public virtual ICollection<ResponseStudent> responseStudents { get; set; } = new HashSet<ResponseStudent>();
 
-        public Student(string email, string password) : base(email, password) {
+        public Student(string firstname, string lastname, string email, string password) : base(firstname, lastname, email, password) {
 
         }
 

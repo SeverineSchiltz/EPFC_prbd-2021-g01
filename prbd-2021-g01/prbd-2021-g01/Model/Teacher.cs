@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PRBD_Framework;
 
 namespace prbd_2021_g01.Model {
     public class Teacher : User {
@@ -12,7 +9,13 @@ namespace prbd_2021_g01.Model {
         //public int TeacherId { get; set; }
         public virtual ICollection<Course> Courses { get; set; } = new HashSet<Course>();
 
-        public Teacher(string email, string password) : base( email, password) {
+        public void AddCourse(Course course)
+        {
+            Courses.Add(course);
+            Context.SaveChanges();
+        }
+
+        public Teacher(string firstname, string lastname, string email, string password) : base(firstname, lastname, email, password) {
 
         }
 

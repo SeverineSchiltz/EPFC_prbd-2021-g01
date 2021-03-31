@@ -47,14 +47,19 @@ namespace prbd_2021_g01.Model
 
             //add data
 
-            var testTeacher1 = new Teacher("testTeacher1", "test2021");
+            var bruno = new Teacher("Bruno","Lacroix","testTeacher1", "test2021");
             //Teachers.AddRange(new[] { testTeacher }); // when we need to create many objects
 
-            var testTeacher2 = new Teacher("testTeacher2", "test2021");
 
-            var testStudent = new Student("testStudent", "test2021");
+            var boris = new Teacher("Boris", "Ben", "testTeacher2", "test2021");
 
-            Users.AddRange(testTeacher1, testTeacher2, testStudent);   
+            var sensei = new Student("Etudiant", "Sensei", "testStudent", "test2021");
+
+            var anc3 = new Course(bruno, "ANC3", 5, "analyse et conception");
+
+            bruno.AddCourse(anc3);
+
+            Users.AddRange(bruno, boris, sensei);   
 
             SaveChanges();
 
