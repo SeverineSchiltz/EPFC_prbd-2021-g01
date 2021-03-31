@@ -68,6 +68,11 @@ namespace prbd_2021_g01.Model
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<Quiz> Quizz { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<AnswerStudent> AnswerStudents { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<QuizQuestion> QuizQuestions { get; set; }
 
     }
 }
