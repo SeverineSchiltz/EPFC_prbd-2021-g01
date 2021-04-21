@@ -1,18 +1,17 @@
 ﻿using PRBD_Framework;
 
+
 namespace prbd_2021_g01.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour StudentView.xaml
     /// </summary>
-    public partial class MainView : WindowBase
+    public partial class StudentView : UserControlBase
     {
-        public MainView()
+        public StudentView()
         {
             InitializeComponent();
         }
-
-
 
 
     }

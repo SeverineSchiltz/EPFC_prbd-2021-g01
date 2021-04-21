@@ -25,5 +25,18 @@ namespace prbd_2021_g01.Model {
         }
 
         public User() { }
+
+        public static User GetByEmail(string email)
+        {
+            return Context.Users.SingleOrDefault(m => m.Email == email);
+        }
+
+        //public string DiscriminatorValue
+        //{
+        //    get
+        //    {
+        //        return this.GetType().Name;
+        //    }
+        //}
     }
 }
