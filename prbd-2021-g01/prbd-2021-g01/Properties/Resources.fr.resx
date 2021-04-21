@@ -120,7 +120,25 @@
   <data name="LoginView_Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
+  <data name="LoginView_Email" xml:space="preserve">
+    <value>Courriel :</value>
+  </data>
   <data name="LoginView_Login" xml:space="preserve">
     <value>Se connecter</value>
+  </data>
+  <data name="LoginView_Message_1" xml:space="preserve">
+    <value>Si vous n'avez pas de pseudo ni de mot de passe, cliquez</value>
+  </data>
+  <data name="LoginView_Message_2" xml:space="preserve">
+    <value>ici</value>
+  </data>
+  <data name="LoginView_Message_3" xml:space="preserve">
+    <value>pour vous enregistrer.</value>
+  </data>
+  <data name="LoginView_Password" xml:space="preserve">
+    <value>Mot de passe :</value>
+  </data>
+  <data name="LoginView_Title" xml:space="preserve">
+    <value>Connexion</value>
   </data>
 </root>

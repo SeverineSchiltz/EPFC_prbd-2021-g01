@@ -12,9 +12,9 @@
         <vm:MainViewModel x:Name="vm"/>
     </Window.DataContext>
     <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
-        <TabItem x:Name="menuTab" Header="StudentView">
+        <TabItem x:Name="teacherMenuViewTab" Header="TeacherMenuView">
             <ContentControl>
-                <vw:StudentView/>
+                <vw:TeacherMenuView/>
             </ContentControl>
         </TabItem>
     </f:MyTabControl>

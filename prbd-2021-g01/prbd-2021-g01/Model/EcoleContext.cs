@@ -22,7 +22,11 @@ namespace prbd_2021_g01.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
-                
+
+            // rendre l'email unique
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
             //// l'entité Member participe à une relation one-to-many ...
             //modelBuilder.Entity<Member>()
             //    // avec, du côté many, la propriété MessagesSent ...
@@ -47,19 +51,20 @@ namespace prbd_2021_g01.Model
 
             //add data
 
-            var bruno = new Teacher("Bruno","Lacroix","testTeacher1", "test2021");
+            var bruno = new Teacher("Bruno","Lacroix","br@epfc.eu", "Password1,");
             //Teachers.AddRange(new[] { testTeacher }); // when we need to create many objects
 
+            var benoit = new Teacher("Benoît", "Penelle", "be@epfc.eu", "Password1,");
 
-            var boris = new Teacher("Boris", "Ben", "testTeacher2", "test2021");
+            var boris = new Teacher("Boris", "Verhaegen", "bo@epfc.eu", "Password1,");
 
-            var sensei = new Student("Etudiant", "Sensei", "testStudent", "test2021");
+            var sensei = new Student("Etudiant", "Sensei", "test@epfc.eu", "Password2,");
 
             var anc3 = new Course(bruno, "ANC3", 5, "analyse et conception");
 
             bruno.AddCourse(anc3);
 
-            Users.AddRange(bruno, boris, sensei);   
+            Users.AddRange(bruno, benoit, boris, sensei);   
 
             SaveChanges();
 

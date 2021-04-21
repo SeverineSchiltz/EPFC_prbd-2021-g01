@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prbd_2021_g01.ViewModel
 {
-    class StudentViewModel: ViewModelCommon
+    class TeacherMenuViewModel: ViewModelCommon
     {
 
         protected override void OnRefreshData()
