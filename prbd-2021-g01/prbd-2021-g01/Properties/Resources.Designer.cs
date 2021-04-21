@@ -22,7 +22,7 @@ namespace prbd_2021_g01.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace prbd_2021_g01.Properties {
         ///   Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("prbd_2021_g01.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace prbd_2021_g01.Properties {
         ///   les recherches de ressources à l'aide de cette classe de ressource fortement typée.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à does not exist.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_DoesNotExist {
+=======
+        public static string Error_DoesNotExist {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_DoesNotExist", resourceCulture);
             }
@@ -72,7 +76,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à length must be &gt;= 3.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_LengthGreaterEqual3 {
+=======
+        public static string Error_LengthGreaterEqual3 {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_LengthGreaterEqual3", resourceCulture);
             }
@@ -81,7 +89,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à must match confirm password.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_MustMatchConfirmPassword {
+=======
+        public static string Error_MustMatchConfirmPassword {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_MustMatchConfirmPassword", resourceCulture);
             }
@@ -90,7 +102,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à must match password.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_MustMatchPassword {
+=======
+        public static string Error_MustMatchPassword {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_MustMatchPassword", resourceCulture);
             }
@@ -99,7 +115,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à not available.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_NotAvailable {
+=======
+        public static string Error_NotAvailable {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_NotAvailable", resourceCulture);
             }
@@ -108,7 +128,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à required.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_Required {
+=======
+        public static string Error_Required {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_Required", resourceCulture);
             }
@@ -117,7 +141,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à wrong password.
         /// </summary>
+<<<<<<< HEAD
         internal static string Error_WrongPassword {
+=======
+        public static string Error_WrongPassword {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("Error_WrongPassword", resourceCulture);
             }
@@ -126,7 +154,7 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Cancel.
         /// </summary>
-        internal static string LoginView_Cancel {
+        public static string LoginView_Cancel {
             get {
                 return ResourceManager.GetString("LoginView_Cancel", resourceCulture);
             }
@@ -135,7 +163,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Email:.
         /// </summary>
+<<<<<<< HEAD
         internal static string LoginView_Email {
+=======
+        public static string LoginView_Email {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("LoginView_Email", resourceCulture);
             }
@@ -144,7 +176,7 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Login.
         /// </summary>
-        internal static string LoginView_Login {
+        public static string LoginView_Login {
             get {
                 return ResourceManager.GetString("LoginView_Login", resourceCulture);
             }
@@ -153,7 +185,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à If you don&apos;t have a login and a password, click.
         /// </summary>
+<<<<<<< HEAD
         internal static string LoginView_Message_1 {
+=======
+        public static string LoginView_Message_1 {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("LoginView_Message_1", resourceCulture);
             }
@@ -162,7 +198,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à here.
         /// </summary>
+<<<<<<< HEAD
         internal static string LoginView_Message_2 {
+=======
+        public static string LoginView_Message_2 {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("LoginView_Message_2", resourceCulture);
             }
@@ -171,7 +211,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à to sign-up..
         /// </summary>
+<<<<<<< HEAD
         internal static string LoginView_Message_3 {
+=======
+        public static string LoginView_Message_3 {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("LoginView_Message_3", resourceCulture);
             }
@@ -180,7 +224,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Password:.
         /// </summary>
+<<<<<<< HEAD
         internal static string LoginView_Password {
+=======
+        public static string LoginView_Password {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("LoginView_Password", resourceCulture);
             }
@@ -189,7 +237,11 @@ namespace prbd_2021_g01.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à Login.
         /// </summary>
+<<<<<<< HEAD
         internal static string LoginView_Title {
+=======
+        public static string LoginView_Title {
+>>>>>>> feat_ines
             get {
                 return ResourceManager.GetString("LoginView_Title", resourceCulture);
             }
