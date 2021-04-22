@@ -1,4 +1,8 @@
-﻿using PRBD_Framework;
+﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using PRBD_Framework;
+using prbd_2021_g01.Properties;
 
 namespace prbd_2021_g01.View
 {
@@ -12,6 +16,19 @@ namespace prbd_2021_g01.View
             InitializeComponent();
         }
 
+        private void Vm_OnLogout() { 
+            App.NavigateTo<LoginView>(); 
+        }
+
+        private void WindowBase_KeyDown(object sender, KeyEventArgs e) { 
+            if (e.Key == Key.Escape) Close(); 
+        }
+        private void Language_Click(object sender, RoutedEventArgs e) { 
+            var lang = (sender as MenuItem).CommandParameter?.ToString(); 
+            App.ChangeCulture(lang); 
+            Settings.Default.Culture = lang; 
+            Settings.Default.Save(); 
+        }
 
 
 

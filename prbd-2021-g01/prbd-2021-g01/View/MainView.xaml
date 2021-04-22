@@ -6,17 +6,32 @@
         xmlns:vm="clr-namespace:prbd_2021_g01.ViewModel"
         xmlns:vw="clr-namespace:prbd_2021_g01.View"
         xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+        xmlns:p="clr-namespace:prbd_2021_g01.Properties"
         mc:Ignorable="d"
-        Title="App Ecole!" Height="450" Width="800">
+        Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen" KeyDown="WindowBase_KeyDown">
+    
     <Window.DataContext>
-        <vm:MainViewModel x:Name="vm"/>
+        <vm:MainViewModel x:Name="vm" OnLogout="Vm_OnLogout" />
     </Window.DataContext>
-    <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
-        <TabItem x:Name="teacherMenuViewTab" Header="TeacherMenuView">
-            <ContentControl>
-                <vw:TeacherMenuView/>
-            </ContentControl>
-        </TabItem>
-    </f:MyTabControl>
+    <Grid>
+        <Grid.RowDefinitions>             
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="{x:Static p:Resources.Menu_Logout}" Command="{Binding LogoutCommand}" />
+            <MenuItem Header="{x:Static p:Resources.Menu_Languages}">
+                    <MenuItem Header="{x:Static p:Resources.Menu_Languages_English}" CommandParameter="en" Click="Language_Click" />
+                    <MenuItem Header="{x:Static p:Resources.Menu_Languages_French}" CommandParameter="fr" Click="Language_Click"/>
+            </MenuItem>
+        </Menu>
+        <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
+            <TabItem x:Name="teacherMenuViewTab" Header="TeacherMenuView">
+                <ContentControl>
+                    <vw:TeacherMenuView/>
+                </ContentControl>
+            </TabItem>
+        </f:MyTabControl>
+    </Grid>
 
 </f:WindowBase>
