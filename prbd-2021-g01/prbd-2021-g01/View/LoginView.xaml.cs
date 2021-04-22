@@ -28,6 +28,11 @@ namespace prbd_2021_g01.View {
         private void Vm_OnLoginSuccess() {
             App.NavigateTo<MainView>();
         }
+
+        private void Vm_OnSignup() {
+            App.NavigateTo<SignupView>();
+        }
+
     }
 
 }

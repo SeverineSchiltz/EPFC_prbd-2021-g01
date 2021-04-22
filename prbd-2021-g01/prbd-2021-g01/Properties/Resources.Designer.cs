@@ -70,6 +70,15 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Email already in use.
+        /// </summary>
+        public static string Error_EmailAlreadyInUse {
+            get {
+                return ResourceManager.GetString("Error_EmailAlreadyInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à length must be &gt;= 3.
         /// </summary>
         public static string Error_LengthGreaterEqual3 {
@@ -228,6 +237,105 @@ namespace prbd_2021_g01.Properties {
         public static string Menu_Logout {
             get {
                 return ResourceManager.GetString("Menu_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cancel.
+        /// </summary>
+        public static string SignupView_Cancel {
+            get {
+                return ResourceManager.GetString("SignupView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Email.
+        /// </summary>
+        public static string SignupView_Email {
+            get {
+                return ResourceManager.GetString("SignupView_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Firstname.
+        /// </summary>
+        public static string SignupView_Firstname {
+            get {
+                return ResourceManager.GetString("SignupView_Firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Lastname.
+        /// </summary>
+        public static string SignupView_Lastname {
+            get {
+                return ResourceManager.GetString("SignupView_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à If you already have an account, click.
+        /// </summary>
+        public static string SignupView_Message_1 {
+            get {
+                return ResourceManager.GetString("SignupView_Message_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à here.
+        /// </summary>
+        public static string SignupView_Message_2 {
+            get {
+                return ResourceManager.GetString("SignupView_Message_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à to sign in..
+        /// </summary>
+        public static string SignupView_Message_3 {
+            get {
+                return ResourceManager.GetString("SignupView_Message_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Password.
+        /// </summary>
+        public static string SignupView_Password {
+            get {
+                return ResourceManager.GetString("SignupView_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à PasswordConfirm.
+        /// </summary>
+        public static string SignupView_PasswordConfirm {
+            get {
+                return ResourceManager.GetString("SignupView_PasswordConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Sign up.
+        /// </summary>
+        public static string SignupView_Signup {
+            get {
+                return ResourceManager.GetString("SignupView_Signup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Signup.
+        /// </summary>
+        public static string SignupView_Title {
+            get {
+                return ResourceManager.GetString("SignupView_Title", resourceCulture);
             }
         }
     }

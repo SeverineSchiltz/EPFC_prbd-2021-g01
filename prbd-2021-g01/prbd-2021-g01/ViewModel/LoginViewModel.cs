@@ -8,8 +8,10 @@ namespace prbd_2021_g01.ViewModel {
     public class LoginViewModel : ViewModelCommon {
 
         public event Action OnLoginSuccess;
+        public event Action OnSignup;
 
         public ICommand LoginCommand { get; set; }
+        public ICommand SignUp { get; set; }
 
         private string email = "br@epfc.eu";
 
@@ -23,6 +25,9 @@ namespace prbd_2021_g01.ViewModel {
                 LoginAction,
                 () => { return email != null && password != null && !HasErrors; }
             );
+            SignUp = new RelayCommand(
+                SignUpAction
+            );
         }
 
         private void LoginAction() {
@@ -32,6 +37,10 @@ namespace prbd_2021_g01.ViewModel {
                 Login(user);
                 OnLoginSuccess?.Invoke();
             }
+        }
+
+        private void SignUpAction() {
+            OnSignup?.Invoke();
         }
 
         public override bool Validate() {
