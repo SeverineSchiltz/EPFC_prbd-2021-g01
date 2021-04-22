@@ -26,44 +26,46 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Content="{x:Static p:Resources.SignupView_Firstname}" VerticalAlignment="Center" Padding="5" />
         <f:ValidatedField Grid.Column="1" VerticalAlignment="Center">
             <TextBox x:Name="txtFirstname" TextWrapping="Wrap" Grid.Column="1" 
                      Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged}"/>
         </f:ValidatedField>
-        <Label Content="{x:Static p:Resources.SignupView_Lastname}" VerticalAlignment="Center" Padding="5" />
-        <f:ValidatedField Grid.Column="1" VerticalAlignment="Center">
+        <Label Grid.Row="1" Content="{x:Static p:Resources.SignupView_Lastname}" VerticalAlignment="Center" Padding="5" />
+        <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
             <TextBox x:Name="txtLastname" TextWrapping="Wrap" Grid.Column="1" 
                      Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
         </f:ValidatedField>
-        <Label Content="{x:Static p:Resources.SignupView_Email}" VerticalAlignment="Center" Padding="5" />
-        <f:ValidatedField Grid.Column="1" VerticalAlignment="Center">
+        <Label Grid.Row="2" Content="{x:Static p:Resources.SignupView_Email}" VerticalAlignment="Center" Padding="5" />
+        <f:ValidatedField Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
             <TextBox x:Name="txtEmail" TextWrapping="Wrap" Grid.Column="1" 
                      Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
         </f:ValidatedField>
-        <Label Content="{x:Static p:Resources.SignupView_Password}" Grid.Row="1" VerticalAlignment="Center" Padding="5"/>
-        <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+        <Label Grid.Row="3" Content="{x:Static p:Resources.SignupView_Password}" VerticalAlignment="Center" Padding="5"/>
+        <f:ValidatedField Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
             <PasswordBox x:Name="txtPassword"
                      f:PasswordHelper.Attach="True"
                      f:PasswordHelper.Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
                      Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
         </f:ValidatedField>
-        <Label Content="{x:Static p:Resources.SignupView_PasswordConfirm}" Grid.Row="1" VerticalAlignment="Center" Padding="5"/>
-        <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+        <Label Grid.Row="4" Content="{x:Static p:Resources.SignupView_PasswordConfirm}" VerticalAlignment="Center" Padding="5"/>
+        <f:ValidatedField Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">
             <PasswordBox x:Name="txtPasswordConfirm"
                      f:PasswordHelper.Attach="True"
                      f:PasswordHelper.Password="{Binding PasswordConfirm, UpdateSourceTrigger=PropertyChanged}" 
                      Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
         </f:ValidatedField>
-        <DockPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+        <DockPanel Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
             <Button x:Name="btnCancel" Content="{x:Static p:Resources.SignupView_Cancel}" 
                     HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" IsCancel="True" Margin="0,0,10,0" Click="btnCancel_Click"/>
             <Button x:Name="btnSignup" Content="{x:Static p:Resources.SignupView_Signup}" 
                     HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" IsDefault="True" Margin="10,0,0,0" 
                     Command="{Binding SignupCommand}"/>
         </DockPanel>
-        <DockPanel Grid.Row="3" Grid.ColumnSpan="2">
+        <DockPanel Grid.Row="6" Grid.ColumnSpan="2">
             <TextBlock Height="auto" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Width="220" >
                 <Run Text="{x:Static p:Resources.SignupView_Message_1}"/>
                 <Hyperlink Command="{Binding LoginReturnCommand}"><Run Text="{x:Static p:Resources.SignupView_Message_2}"/></Hyperlink>
