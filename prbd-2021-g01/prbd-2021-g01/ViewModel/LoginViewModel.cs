@@ -7,7 +7,8 @@ using PRBD_Framework;
 namespace prbd_2021_g01.ViewModel {
     public class LoginViewModel : ViewModelCommon {
 
-        public event Action OnLoginSuccess;
+        public event Action OnTeacherLoginSuccess;
+        public event Action OnStudentLoginSuccess;
         public event Action OnSignup;
 
         public ICommand LoginCommand { get; set; }
@@ -35,7 +36,14 @@ namespace prbd_2021_g01.ViewModel {
                 var user = User.GetByEmail(Email);
                 //var user = Context.Users.Find(Email);
                 Login(user);
-                OnLoginSuccess?.Invoke();
+                if (user.GetType() == typeof(Teacher))
+                {
+                    OnTeacherLoginSuccess?.Invoke();
+                }
+                else
+                {
+                    OnStudentLoginSuccess?.Invoke();
+                }
             }
         }
 

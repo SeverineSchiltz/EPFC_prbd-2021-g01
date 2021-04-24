@@ -6,7 +6,7 @@ using prbd_2021_g01.Model;
 using PRBD_Framework;
 
 namespace prbd_2021_g01.ViewModel {
-    public class CourseDetailViewModel : ViewModelCommon {
+    public class TeacherCourseDetailViewModel : ViewModelCommon {
 
         private Course course;
         public Course Course { get => course; set => SetProperty(ref course, value); }

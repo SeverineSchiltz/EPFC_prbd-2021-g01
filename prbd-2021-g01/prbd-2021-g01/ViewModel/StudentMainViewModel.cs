@@ -5,12 +5,12 @@ using System;
 
 namespace prbd_2021_g01.ViewModel
 {
-    public class MainViewModel : ViewModelCommon
+    public class StudentMainViewModel : ViewModelCommon
     {
-        public event Action OnLogout; 
+        public event Action OnLogout;
         public ICommand LogoutCommand { get; set; }
 
-        public MainViewModel() : base()
+        public StudentMainViewModel() : base()
         {
             LogoutCommand = new RelayCommand(LogoutAction);
         }
@@ -20,12 +20,16 @@ namespace prbd_2021_g01.ViewModel
             // pour plus tard
         }
 
-        private void LogoutAction() { 
-            Logout(); 
-            OnLogout?.Invoke(); 
+        private void LogoutAction()
+        {
+            Logout();
+            OnLogout?.Invoke();
         }
-        public string Title { 
-            get => $"AppSchool ({CurrentUser.Firstname} {CurrentUser.Lastname})"; 
+        public string Title
+        {
+            get => $"AppSchool ({CurrentUser.Firstname} {CurrentUser.Lastname} - Student)";
         }
+
     }
+
 }

@@ -46,7 +46,7 @@ namespace prbd_2021_g01.View {
         }
 
         private void Vm_OnSignupSuccess() {
-            App.NavigateTo<MainView>();
+            App.NavigateTo<StudentMainView>();
         }
 
         private void Vm_OnLoginReturn() {

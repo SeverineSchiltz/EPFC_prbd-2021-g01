@@ -13,7 +13,7 @@
         Width="250" Height="200"
         SizeToContent="WidthAndHeight" >
     <Window.DataContext>
-        <vm:LoginViewModel OnLoginSuccess="Vm_OnLoginSuccess" OnSignup="Vm_OnSignup"/>
+        <vm:LoginViewModel OnTeacherLoginSuccess="Vm_OnTeacherLoginSuccess" OnStudentLoginSuccess="Vm_OnStudentLoginSuccess" OnSignup="Vm_OnSignup"/>
     </Window.DataContext>
     <Grid Margin="10">
         <Grid.ColumnDefinitions>

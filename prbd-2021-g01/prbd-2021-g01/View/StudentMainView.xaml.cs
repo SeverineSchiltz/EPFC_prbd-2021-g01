@@ -10,9 +10,9 @@ namespace prbd_2021_g01.View
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainView : WindowBase
+    public partial class StudentMainView : WindowBase
     {
-        public MainView()
+        public StudentMainView()
         {
             InitializeComponent();
         }
@@ -31,18 +31,21 @@ namespace prbd_2021_g01.View
             }
         }*/
 
-        private void Vm_OnLogout() { 
-            App.NavigateTo<LoginView>(); 
+        private void Vm_OnLogout()
+        {
+            App.NavigateTo<LoginView>();
         }
 
-        private void WindowBase_KeyDown(object sender, KeyEventArgs e) { 
-            if (e.Key == Key.Escape) Close(); 
+        private void WindowBase_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape) Close();
         }
-        private void Language_Click(object sender, RoutedEventArgs e) { 
-            var lang = (sender as MenuItem).CommandParameter?.ToString(); 
-            App.ChangeCulture(lang); 
-            Settings.Default.Culture = lang; 
-            Settings.Default.Save(); 
+        private void Language_Click(object sender, RoutedEventArgs e)
+        {
+            var lang = (sender as MenuItem).CommandParameter?.ToString();
+            App.ChangeCulture(lang);
+            Settings.Default.Culture = lang;
+            Settings.Default.Save();
         }
 
 

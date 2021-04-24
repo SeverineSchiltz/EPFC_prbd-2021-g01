@@ -7,8 +7,8 @@ using PRBD_Framework;
 namespace prbd_2021_g01.ViewModel {
     class SignupViewModel : ViewModelCommon {
 
-        public event Action OnSignupSuccess;
         public event Action OnLoginReturn;
+        public event Action OnSignupSuccess;
 
         public ICommand SignupCommand { get; set; } 
         public ICommand LoginReturnCommand { get; set; }

@@ -25,8 +25,13 @@ namespace prbd_2021_g01.View {
             txtPassword.SelectAll();
         }
 
-        private void Vm_OnLoginSuccess() {
-            App.NavigateTo<MainView>();
+        private void Vm_OnStudentLoginSuccess() {
+            App.NavigateTo<StudentMainView>();
+        }
+
+        private void Vm_OnTeacherLoginSuccess()
+        {
+            App.NavigateTo<TeacherMainView>();
         }
 
         private void Vm_OnSignup() {

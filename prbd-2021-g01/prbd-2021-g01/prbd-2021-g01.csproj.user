@@ -7,33 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\CourseDetailView.xaml.cs">
+    <Compile Update="View\TeacherCourseDetailView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CoursesView.xaml.cs">
+    <Compile Update="View\TeacherCoursesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\SignupView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\TeacherMenuView.xaml.cs">
+    <Compile Update="View\StudentCoursesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\StudentMainView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\CourseDetailView.xaml">
+    <Page Update="View\TeacherCourseDetailView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\CoursesView.xaml">
+    <Page Update="View\TeacherCoursesView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MainView.xaml">
+    <Page Update="View\StudentMainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TeacherMainView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SignupView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\TeacherMenuView.xaml">
+    <Page Update="View\StudentCoursesView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

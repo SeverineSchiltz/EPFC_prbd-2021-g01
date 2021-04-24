@@ -5,8 +5,8 @@ namespace prbd_2021_g01.View {
     /// <summary>
     /// Logique d'interaction pour CourseDetailView.xaml
     /// </summary>
-    public partial class CourseDetailView : UserControlBase {
-        public CourseDetailView() {
+    public partial class TeacherCourseDetailView : UserControlBase {
+        public TeacherCourseDetailView() {
             InitializeComponent();
             //vm.Init(course, isNew);
         }
