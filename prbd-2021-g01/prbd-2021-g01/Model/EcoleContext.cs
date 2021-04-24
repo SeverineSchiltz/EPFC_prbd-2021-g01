@@ -60,9 +60,15 @@ namespace prbd_2021_g01.Model
 
             var sensei = new Student("Etudiant", "Sensei", "test@epfc.eu", "Password2,");
 
-            var anc3 = new Course(bruno, "ANC3", 5, "analyse et conception");
+            var anc3 = new Course(bruno, "2002 - ANC3", 5, "Projet d'analyse et conception");
+            var prbd = new Course(bruno, "2007 - PRBD", 5, "Projet de développement SGBD");
+            var prwb = new Course(benoit, "1927 - PRWB", 5, "Projet de développement Web");
+            var tgpr = new Course(benoit, "2000 - TGPR", 5, "Techniques de gestion de projets");
+            var prm2 = new Course(boris, "5635 - PRM2", 5, "Principes algorithmiques et programmation");
+            var pro2 = new Course(boris, "1995 - PRO2", 5, "Programmation orientée objets");
 
-            bruno.AddCourse(anc3);
+            //bruno.AddCourse(anc3); 
+            Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2);
 
             Users.AddRange(bruno, benoit, boris, sensei);   
 

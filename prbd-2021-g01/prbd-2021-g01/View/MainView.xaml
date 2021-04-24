@@ -26,9 +26,9 @@
             </MenuItem>
         </Menu>
         <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
-            <TabItem x:Name="teacherMenuViewTab" Header="TeacherMenuView">
+            <TabItem x:Name="coursesViewTab" Header="Courses">
                 <ContentControl>
-                    <vw:TeacherMenuView/>
+                    <vw:CoursesView/>
                 </ContentControl>
             </TabItem>
         </f:MyTabControl>

@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using PRBD_Framework;
 using prbd_2021_g01.Properties;
+using prbd_2021_g01.Model;
 
 namespace prbd_2021_g01.View
 {
@@ -15,6 +16,20 @@ namespace prbd_2021_g01.View
         {
             InitializeComponent();
         }
+
+        /*private void Vm_DisplayCourse(Course course, bool isNew) {
+            if (course != null) {
+                //var tab = tabControl.GetByTitle(course.Title);
+                var tab = tabControl.FindByTag(course.Title);
+                if (tab == null)
+                    tabControl.Add(
+                        new CourseDetailView(course, isNew),
+                        isNew ? "<new course>" : course.Title, course.Title
+                    );
+                else
+                    tabControl.SetFocus(tab);
+            }
+        }*/
 
         private void Vm_OnLogout() { 
             App.NavigateTo<LoginView>(); 

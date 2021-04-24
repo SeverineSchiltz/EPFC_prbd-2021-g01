@@ -31,5 +31,9 @@ namespace prbd_2021_g01.Model
 
         public Course() { }
 
+        public static Course GetByTitle(string title) {
+            return Context.Courses.SingleOrDefault(m => m.Title == title);
+        }
+
     }
 }
