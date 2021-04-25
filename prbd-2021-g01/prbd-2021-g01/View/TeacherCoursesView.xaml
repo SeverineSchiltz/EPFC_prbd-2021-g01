@@ -47,7 +47,7 @@
                         <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Description}" FontSize="12" FontStyle="Italic" Height="40" TextAlignment="Center" TextWrapping="Wrap" />
                             <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
-                            <TextBlock Text="{Binding TeacherName}" FontSize="12" FontStyle="Italic"  TextAlignment="Center" />
+                            <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
                             <!-- display teacher name : not working :( -->
                             <TextBlock Text="Students:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <!-- to add numbers of active, pending and inactive students -->

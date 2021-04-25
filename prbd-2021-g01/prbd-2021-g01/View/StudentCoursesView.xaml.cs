@@ -26,9 +26,5 @@ namespace prbd_2021_g01.View
             InitializeComponent();
         }
 
-        private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            vm.DisplayCourseDetails.Execute(listView.SelectedItem);
-        }
     }
 }

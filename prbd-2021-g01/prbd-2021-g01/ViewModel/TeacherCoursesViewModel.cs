@@ -23,32 +23,20 @@ namespace prbd_2021_g01.ViewModel {
 
         public string Description { get => description; set => SetProperty(ref description, value); }
 
-        private Teacher teacher;
-        public Teacher Teacher { get => teacher; set => SetProperty(ref teacher, value); }
+        private string teacher; // TODO: ask question about comment (what about readonly?)
 
-        private string teacherName;
+        public string Teacher { get { return teacher.ToString(); } set => SetProperty(ref description, value); }
 
-        public string TeacherName {
-            get {return Teacher?.Firstname; }
-            set {
-                Teacher.Firstname = value;
-                RaisePropertyChanged(nameof(TeacherName));
-            }
-        }
-
-        /*public string Pseudo {
-            get { return Member?.Pseudo; }
-            set {
-                Member.Pseudo = value;
-                RaisePropertyChanged(nameof(Pseudo));
-                NotifyColleagues(AppMessages.MSG_PSEUDO_CHANGED, Member);
-            }
-        }*/
 
         private string filter;
         public string Filter {
             get => filter;
-            set => SetProperty<string>(ref filter, value, OnRefreshData);
+            set => SetProperty<string>(ref filter, value, ApplyFilterAction);
+        }
+        private void ApplyFilterAction() {
+            var query = from c in Context.Courses where
+                        c.Title.Contains(Filter) || c.Description.Contains(Filter) select c;
+            Courses = new ObservableCollection<Course>(query);
         }
 
         public ICommand ClearFilter { get; set; }
