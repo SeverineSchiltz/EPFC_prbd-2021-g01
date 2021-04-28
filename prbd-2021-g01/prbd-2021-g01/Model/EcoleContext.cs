@@ -58,7 +58,7 @@ namespace prbd_2021_g01.Model
 
             var boris = new Teacher("Boris", "Verhaegen", "bo@epfc.eu", "Password1,");
 
-            var sensei = new Student("Etudiant", "Sensei", "test@epfc.eu", "Password2,");
+            var etudiant = new Student("Gakusei", "Sensei", "test@epfc.eu", "Password2,");
 
             var anc3 = new Course(bruno, "2002 - ANC3", 5, "Projet d'analyse et conception");
             var prbd = new Course(bruno, "2007 - PRBD", 5, "Projet de développement SGBD");
@@ -67,10 +67,15 @@ namespace prbd_2021_g01.Model
             var prm2 = new Course(boris, "5635 - PRM2", 5, "Principes algorithmiques et programmation");
             var pro2 = new Course(boris, "1995 - PRO2", 5, "Programmation orientée objets");
 
+            var firstRegistration = new Registration(etudiant, anc3, RegistrationState.Inactive);
+
+
             //bruno.AddCourse(anc3); 
             Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2);
 
-            Users.AddRange(bruno, benoit, boris, sensei);   
+            Users.AddRange(bruno, benoit, boris, etudiant);
+
+            Registrations.AddRange(firstRegistration);
 
             SaveChanges();
 
