@@ -26,22 +26,28 @@ namespace prbd_2021_g01.ViewModel
 
         public string Description { get => description; set => SetProperty(ref description, value); }
 
-        public ICommand NewCourse { get; set; }
-        public ICommand DisplayCourseDetails { get; set; }
+        private string teacher; // TODO: ask question about comment (what about readonly?)
+
+        public string Teacher { get { return teacher.ToString(); } set => SetProperty(ref description, value); }
+
+        private string filter;
+        public string Filter {
+            get => filter;
+            set => SetProperty<string>(ref filter, value, ApplyFilterAction);
+        }
+        private void ApplyFilterAction() {
+            var query = from c in Context.Courses where
+                        c.Title.Contains(Filter) || c.Description.Contains(Filter) select c;
+            Courses = new ObservableCollection<Course>(query);
+        }
+
+        public ICommand ClearFilter { get; set; }
 
         public StudentCoursesViewModel() : base()
         {
             Courses = new ObservableCollection<Course>(App.Context.Courses);
 
-            NewCourse = new RelayCommand(() => { NotifyColleagues(AppMessages.MSG_NEW_COURSE); });
-
-            Register<Course>(this, AppMessages.MSG_COURSE_CHANGED, Course => {
-                OnRefreshData();
-            });
-
-            DisplayCourseDetails = new RelayCommand<Course>(Course => {
-                NotifyColleagues(AppMessages.MSG_DISPLAY_COURSE, Course);
-            });
+            ClearFilter = new RelayCommand(() => Filter = "");
 
             //AllSelected = true;
         }
@@ -50,5 +56,6 @@ namespace prbd_2021_g01.ViewModel
         {
 
         }
+
     }
 }

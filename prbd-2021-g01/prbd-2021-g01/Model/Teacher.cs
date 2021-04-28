@@ -20,5 +20,10 @@ namespace prbd_2021_g01.Model {
         }
 
         public Teacher() { }
+
+        public override string ToString() {
+            return $"{Firstname} {Lastname}";
+        }
+
     }
 }
