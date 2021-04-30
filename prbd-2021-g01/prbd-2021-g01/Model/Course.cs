@@ -41,7 +41,12 @@ namespace prbd_2021_g01.Model
 
         public bool isRegistered(Student s)
         {
-            return Registration.isActive(s, this);
+            return Registration.getRegistrationState(s, this) == RegistrationState.Active;
+        }
+
+        public RegistrationState getRegisteredStatus(Student s)
+        {
+            return Registration.getRegistrationState(s, this);
         }
 
     }

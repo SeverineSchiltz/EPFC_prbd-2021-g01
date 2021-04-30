@@ -35,6 +35,13 @@
                     <i:InvokeCommandAction Command="{Binding DisplayMemberDetails}" CommandParameter="{Binding ElementName=listView, Path=SelectedItem}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>-->
+            <!-- <Style TargetType="{x:Type ListViewItem}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding isRegistered}" Value="0">
+                        <Setter Property="Background" Value="Red" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style> -->
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -48,6 +55,7 @@
                             <TextBlock Text="{Binding Description}" FontSize="12" FontStyle="Italic" Height="40" TextAlignment="Center" TextWrapping="Wrap" />
                             <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
+                            <TextBlock Text="{Binding getRegisteredStatus}" FontSize="12" TextAlignment="Center" />
                         </StackPanel>
                     </Border>
                 </DataTemplate>

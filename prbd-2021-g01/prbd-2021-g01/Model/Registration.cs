@@ -27,12 +27,14 @@ namespace prbd_2021_g01.Model {
             State = rs;
         }
 
-        public static bool isActive(Student student, Course course)
+
+        public static RegistrationState getRegistrationState(Student student, Course course)
         {
             var registrations = from r in Context.Registrations
-                             where r.Student.Id == student.Id && r.Course.Id == course.Id && r.State == RegistrationState.Active
+                                where r.Student.Id == student.Id && r.Course.Id == course.Id
                                 select r;
-            return registrations.Count() != 0;
+            return registrations.FirstOrDefault() == null ? RegistrationState.Inactive: registrations.FirstOrDefault().State;
+
         }
 
     }
@@ -41,6 +43,6 @@ namespace prbd_2021_g01.Model {
     {
         Active,
         Pending,
-        Inactive //à priori non nécessaire puisqu'un étudiant non enregistré ne se retrouve pas dans la table, on peut donc le retirer!
+        Inactive
     }
 }
