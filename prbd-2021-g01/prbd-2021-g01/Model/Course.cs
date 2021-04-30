@@ -34,6 +34,15 @@ namespace prbd_2021_g01.Model
         public static Course GetByTitle(string title) {
             return Context.Courses.SingleOrDefault(m => m.Title == title);
         }
+        public static Course GetById(int id)
+        {
+            return Context.Courses.SingleOrDefault(c => c.Id == id);
+        }
+
+        public bool isRegistered(Student s)
+        {
+            return Registration.isActive(s, this);
+        }
 
     }
 }

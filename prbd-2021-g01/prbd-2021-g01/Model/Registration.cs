@@ -27,12 +27,20 @@ namespace prbd_2021_g01.Model {
             State = rs;
         }
 
+        public static bool isActive(Student student, Course course)
+        {
+            var registrations = from r in Context.Registrations
+                             where r.Student.Id == student.Id && r.Course.Id == course.Id && r.State == RegistrationState.Active
+                                select r;
+            return registrations.Count() != 0;
+        }
+
     }
 
     public enum RegistrationState
     {
         Active,
         Pending,
-        Inactive
+        Inactive //à priori non nécessaire puisqu'un étudiant non enregistré ne se retrouve pas dans la table, on peut donc le retirer!
     }
 }

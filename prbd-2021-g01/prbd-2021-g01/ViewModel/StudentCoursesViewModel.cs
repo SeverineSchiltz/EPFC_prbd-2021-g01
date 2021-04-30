@@ -5,6 +5,10 @@ using System.Windows.Input;
 using PRBD_Framework;
 using System.Collections.Generic;
 using prbd_2021_g01.Model;
+using System.Drawing;
+using System.Windows.Media;
+using Color = System.Windows.Media.Color;
+using Colors = System.Windows.Media.Colors;
 
 namespace prbd_2021_g01.ViewModel
 {
@@ -18,18 +22,6 @@ namespace prbd_2021_g01.ViewModel
             set => SetProperty<ObservableCollection<Course>>(ref courses, value);
         }
 
-        private string title;
-
-        public string Title { get => title; set => SetProperty(ref title, value); }
-
-        private string description;
-
-        public string Description { get => description; set => SetProperty(ref description, value); }
-
-        private string teacher; // TODO: ask question about comment (what about readonly?)
-
-        public string Teacher { get { return teacher.ToString(); } set => SetProperty(ref description, value); }
-
         private string filter;
         public string Filter {
             get => filter;
@@ -41,6 +33,19 @@ namespace prbd_2021_g01.ViewModel
             Courses = new ObservableCollection<Course>(query);
         }
 
+
+        public ICommand DisplayStudentCourseDetails { get; set; }
+
+        //public SolidColorBrush ColorCourse
+        //{
+        //    get
+        //    {
+        //        //return Color.FromRgb(255,0,0);
+        //        return new SolidColorBrush(Colors.Red);
+        //    }
+        //}
+
+
         public ICommand ClearFilter { get; set; }
 
         public StudentCoursesViewModel() : base()
@@ -48,6 +53,10 @@ namespace prbd_2021_g01.ViewModel
             Courses = new ObservableCollection<Course>(App.Context.Courses);
 
             ClearFilter = new RelayCommand(() => Filter = "");
+
+            DisplayStudentCourseDetails = new RelayCommand<Course>(course => {
+                NotifyColleagues(AppMessages.MSG_DISPLAY_STUDENT_COURSE, course);
+            });
 
             //AllSelected = true;
         }

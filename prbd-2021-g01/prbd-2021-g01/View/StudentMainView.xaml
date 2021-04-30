@@ -9,9 +9,8 @@
         xmlns:p="clr-namespace:prbd_2021_g01.Properties"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen" KeyDown="WindowBase_KeyDown">
-
     <Window.DataContext>
-        <vm:StudentMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" />
+        <vm:StudentMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayStudentCourseDetails="Vm_DisplayStudentCourseDetails"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>

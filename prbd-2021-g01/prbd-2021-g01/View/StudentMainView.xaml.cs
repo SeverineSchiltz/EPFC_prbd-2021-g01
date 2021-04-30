@@ -48,6 +48,21 @@ namespace prbd_2021_g01.View
             Settings.Default.Save();
         }
 
+        private void Vm_DisplayStudentCourseDetails(Course course, Student student)
+        {
+            if (course != null && course.isRegistered(student))
+            {
+                var tab = tabControl.FindByTag(course.Title);
+                if (tab == null)
+                    tabControl.Add(
+                        new StudentCourseDetailsView(course),
+                        course.Title
+                    );
+                else
+                    tabControl.SetFocus(tab);
+            }
+        }
+
 
 
     }
