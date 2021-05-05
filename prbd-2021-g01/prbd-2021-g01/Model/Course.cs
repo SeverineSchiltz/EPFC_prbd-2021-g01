@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PRBD_Framework;
+using prbd_2021_g01;
 
 namespace prbd_2021_g01.Model
 {
@@ -17,6 +18,10 @@ namespace prbd_2021_g01.Model
         public string Title { get; set; }
         public string Description { get; set; }
         public int MaxStudent { get; set; }
+
+        public RegistrationState OneRegistration { get => getRegisteredStatus((Student) App.CurrentUser); }
+
+        public bool HasRegistration { get => !isRegistered((Student)App.CurrentUser); }
         public virtual ICollection<Registration> registrations { get; set; } = new HashSet<Registration>();
 
         public Course(Teacher teacher, string title, int maxStudent, string description = "") {

@@ -12,6 +12,9 @@
     <UserControl.DataContext>
         <vm:StudentCoursesViewModel x:Name="vm"/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -49,13 +52,14 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Background="{Binding ColorCourse}" BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" >
-                        <StackPanel Height="120" Width="200" >
+                    <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5">
+                        <StackPanel Height="150" Width="200" >
                             <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Description}" FontSize="12" FontStyle="Italic" Height="40" TextAlignment="Center" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding OneRegistration}" FontSize="12" TextAlignment="Center" Height="20" />
                             <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
-                            <TextBlock Text="{Binding getRegisteredStatus}" FontSize="12" TextAlignment="Center" />
+                            <Button x:Name="btnRegistration" Content="{Binding OneRegistration}" Command="{Binding Register}" Height="20" Width="75" Visibility="{Binding HasRegistration, Converter={StaticResource BoolToVis}}"/> 
                         </StackPanel>
                     </Border>
                 </DataTemplate>

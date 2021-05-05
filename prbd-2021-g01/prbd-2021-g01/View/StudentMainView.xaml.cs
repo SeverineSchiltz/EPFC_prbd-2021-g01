@@ -17,20 +17,6 @@ namespace prbd_2021_g01.View
             InitializeComponent();
         }
 
-        /*private void Vm_DisplayCourse(Course course, bool isNew) {
-            if (course != null) {
-                //var tab = tabControl.GetByTitle(course.Title);
-                var tab = tabControl.FindByTag(course.Title);
-                if (tab == null)
-                    tabControl.Add(
-                        new CourseDetailView(course, isNew),
-                        isNew ? "<new course>" : course.Title, course.Title
-                    );
-                else
-                    tabControl.SetFocus(tab);
-            }
-        }*/
-
         private void Vm_OnLogout()
         {
             App.NavigateTo<LoginView>();
@@ -52,12 +38,14 @@ namespace prbd_2021_g01.View
         {
             if (course != null && course.isRegistered(student))
             {
-                var tab = tabControl.FindByTag(course.Id.ToString());
+                var tag = "course-" + course.Id.ToString(); //clé unique de l'onglet!!
+                var tab = tabControl.FindByTag(tag);
                 if (tab == null)
                 {
                     tabControl.Add(
                         new StudentCourseDetailsView(course),
-                        course.Title
+                        course.Title,
+                        tag
                     );
                 }
                 else
@@ -66,20 +54,6 @@ namespace prbd_2021_g01.View
                 }
             }
         }
-
-        private void Vm_CloseTab(Course course)
-        {
-            var tab = tabControl.FindByTag(course.Id.ToString());
-            tabControl.Items.Remove(tab);
-        }
-
-        //private void mouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    var tab = tabControl.FindByTag(course.Id.ToString());
-        //    tabControl.Items.Remove(tab);
-        //}
-
-
 
     }
 }

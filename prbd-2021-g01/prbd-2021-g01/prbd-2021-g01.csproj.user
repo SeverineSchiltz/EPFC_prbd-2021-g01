@@ -7,15 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Update="View\StudentCourseDetailsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\TeacherCourseCategoriesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-=======
->>>>>>> develop
     <Compile Update="View\TeacherCourseDetailView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -33,15 +30,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Page Update="View\StudentCourseDetailsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TeacherCourseCategoriesView.xaml">
       <SubType>Designer</SubType>
     </Page>
-=======
->>>>>>> develop
     <Page Update="View\TeacherCourseDetailView.xaml">
       <SubType>Designer</SubType>
     </Page>

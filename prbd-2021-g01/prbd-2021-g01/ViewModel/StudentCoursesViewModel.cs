@@ -33,18 +33,7 @@ namespace prbd_2021_g01.ViewModel
             Courses = new ObservableCollection<Course>(query);
         }
 
-
         public ICommand DisplayStudentCourseDetails { get; set; }
-
-        //public SolidColorBrush ColorCourse
-        //{
-        //    get
-        //    {
-        //        //return Color.FromRgb(255,0,0);
-        //        return new SolidColorBrush(Colors.Red);
-        //    }
-        //}
-
 
         public ICommand ClearFilter { get; set; }
 

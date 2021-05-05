@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen" KeyDown="WindowBase_KeyDown">
     <Window.DataContext>
-        <vm:StudentMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayStudentCourseDetails="Vm_DisplayStudentCourseDetails" CloseTab="Vm_CloseTab"/>
+        <vm:StudentMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayStudentCourseDetails="Vm_DisplayStudentCourseDetails"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -24,7 +24,7 @@
                 <MenuItem Header="{x:Static p:Resources.Menu_Languages_French}" CommandParameter="fr" Click="Language_Click"/>
             </MenuItem>
         </Menu>
-        <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
+        <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1" HasCloseButton="True">
             <TabItem x:Name="studentCoursesViewTab" Header="Courses">
                 <ContentControl>
                     <vw:StudentCoursesView/>
