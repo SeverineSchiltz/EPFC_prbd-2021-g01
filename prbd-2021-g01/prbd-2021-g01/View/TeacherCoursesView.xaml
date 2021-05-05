@@ -30,11 +30,11 @@
             <Button Content="Clear" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
         </Grid>
         <ListView x:Name="listView" ItemsSource="{Binding Courses}" Grid.Row="2" BorderBrush="Transparent" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListView_MouseDoubleClick" >
-            <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding DisplayMemberDetails}" CommandParameter="{Binding ElementName=listView, Path=SelectedItem}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+            <!--<i:interaction.triggers>
+                <i:eventtrigger eventname="mousedoubleclick">
+                    <i:invokecommandaction command="{binding displaycoursedetails}" commandparameter="{binding elementname=listview, path=selecteditem}"/>
+                </i:eventtrigger>
+            </i:interaction.triggers>-->
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>

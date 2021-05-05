@@ -17,22 +17,29 @@ namespace prbd_2021_g01.View
             InitializeComponent();
         }
 
-        /*private void Vm_DisplayCourse(Course course, bool isNew) {
+        private void Vm_OnLogout() { 
+            App.NavigateTo<LoginView>(); 
+        }
+
+        private void Vm_DisplayCourse(Course course, bool isNew) {
             if (course != null) {
-                //var tab = tabControl.GetByTitle(course.Title);
                 var tab = tabControl.FindByTag(course.Title);
                 if (tab == null)
+                    //tabControl.Add(null, "<new course>");
                     tabControl.Add(
-                        new CourseDetailView(course, isNew),
+                        new TeacherCourseDetailView(course, isNew),
                         isNew ? "<new course>" : course.Title, course.Title
                     );
                 else
                     tabControl.SetFocus(tab);
             }
-        }*/
+        }
 
-        private void Vm_OnLogout() { 
-            App.NavigateTo<LoginView>(); 
+        private void Vm_RenameTab(Course course, string header) {
+            var tab = tabControl.SelectedItem as TabItem;
+            if (tab != null) {
+                tab.Header = tab.Tag = header = string.IsNullOrEmpty(header) ? "<new course>" : header;
+            }
         }
 
         private void WindowBase_KeyDown(object sender, KeyEventArgs e) { 

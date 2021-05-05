@@ -31,6 +31,10 @@ namespace prbd_2021_g01.Model {
             return Context.Users.SingleOrDefault(m => m.Email == email);
         }
 
+        public override string ToString() {
+            return $"{Firstname} {Lastname}";
+        }
+
         //public string DiscriminatorValue
         //{
         //    get
