@@ -14,11 +14,11 @@ namespace prbd_2021_g01.ViewModel {
         public ICommand LoginCommand { get; set; }
         public ICommand SignUp { get; set; }
 
-        private string email = "br@epfc.eu";
+        private string email = "test@epfc.eu";
 
         public string Email { get => email; set => SetProperty(ref email, value, () => Validate()); }
 
-        private string password = "Password1,";
+        private string password = "Password2,";
         public string Password { get => password; set => SetProperty<string>(ref password, value, () => Validate()); }
 
         public LoginViewModel() : base() {

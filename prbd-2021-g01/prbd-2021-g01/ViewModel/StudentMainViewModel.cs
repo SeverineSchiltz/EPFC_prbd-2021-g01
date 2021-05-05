@@ -8,11 +8,16 @@ namespace prbd_2021_g01.ViewModel
     public class StudentMainViewModel : ViewModelCommon
     {
         public event Action OnLogout;
+        public event Action<Course, Student> DisplayStudentCourseDetails;
         public ICommand LogoutCommand { get; set; }
 
         public StudentMainViewModel() : base()
         {
             LogoutCommand = new RelayCommand(LogoutAction);
+
+            Register<Course>(this, AppMessages.MSG_DISPLAY_STUDENT_COURSE, course => {
+                DisplayStudentCourseDetails?.Invoke(course, (Student) CurrentUser);
+            });
         }
 
         protected override void OnRefreshData()

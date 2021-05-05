@@ -14,7 +14,35 @@ namespace prbd_2021_g01.Model {
         public virtual Student Student { get; set; }
         public virtual Course Course { get; set; }
 
-        public bool IsActive { get; set; }
+        public virtual RegistrationState State { get; set; }
 
+        public Registration() { }
+
+        public Registration(Student s, Course c, RegistrationState rs )
+        {
+            Student = s;
+            s?.registrations.Add(this);
+            Course = c;
+            c?.registrations.Add(this);
+            State = rs;
+        }
+
+
+        public static RegistrationState getRegistrationState(Student student, Course course)
+        {
+            var registrations = from r in Context.Registrations
+                                where r.Student.Id == student.Id && r.Course.Id == course.Id
+                                select r;
+            return registrations.FirstOrDefault() == null ? RegistrationState.Inactive: registrations.FirstOrDefault().State;
+
+        }
+
+    }
+
+    public enum RegistrationState
+    {
+        Active,
+        Pending,
+        Inactive
     }
 }
