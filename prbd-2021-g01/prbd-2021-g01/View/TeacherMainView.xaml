@@ -11,7 +11,7 @@
         Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen" KeyDown="WindowBase_KeyDown">
 
     <Window.DataContext>
-        <vm:TeacherMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" />
+        <vm:TeacherMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayCourse="Vm_DisplayCourse" RenameTab="Vm_RenameTab" />
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>             
@@ -26,7 +26,7 @@
             </MenuItem>
         </Menu>
         <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
-            <TabItem x:Name="coursesViewTab" Header="Courses">
+            <TabItem x:Name="coursesViewTab" Header="Courses" Tag="Courses">
                 <ContentControl>
                     <vw:TeacherCoursesView/>
                 </ContentControl>

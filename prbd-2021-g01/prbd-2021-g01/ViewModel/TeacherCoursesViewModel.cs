@@ -25,7 +25,7 @@ namespace prbd_2021_g01.ViewModel {
 
         private string teacher; // TODO: ask question about comment (what about readonly?)
 
-        public string Teacher { get { return teacher.ToString(); } set => SetProperty(ref description, value); }
+        public string Teacher { get { return teacher.ToString(); } set => SetProperty(ref teacher, value); }
 
 
         private string filter;
@@ -50,12 +50,12 @@ namespace prbd_2021_g01.ViewModel {
 
             NewCourse = new RelayCommand(() => { NotifyColleagues(AppMessages.MSG_NEW_COURSE); });
 
-            Register<Course>(this, AppMessages.MSG_COURSE_CHANGED, Course => {
+            Register<Course>(this, AppMessages.MSG_COURSE_CHANGED, course => {
                 OnRefreshData();
             });
             
-            DisplayCourseDetails = new RelayCommand<Course>(Course => {
-                NotifyColleagues(AppMessages.MSG_DISPLAY_COURSE, Course);
+            DisplayCourseDetails = new RelayCommand<Course>(course => {
+                NotifyColleagues(AppMessages.MSG_DISPLAY_COURSE, course);
             });
 
             //AllSelected = true;

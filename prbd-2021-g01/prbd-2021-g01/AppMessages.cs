@@ -7,6 +7,7 @@ namespace prbd_2021_g01
         MSG_COURSE_CHANGED,
         MSG_DISPLAY_COURSE,
         MSG_DISPLAY_STUDENTS,
+        MSG_TITLE_CHANGED
 
     }
 }

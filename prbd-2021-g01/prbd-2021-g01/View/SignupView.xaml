@@ -9,7 +9,7 @@
         xmlns:vm="clr-namespace:prbd_2021_g01.ViewModel"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.SignupView_Title}" WindowStartupLocation="CenterScreen"
-        FocusManager.FocusedElement="{Binding ElementName=txtEmail}" ResizeMode="NoResize"
+        FocusManager.FocusedElement="{Binding ElementName=txtFirstname}" ResizeMode="NoResize"
         Width="250" Height="200"
         SizeToContent="WidthAndHeight" >
     <Window.DataContext>
