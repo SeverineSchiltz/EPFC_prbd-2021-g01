@@ -1,0 +1,31 @@
+﻿<f:UserControlBase x:Class="prbd_2021_g01.View.TeacherCourseCategoriesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+        xmlns:p="clr-namespace:prbd_2021_g01.Properties"
+        xmlns:vm="clr-namespace:prbd_2021_g01.ViewModel"
+        xmlns:vw="clr-namespace:prbd_2021_g01.View"
+        mc:Ignorable="d"
+        FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
+    <UserControl.DataContext>
+        <vm:TeacherCourseCategoriesViewModel x:Name="vm" />
+    </UserControl.DataContext>
+    <!-- <StackPanel>
+        <f:MyDataGrid x:Name="grid" ItemsSource="{Binding MessagesView}" ToolTip="{x:Static p:Resources.MembersDetailView_DeleteTooltip}"
+                  AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
+                  SelectedItemsList="{Binding SelectedItems}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static p:Resources.MembersDetailView_Date}" Binding="{Binding Path=DateTime, StringFormat=\{0:dd/MM/yyyy HH:mm:ss\}}" IsReadOnly="True" SortDirection="Descending"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.MembersDetailView_Author}" Binding="{Binding Path=Author.Pseudo}" IsReadOnly="True" />
+                <DataGridTextColumn Header="{x:Static p:Resources.MembersDetailView_Body}" Binding="{Binding Path=Body}" Width="*" ElementStyle="{StaticResource wrapColumn}" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn Header="{x:Static p:Resources.MembersDetailView_Private}" Binding="{Binding Path=IsPrivate}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <KeyBinding Key="Delete" Command="{Binding DeleteMessages}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}" />
+            </DataGrid.InputBindings>
+        </f:MyDataGrid>
+        <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.MembersDetailView_DeleteMessages}" Margin="5" Command="{Binding DeleteMessages}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
+     </StackPanel>-->
+</f:UserControlBase>

@@ -9,6 +9,7 @@ namespace prbd_2021_g01.ViewModel
     {
         public event Action OnLogout;
         public event Action<Course, Student> DisplayStudentCourseDetails;
+        public event Action<Course> CloseTab;
         public ICommand LogoutCommand { get; set; }
 
         public StudentMainViewModel() : base()
@@ -17,6 +18,10 @@ namespace prbd_2021_g01.ViewModel
 
             Register<Course>(this, AppMessages.MSG_DISPLAY_STUDENT_COURSE, course => {
                 DisplayStudentCourseDetails?.Invoke(course, (Student) CurrentUser);
+            });
+
+            Register<Course>(this, AppMessages.MSG_CLOSE_TAB, course => {
+                CloseTab?.Invoke(course);
             });
         }
 

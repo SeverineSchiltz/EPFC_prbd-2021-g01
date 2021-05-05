@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen" KeyDown="WindowBase_KeyDown">
     <Window.DataContext>
-        <vm:StudentMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayStudentCourseDetails="Vm_DisplayStudentCourseDetails"/>
+        <vm:StudentMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayStudentCourseDetails="Vm_DisplayStudentCourseDetails" CloseTab="Vm_CloseTab"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>

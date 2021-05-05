@@ -10,6 +10,9 @@
     <Compile Update="View\StudentCourseDetailsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\TeacherCourseCategoriesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\TeacherCourseDetailView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\StudentCourseDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TeacherCourseCategoriesView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TeacherCourseDetailView.xaml">

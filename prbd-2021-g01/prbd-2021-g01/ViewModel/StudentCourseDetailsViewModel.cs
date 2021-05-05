@@ -28,7 +28,7 @@ namespace prbd_2021_g01.ViewModel
             // Bind properties of child ViewModel
             //this.BindOneWay(nameof(Member), MemberMessages, nameof(MemberMessages.Member));
 
-            Course = Course.GetById(course.Id);
+            Course = course;
 
             RaisePropertyChanged();
         }

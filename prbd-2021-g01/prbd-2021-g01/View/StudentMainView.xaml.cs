@@ -52,16 +52,32 @@ namespace prbd_2021_g01.View
         {
             if (course != null && course.isRegistered(student))
             {
-                var tab = tabControl.FindByTag(course.Title);
+                var tab = tabControl.FindByTag(course.Id.ToString());
                 if (tab == null)
+                {
                     tabControl.Add(
                         new StudentCourseDetailsView(course),
                         course.Title
                     );
+                }
                 else
+                {
                     tabControl.SetFocus(tab);
+                }
             }
         }
+
+        private void Vm_CloseTab(Course course)
+        {
+            var tab = tabControl.FindByTag(course.Id.ToString());
+            tabControl.Items.Remove(tab);
+        }
+
+        //private void mouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    var tab = tabControl.FindByTag(course.Id.ToString());
+        //    tabControl.Items.Remove(tab);
+        //}
 
 
 
