@@ -21,7 +21,7 @@ namespace prbd_2021_g01.ViewModel {
             get { return isNew; }
             set {
                 isNew = value;
-                RaisePropertyChanged(nameof(IsNew)); //, nameof(IsExisting));
+                RaisePropertyChanged(nameof(IsNew), nameof(IsExisting));
             }
         }
 
@@ -75,11 +75,11 @@ namespace prbd_2021_g01.ViewModel {
             // Bind properties of child ViewModel
             /*this.BindOneWay(nameof(Course), MemberMessages, nameof(MemberMessages.Member));*/
 
-            // Il faut recharger ce membre dans le contexte courant pour pouvoir le modifier
-            Course = course; // isNew ? course : Course.GetByTitle(course.Title);
+            // Il faut recharger ce cours dans le contexte courant pour pouvoir le modifier
+            Course = isNew ? course : Course.GetByTitle(course.Title);
             IsNew = isNew;
 
-            //RaisePropertyChanged();
+            RaisePropertyChanged();
         }
 
         protected override void OnRefreshData() {

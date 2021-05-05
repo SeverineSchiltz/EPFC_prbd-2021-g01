@@ -25,7 +25,7 @@ namespace prbd_2021_g01.ViewModel
                 DisplayCourse?.Invoke(course, true);
             });
             Register<Course>(this, AppMessages.MSG_DISPLAY_COURSE, course => {
-                // demande à la vue de créer dynamiquement un nouvel onglet avec le titre "<new course>"
+                // demande à la vue de créer dynamiquement un nouvel onglet avec le titre du course (sur lequel on double clique)
                 DisplayCourse?.Invoke(course, false); // false: not a new course
             });
             Register<Course>(this, AppMessages.MSG_TITLE_CHANGED, course => {

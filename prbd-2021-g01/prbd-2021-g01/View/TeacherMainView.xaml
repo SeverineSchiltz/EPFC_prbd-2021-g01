@@ -25,7 +25,7 @@
                     <MenuItem Header="{x:Static p:Resources.Menu_Languages_French}" CommandParameter="fr" Click="Language_Click"/>
             </MenuItem>
         </Menu>
-        <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
+        <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1" HasCloseButton="True">
             <TabItem x:Name="coursesViewTab" Header="Courses" Tag="Courses">
                 <ContentControl>
                     <vw:TeacherCoursesView/>

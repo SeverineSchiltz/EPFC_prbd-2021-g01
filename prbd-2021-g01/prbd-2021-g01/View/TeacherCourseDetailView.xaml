@@ -36,7 +36,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Content="Title " VerticalAlignment="Center" Grid.Row="0" />
-                <TextBox x:Name="txtTitle" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="5" />
+                <TextBox x:Name="txtTitle" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" IsReadOnly="{Binding IsExisting}" Grid.Row="0" Grid.Column="1" Margin="5" />
                 <Label Content="Description " VerticalAlignment="Center" Grid.Row="1" />
                 <TextBox x:Name="txtDescription" Text="{Binding Description}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="5" />
                 <Label Content="Maximum capacity " VerticalAlignment="Center" Grid.Row="2" />
@@ -55,7 +55,34 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            
+            <f:MyTabControl x:Name="tabControl" Margin="10" >
+                <TabItem x:Name="registrations" Header="Registrations">
+                    <ContentControl>
+
+                    </ContentControl>
+                </TabItem>
+                <TabItem x:Name="categories" Header="Categories">
+                    <ContentControl>
+                        <vw:TeacherCourseCategoriesView/>
+                    </ContentControl>
+                </TabItem>
+                <TabItem x:Name="questions" Header="Questions">
+                    <ContentControl>
+
+                    </ContentControl>
+                </TabItem>
+                <TabItem x:Name="quizzes" Header="Quizzes">
+                    <ContentControl>
+
+                    </ContentControl>
+                </TabItem>
+                <TabItem x:Name="grades" Header="Grades">
+                    <ContentControl>
+
+                    </ContentControl>
+                </TabItem>
+            </f:MyTabControl>
+
         </Grid>
 
     </Grid>
