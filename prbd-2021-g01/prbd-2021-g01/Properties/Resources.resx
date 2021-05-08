@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CategoriesView_DeleteCategories" xml:space="preserve">
+    <value>Delete Selected Categories</value>
+  </data>
+  <data name="CategoriesView_DeleteTooltip" xml:space="preserve">
+    <value>Select categories and press the 'Del' key to delete</value>
+  </data>
+  <data name="CategoriesView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CategoriesView_Questions" xml:space="preserve">
+    <value>Questions</value>
+  </data>
   <data name="Error_DoesNotExist" xml:space="preserve">
     <value>does not exist</value>
   </data>

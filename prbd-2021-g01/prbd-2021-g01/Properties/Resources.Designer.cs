@@ -61,6 +61,42 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete Selected Categories.
+        /// </summary>
+        public static string CategoriesView_DeleteCategories {
+            get {
+                return ResourceManager.GetString("CategoriesView_DeleteCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Select categories and press the &apos;Del&apos; key to delete.
+        /// </summary>
+        public static string CategoriesView_DeleteTooltip {
+            get {
+                return ResourceManager.GetString("CategoriesView_DeleteTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Name.
+        /// </summary>
+        public static string CategoriesView_Name {
+            get {
+                return ResourceManager.GetString("CategoriesView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Questions.
+        /// </summary>
+        public static string CategoriesView_Questions {
+            get {
+                return ResourceManager.GetString("CategoriesView_Questions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à does not exist.
         /// </summary>
         public static string Error_DoesNotExist {

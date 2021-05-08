@@ -12,20 +12,18 @@
     <UserControl.DataContext>
         <vm:TeacherCourseCategoriesViewModel x:Name="vm" />
     </UserControl.DataContext>
-    <!-- <StackPanel>
-        <f:MyDataGrid x:Name="grid" ItemsSource="{Binding MessagesView}" ToolTip="{x:Static p:Resources.MembersDetailView_DeleteTooltip}"
+    <StackPanel>
+        <f:MyDataGrid x:Name="grid" ItemsSource="{Binding CategoriesView}" ToolTip="{x:Static p:Resources.CategoriesView_DeleteTooltip}"
                   AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
                   SelectedItemsList="{Binding SelectedItems}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{x:Static p:Resources.MembersDetailView_Date}" Binding="{Binding Path=DateTime, StringFormat=\{0:dd/MM/yyyy HH:mm:ss\}}" IsReadOnly="True" SortDirection="Descending"/>
-                <DataGridTextColumn Header="{x:Static p:Resources.MembersDetailView_Author}" Binding="{Binding Path=Author.Pseudo}" IsReadOnly="True" />
-                <DataGridTextColumn Header="{x:Static p:Resources.MembersDetailView_Body}" Binding="{Binding Path=Body}" Width="*" ElementStyle="{StaticResource wrapColumn}" IsReadOnly="True"/>
-                <DataGridCheckBoxColumn Header="{x:Static p:Resources.MembersDetailView_Private}" Binding="{Binding Path=IsPrivate}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.CategoriesView_Name}" Binding="{Binding Path=Title}" IsReadOnly="True" SortDirection="Descending"/>
+                <DataGridTextColumn Header="{x:Static p:Resources.CategoriesView_Questions}" Binding="{Binding Path=Category.Questions}" IsReadOnly="True" />
             </DataGrid.Columns>
             <DataGrid.InputBindings>
-                <KeyBinding Key="Delete" Command="{Binding DeleteMessages}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}" />
+                <KeyBinding Key="Delete" Command="{Binding DeleteCategories}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}" />
             </DataGrid.InputBindings>
         </f:MyDataGrid>
-        <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.MembersDetailView_DeleteMessages}" Margin="5" Command="{Binding DeleteMessages}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
-     </StackPanel>-->
+        <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.CategoriesView_DeleteCategories}" Margin="5" Command="{Binding DeleteCategories}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
+     </StackPanel>
 </f:UserControlBase>

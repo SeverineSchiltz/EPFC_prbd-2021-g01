@@ -12,6 +12,9 @@
     <UserControl.DataContext>
         <vm:TeacherCourseDetailViewModel x:Name="vm" />
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -63,7 +66,9 @@
                 </TabItem>
                 <TabItem x:Name="categories" Header="Categories">
                     <ContentControl>
-                        <vw:TeacherCourseCategoriesView/>
+                        <vw:TeacherCourseCategoriesView DataContext="{Binding CourseCategories}" 
+                                       Course="{Binding Course}"
+                                       Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}"/>
                     </ContentControl>
                 </TabItem>
                 <TabItem x:Name="questions" Header="Questions">

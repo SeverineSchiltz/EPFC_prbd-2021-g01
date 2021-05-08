@@ -25,6 +25,8 @@ namespace prbd_2021_g01.ViewModel {
             }
         }
 
+        public TeacherCourseCategoriesViewModel CourseCategories { get; private set; } = new TeacherCourseCategoriesViewModel();
+
         public bool IsExisting { get => !isNew; }
 
         public string Title {
@@ -73,7 +75,7 @@ namespace prbd_2021_g01.ViewModel {
 
         public void Init(Course course, bool isNew) {
             // Bind properties of child ViewModel
-            /*this.BindOneWay(nameof(Course), MemberMessages, nameof(MemberMessages.Member));*/
+            this.BindOneWay(nameof(Course), CourseCategories, nameof(CourseCategories.Course));
 
             // Il faut recharger ce cours dans le contexte courant pour pouvoir le modifier
             Course = isNew ? course : Course.GetByTitle(course.Title);

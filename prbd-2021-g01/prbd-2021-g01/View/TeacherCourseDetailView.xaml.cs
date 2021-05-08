@@ -1,5 +1,6 @@
 ﻿using prbd_2021_g01.Model;
 using PRBD_Framework;
+using System.Windows;
 
 namespace prbd_2021_g01.View {
     /// <summary>
@@ -10,6 +11,7 @@ namespace prbd_2021_g01.View {
             InitializeComponent();
             vm.Init(course, isNew);
         }
+
 
     }
 }
