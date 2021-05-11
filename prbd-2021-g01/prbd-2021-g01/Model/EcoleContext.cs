@@ -67,20 +67,25 @@ namespace prbd_2021_g01.Model
             var prm2 = new Course(boris, "5635 - PRM2", 5, "Principes algorithmiques et programmation");
             var pro2 = new Course(boris, "1995 - PRO2", 5, "Programmation orientée objets");
 
-            var analyse = new Category(anc3,"analyse");
-
             var firstRegistration = new Registration(etudiant, anc3, RegistrationState.Active);
             var secondRegistration = new Registration(etudiant, prbd, RegistrationState.Pending);
 
+            var analyse = new Category(anc3, "analyse");
+            var prog = new Category(anc3, "programmation");
+
+            var quest1 = new Question(anc3, "Q1", "test1");
+            analyse.addQuestion(quest1);
+            prog.addQuestion(quest1);
+            var quest2 = new Question(anc3, "Q2", "test2");
+            prog.addQuestion(quest2);
+            var quest3 = new Question(anc3, "Q3", "test3");
+
             //bruno.AddCourse(anc3); 
             Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2);
-
             Users.AddRange(bruno, benoit, boris, etudiant);
-
             Registrations.AddRange(firstRegistration, secondRegistration);
-
-            Categories.AddRange(analyse);
-
+            Categories.AddRange(analyse, prog);
+            Questions.AddRange(quest1, quest2, quest3);
             SaveChanges();
 
             Database.CommitTransaction();

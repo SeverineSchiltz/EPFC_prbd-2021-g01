@@ -1,9 +1,11 @@
 ﻿using prbd_2021_g01.Model;
 using PRBD_Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace prbd_2021_g01.ViewModel
 {
@@ -30,14 +32,16 @@ namespace prbd_2021_g01.ViewModel
             set => SetProperty(ref course, value, OnRefreshData);
         }
 
+        public ICommand SaveCategories { get; set; }
+        public ICommand DeleteCategory { get; set; }
+
 
         public ICollectionView CategoriesView => Categories.GetCollectionView(nameof(Category.Title), ListSortDirection.Descending);
 
         public TeacherCourseCategoriesViewModel()
         {
-            //Course est à null...
-            Categories = new ObservableCollection<Category>(Category.GetCategories(CurrentUser, Course));
-            //LoadCategories();
+            SaveCategories = new RelayCommand(AddNewCategoryAction);
+
         }
 
         private void LoadCategories()
@@ -49,23 +53,32 @@ namespace prbd_2021_g01.ViewModel
             var ids = SelectedItems.Cast<Category>().Select(c => c.Id).ToList();
             // Relit les messages en BD et recharge la liste avec ceux-ci. On évite ainsi de recréer une nouvelle collection
             // observable, ce qui nous permet de conserver la custom view et par conséquent l'ordre de tri courant
-
-            //problème ici
-            //Categories.RefreshFromModel(Category.GetCategories(CurrentUser, Course));
+            Categories.RefreshFromModel(Category.GetCategories(CurrentUser, Course));
 
             // efface la sélection courante
             SelectedItems.Clear();
             // on re-sélectionne "manuellement" les messages sur base des id's qu'on avait sauvés plus haut
-            //foreach (var ca in Categories.Where(c => ids.Contains(c.Id)))
-            //    SelectedItems.Add(ca);
+            foreach (var ca in Categories.Where(c => ids.Contains(c.Id)))
+                SelectedItems.Add(ca);
 
             //foreach (var ca in Categories)
             //    SelectedItems.Add(ca);
 
         }
+
+
+        private void AddNewCategoryAction()
+        {
+
+            List<Category> test = CategoriesView.SourceCollection.Cast<Category>().ToList();
+            Category.updateOrAddCategoriesInCourse(test, Course);
+        }
+
+
         protected override void OnRefreshData()
         {
-            //throw new System.NotImplementedException();
+            LoadCategories();
+
         }
     }
 }
