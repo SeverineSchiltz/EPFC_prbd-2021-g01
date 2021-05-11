@@ -60,6 +60,10 @@ namespace prbd_2021_g01.Model
 
             var etudiant = new Student("Gakusei", "Sensei", "test@epfc.eu", "Password2,");
 
+            var severine = new Student("Séverine", "Sensei", "se@epfc.eu", "Password2,");
+            var sinouhe = new Student("Sinouhé", "Sensei", "si@epfc.eu", "Password2,");
+            var ines = new Student("Ines", "Sensei", "in@epfc.eu", "Password2,");
+
             var anc3 = new Course(bruno, "2002 - ANC3", 5, "Projet d'analyse et conception");
             var prbd = new Course(bruno, "2007 - PRBD", 5, "Projet de développement SGBD");
             var prwb = new Course(benoit, "1927 - PRWB", 5, "Projet de développement Web");
@@ -71,13 +75,14 @@ namespace prbd_2021_g01.Model
 
             var firstRegistration = new Registration(etudiant, anc3, RegistrationState.Active);
             var secondRegistration = new Registration(etudiant, prbd, RegistrationState.Pending);
+            var thirdRegistration = new Registration(ines, prbd, RegistrationState.Inactive);
 
             //bruno.AddCourse(anc3); 
             Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2);
 
             Users.AddRange(bruno, benoit, boris, etudiant);
 
-            Registrations.AddRange(firstRegistration, secondRegistration);
+            Registrations.AddRange(firstRegistration, secondRegistration, thirdRegistration);
 
             Categories.AddRange(analyse);
 

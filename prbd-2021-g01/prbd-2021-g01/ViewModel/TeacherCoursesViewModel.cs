@@ -39,12 +39,19 @@ namespace prbd_2021_g01.ViewModel {
             Courses = new ObservableCollection<Course>(query);
         }
 
+      
+
         public ICommand ClearFilter { get; set; }
         public ICommand NewCourse { get; set; }
         public ICommand DisplayCourseDetails { get; set; }
 
         public TeacherCoursesViewModel() : base() {
-            Courses = new ObservableCollection<Course>(App.Context.Courses);
+            //Courses = new ObservableCollection<Course>(App.Context.Courses);
+
+            //CoursesByTeacher = new ObservableCollection<Course>(CoursesByTeacherAction());
+
+            
+            Courses = new ObservableCollection<Course>(Course.GetCoursesByTeacher((Teacher) CurrentUser));
 
             ClearFilter = new RelayCommand(() => Filter = "");
 
@@ -62,7 +69,6 @@ namespace prbd_2021_g01.ViewModel {
         }
 
         protected override void OnRefreshData() {
-            
         }
     }
 }

@@ -37,6 +37,27 @@ namespace prbd_2021_g01.Model {
 
         }
 
+        public static int getNumberOfActiveStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && r.State == RegistrationState.Active
+                        select r;
+            return query.Count();
+        }
+
+        public static int getNumberOfPendingStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && r.State == RegistrationState.Pending
+                        select r;
+            return query.Count();
+        }
+
+        public static int getNumberOfInactiveStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && r.State == RegistrationState.Inactive
+                        select r;
+            return query.Count();
+        }
+
     }
 
     public enum RegistrationState
