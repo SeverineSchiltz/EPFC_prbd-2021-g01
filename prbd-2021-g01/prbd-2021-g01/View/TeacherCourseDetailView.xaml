@@ -48,9 +48,9 @@
                 <TextBox x:Name="txtTeacher" Text="{Binding Teacher}" VerticalAlignment="Center" IsReadOnly="{Binding IsExisting}" Grid.Row="3" Grid.Column="1" Margin="5" />
             </Grid>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Button Content="Save" VerticalAlignment="Bottom" Command="{Binding SaveCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
-                <Button Content="Cancel" VerticalAlignment="Bottom" Command="{Binding CancelCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
-                <Button Content="Delete" VerticalAlignment="Bottom" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
+                <Button x:Name="btnSave" Content="Save" VerticalAlignment="Center" Command="{Binding SaveCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
+                <Button x:Name="btnCancel" Content="Cancel" VerticalAlignment="Center" Command="{Binding CancelCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
+                <Button x:Name="btnDelete" Content="Delete" VerticalAlignment="Center" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
             </StackPanel>
         </Grid>
         <Grid Margin="0,134,0,20">

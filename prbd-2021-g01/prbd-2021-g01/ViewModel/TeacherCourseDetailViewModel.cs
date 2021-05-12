@@ -9,9 +9,9 @@ using PRBD_Framework;
 namespace prbd_2021_g01.ViewModel {
     public class TeacherCourseDetailViewModel : ViewModelCommon {
 
-        public ICommand Save { get; set; }
-        public ICommand Cancel { get; set; }
-        public ICommand Delete { get; set; }
+        public ICommand SaveCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
 
         private Course course;
         public Course Course { get => course; set => SetProperty(ref course, value); }
@@ -69,9 +69,9 @@ namespace prbd_2021_g01.ViewModel {
         //public string Teacher { get { return CurrentUser.ToString(); }  }
 
         public TeacherCourseDetailViewModel() : base() {
-            Save = new RelayCommand(SaveAction, CanSaveAction);
-            Cancel = new RelayCommand(CancelAction, CanCancelAction);
-            Delete = new RelayCommand(DeleteAction, () => !IsNew);
+            SaveCommand = new RelayCommand(SaveAction, CanSaveAction);
+            CancelCommand = new RelayCommand(CancelAction, CanCancelAction);
+            DeleteCommand = new RelayCommand(DeleteAction, () => !IsNew);
 
         }
 
