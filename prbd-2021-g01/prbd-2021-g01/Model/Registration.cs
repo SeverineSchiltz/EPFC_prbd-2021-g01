@@ -37,6 +37,12 @@ namespace prbd_2021_g01.Model {
 
         }
 
+        public void changeStatus(RegistrationState newState)
+        {
+            this.State = newState;
+
+        }
+
         public static int getNumberOfActiveStudentsByCourse(Course course) {
             var query = from r in Context.Registrations
                         where r.Course.Id == course.Id && r.State == RegistrationState.Active
@@ -56,6 +62,7 @@ namespace prbd_2021_g01.Model {
                         where r.Course.Id == course.Id && r.State == RegistrationState.Inactive
                         select r;
             return query.Count();
+
         }
 
     }
