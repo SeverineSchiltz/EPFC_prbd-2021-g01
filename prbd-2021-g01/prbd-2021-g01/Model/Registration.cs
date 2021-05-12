@@ -37,6 +37,11 @@ namespace prbd_2021_g01.Model {
 
         }
 
+        public void changeStatus(RegistrationState newState)
+        {
+            this.State = newState;
+        }
+
     }
 
     public enum RegistrationState

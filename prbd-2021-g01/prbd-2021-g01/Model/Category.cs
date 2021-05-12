@@ -63,6 +63,15 @@ namespace prbd_2021_g01.Model {
             Context.SaveChanges();
         }
 
+        public static void removeCategories(Category[] listCat)
+        {
+            foreach (Category c in listCat)
+            {
+                Context.Categories.Remove(c);
+            }
+            Context.SaveChanges();
+        }
+
 
     }
 }

@@ -21,7 +21,34 @@ namespace prbd_2021_g01.Model {
 
         public Student() { }
 
-        // Add methods
+        public void changeRegistrationStatus(Course course)
+        {
+            //var filtered = from m in Context.Members
+            //               where m.Pseudo.Contains(Filter) || m.Profile.Contains(Filter)
+            //               orderby m.Pseudo
+            //               select m;
+
+            var reg = registrations.FirstOrDefault(r => r.Course.Id == course.Id && r.Student.Id == this.Id);
+            if (reg == null)
+            {
+                reg = new Registration(this, course, RegistrationState.Pending);
+                this.registrations.Add(reg);
+                course.registrations.Add(reg);
+                Context.Registrations.Add(reg);
+            }
+            else if(reg.State == RegistrationState.Pending)
+            {
+
+                this.registrations.Remove(reg);
+                course.registrations.Remove(reg);
+                Context.Registrations.Remove(reg);
+            }
+            else
+            {
+                reg.changeStatus(RegistrationState.Active);
+            }
+                Context.SaveChanges();
+        }
 
 
     }

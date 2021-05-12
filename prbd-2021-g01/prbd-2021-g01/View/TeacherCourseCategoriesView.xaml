@@ -27,7 +27,7 @@
         <WrapPanel Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="166">
         <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.CategoriesView_SaveCategories}" Margin="5" Command="{Binding SaveCategories}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
         <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.CategoriesView_CancelCategories}" Margin="5" Command="{Binding Cancel}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
-        <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.CategoriesView_DeleteCategories}" Margin="5" Command="{Binding DeleteCategories}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
+            <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.CategoriesView_DeleteCategories}" Margin="5" Command="{Binding DeleteCategories}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
         </WrapPanel>
     </StackPanel>
 </f:UserControlBase>

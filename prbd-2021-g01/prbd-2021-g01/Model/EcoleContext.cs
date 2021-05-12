@@ -27,6 +27,7 @@ namespace prbd_2021_g01.Model
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
             //// l'entité Member participe à une relation one-to-many ...
             //modelBuilder.Entity<Member>()
             //    // avec, du côté many, la propriété MessagesSent ...

@@ -23,6 +23,14 @@ namespace prbd_2021_g01.ViewModel
             set => SetProperty(ref course, value, OnRefreshData);
         }
 
+        public TeacherCourseQuestionsViewModel()
+        {
+            Register<string>(this, AppMessages.MSG_REFRESH_CATEGORIES, courseId =>
+            {
+                if (courseId == Course?.Id.ToString())
+                    OnRefreshData();
+            });
+        }
 
 
         protected override void OnRefreshData()
