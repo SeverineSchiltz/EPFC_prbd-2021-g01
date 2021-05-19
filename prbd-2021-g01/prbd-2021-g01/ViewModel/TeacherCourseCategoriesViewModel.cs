@@ -36,7 +36,7 @@ namespace prbd_2021_g01.ViewModel
         public TeacherCourseCategoriesViewModel()
         {
             //Course est à null...
-            Categories = new ObservableCollection<Category>(Category.GetCategories(CurrentUser, Course));
+            //Categories = new ObservableCollection<Category>(Category.GetCategories(CurrentUser, Course));
             //LoadCategories();
         }
 
