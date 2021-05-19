@@ -75,7 +75,9 @@
                 </TabItem>
                 <TabItem x:Name="questions" Header="Questions">
                     <ContentControl>
-
+                        <vw:TeacherCourseQuestionsView DataContext="{Binding CourseQuestions}" 
+                                       Course="{Binding Course}"
+                                       Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}"/>
                     </ContentControl>
                 </TabItem>
                 <TabItem x:Name="quizzes" Header="Quizzes">

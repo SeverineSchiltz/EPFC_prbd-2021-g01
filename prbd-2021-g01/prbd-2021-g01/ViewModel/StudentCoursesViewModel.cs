@@ -33,9 +33,18 @@ namespace prbd_2021_g01.ViewModel
             Courses = new ObservableCollection<Course>(query);
         }
 
+        private Course selectedItem = new Course();
+        public Course SelectedItem
+        {
+            get => selectedItem;
+            set => SetProperty(ref selectedItem, value);
+        }
+
         public ICommand DisplayStudentCourseDetails { get; set; }
 
         public ICommand ClearFilter { get; set; }
+        public ICommand RegiState { get; set; }
+
 
         public StudentCoursesViewModel() : base()
         {
@@ -47,7 +56,20 @@ namespace prbd_2021_g01.ViewModel
                 NotifyColleagues(AppMessages.MSG_DISPLAY_STUDENT_COURSE, course);
             });
 
-            //AllSelected = true;
+            //RegiState = new RelayCommand(ChangeRegistrationStatusAction);
+            RegiState = new RelayCommand<Course>(ChangeRegistrationStatusAction, selectedItems => {
+                return !Context.ChangeTracker.HasChanges();
+            });
+        }
+
+        private void ChangeRegistrationStatusAction(Course course)
+        {
+            ((Student)CurrentUser).changeRegistrationStatus(course);
+            //Pour updater l'écran:
+            Courses.RefreshFromModel(App.Context.Courses);
+            //Notifie aux autres écrans:
+            NotifyColleagues(AppMessages.MSG_REFRESH_REGISTRATION_STATE, null);
+
         }
 
         protected override void OnRefreshData()

@@ -32,7 +32,7 @@
             <TextBox Grid.Column="1" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" FontSize="14" />
             <Button Content="Clear" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
         </Grid>
-        <ListView x:Name="listView" ItemsSource="{Binding Courses}" Grid.Row="2" BorderBrush="Transparent" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListView_MouseDoubleClick">
+        <ListView x:Name="listView" ItemsSource="{Binding Courses}" Grid.Row="2" BorderBrush="Transparent" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListView_MouseDoubleClick" SelectedItem="{Binding SelectedItem, ElementName=vm}">
             <!--<i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction Command="{Binding DisplayMemberDetails}" CommandParameter="{Binding ElementName=listView, Path=SelectedItem}"/>
@@ -59,7 +59,7 @@
                             <TextBlock Text="{Binding OneRegistration}" FontSize="12" TextAlignment="Center" Height="20" />
                             <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
-                            <Button x:Name="btnRegistration" Content="{Binding OneRegistration}" Command="{Binding Register}" Height="20" Width="75" Visibility="{Binding HasRegistration, Converter={StaticResource BoolToVis}}"/> 
+                            <Button x:Name="btnRegistration" Content="{Binding OneRegistration}" Command="{Binding RegiState, ElementName=vm}" Height="20" Width="75" Visibility="{Binding HasRegistration, Converter={StaticResource BoolToVis}}" CommandParameter="{Binding}"/> 
                         </StackPanel>
                     </Border>
                 </DataTemplate>

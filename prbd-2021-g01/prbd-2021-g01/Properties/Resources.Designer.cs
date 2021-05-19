@@ -61,7 +61,16 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Delete Selected Categories.
+        ///   Recherche une chaîne localisée semblable à Cancel.
+        /// </summary>
+        public static string CategoriesView_CancelCategories {
+            get {
+                return ResourceManager.GetString("CategoriesView_CancelCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete.
         /// </summary>
         public static string CategoriesView_DeleteCategories {
             get {
@@ -93,6 +102,15 @@ namespace prbd_2021_g01.Properties {
         public static string CategoriesView_Questions {
             get {
                 return ResourceManager.GetString("CategoriesView_Questions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save.
+        /// </summary>
+        public static string CategoriesView_SaveCategories {
+            get {
+                return ResourceManager.GetString("CategoriesView_SaveCategories", resourceCulture);
             }
         }
         

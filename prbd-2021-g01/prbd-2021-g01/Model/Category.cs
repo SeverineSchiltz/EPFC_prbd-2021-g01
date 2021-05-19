@@ -16,6 +16,9 @@ namespace prbd_2021_g01.Model {
         public virtual Course Course { get; set; } 
         public virtual ICollection<Question> Questions { get; set; } = new HashSet<Question>();
 
+        public int nbOfQuestions{ get => Questions.Count(); }
+
+
         public Category(Course course, string title)
         {
             Course = course;
@@ -33,5 +36,42 @@ namespace prbd_2021_g01.Model {
 
             return category;
         }
+
+        public void addQuestion(Question q)
+        {
+            q.Categories.Add(this);
+            this.Questions.Add(q);
+            Context.SaveChanges();
+        }
+
+        public static void updateOrAddCategoriesInCourse(List<Category> listCat, Course course)
+        {
+            foreach(Category c in listCat)
+            {
+                if (Context.Categories.Any(ca => ca.Id == c.Id))
+                {
+                    Context.Categories.Update(c);
+                    
+                }
+                else
+                {
+                    c.Course = course;
+                    Context.Categories.AddRange(c);
+                }
+                
+            }
+            Context.SaveChanges();
+        }
+
+        public static void removeCategories(Category[] listCat)
+        {
+            foreach (Category c in listCat)
+            {
+                Context.Categories.Remove(c);
+            }
+            Context.SaveChanges();
+        }
+
+
     }
 }
