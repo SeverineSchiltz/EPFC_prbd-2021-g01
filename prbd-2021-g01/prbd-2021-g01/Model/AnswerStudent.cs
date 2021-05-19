@@ -14,5 +14,8 @@ namespace prbd_2021_g01.Model {
         public virtual QuizQuestion QuizQuestion { get; set; }
         public virtual Student Student { get; set; }
         public virtual ICollection<Answer> Answers { get; set; } = new HashSet<Answer>();
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

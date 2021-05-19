@@ -14,5 +14,7 @@ namespace prbd_2021_g01.Model {
         public virtual Quiz Quiz { get; set; }
         public virtual Question Question { get; set; }
         public int Weight { get; set; }
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

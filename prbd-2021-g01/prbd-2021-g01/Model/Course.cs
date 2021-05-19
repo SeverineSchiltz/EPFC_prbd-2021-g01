@@ -18,6 +18,8 @@ namespace prbd_2021_g01.Model
         public string Title { get; set; }
         public string Description { get; set; }
         public int MaxStudent { get; set; }
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
 
         public RegistrationState OneRegistration { get => getRegisteredStatus((Student)App.CurrentUser); }
 

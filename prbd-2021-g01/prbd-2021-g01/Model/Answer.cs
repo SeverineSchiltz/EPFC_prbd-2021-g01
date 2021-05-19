@@ -14,5 +14,8 @@ namespace prbd_2021_g01.Model {
         public virtual Question Question { get; set; }
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
+
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
     }
 }

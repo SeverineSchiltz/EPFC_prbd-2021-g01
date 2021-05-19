@@ -15,6 +15,8 @@ namespace prbd_2021_g01.Model {
         public string Title { get; set; }
         public virtual Course Course { get; set; } 
         public virtual ICollection<Question> Questions { get; set; } = new HashSet<Question>();
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
 
         public int nbOfQuestions{ get => Questions.Count(); }
 
@@ -65,11 +67,18 @@ namespace prbd_2021_g01.Model {
 
         public static void removeCategories(Category[] listCat)
         {
-            foreach (Category c in listCat)
+            if (listCat != null )
             {
-                Context.Categories.Remove(c);
+                foreach (Category c in listCat)
+                {
+                    if (Context.Categories.Any(ca => ca.Id == c.Id))
+                    {
+                        Context.Categories.Remove(c);
+                    }
+                }
+                Context.SaveChanges();
             }
-            Context.SaveChanges();
+
         }
 
 

@@ -15,6 +15,8 @@ namespace prbd_2021_g01.Model {
         public virtual Course Course { get; set; }
 
         public virtual RegistrationState State { get; set; }
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
 
         public Registration() { }
 

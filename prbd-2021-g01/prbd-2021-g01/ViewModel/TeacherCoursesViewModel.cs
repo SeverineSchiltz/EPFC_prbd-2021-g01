@@ -9,10 +9,10 @@ using prbd_2021_g01.Model;
 namespace prbd_2021_g01.ViewModel {
     public class TeacherCoursesViewModel : ViewModelCommon {
 
-        private ObservableCollection<Course> courses;
-        public ObservableCollection<Course> Courses {
+        private ObservableCollectionFast<Course> courses;
+        public ObservableCollectionFast<Course> Courses {
             get => courses;
-            set => SetProperty<ObservableCollection<Course>>(ref courses, value);
+            set => SetProperty<ObservableCollectionFast<Course>>(ref courses, value);
         }
 
         private string title;
@@ -36,7 +36,7 @@ namespace prbd_2021_g01.ViewModel {
         private void ApplyFilterAction() {
             var query = from c in Context.Courses where
                         c.Title.Contains(Filter) || c.Description.Contains(Filter) select c;
-            Courses = new ObservableCollection<Course>(query);
+            Courses = new ObservableCollectionFast<Course>(query);
         }
 
       
@@ -51,7 +51,7 @@ namespace prbd_2021_g01.ViewModel {
             //CoursesByTeacher = new ObservableCollection<Course>(CoursesByTeacherAction());
 
             
-            Courses = new ObservableCollection<Course>(Course.GetCoursesByTeacher((Teacher) CurrentUser));
+            Courses = new ObservableCollectionFast<Course>(Course.GetCoursesByTeacher((Teacher) CurrentUser));
 
             ClearFilter = new RelayCommand(() => Filter = "");
 

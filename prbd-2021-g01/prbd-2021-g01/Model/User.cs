@@ -16,6 +16,8 @@ namespace prbd_2021_g01.Model {
         public string Lastname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
 
         public User(string firstname, string lastname, string email, string password) {
             Firstname = firstname;

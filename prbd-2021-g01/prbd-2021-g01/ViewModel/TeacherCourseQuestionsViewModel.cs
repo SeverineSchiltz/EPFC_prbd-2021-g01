@@ -7,8 +7,8 @@ namespace prbd_2021_g01.ViewModel
 {
     public class TeacherCourseQuestionsViewModel : ViewModelCommon
     {
-        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
-        public ObservableCollection<Category> Categories
+        private ObservableCollectionFast<Category> categories = new ObservableCollectionFast<Category>();
+        public ObservableCollectionFast<Category> Categories
         {
             get => categories;
             set => SetProperty(ref categories, value);
@@ -35,7 +35,8 @@ namespace prbd_2021_g01.ViewModel
 
         protected override void OnRefreshData()
         {
-            Categories.RefreshFromModel(Category.GetCategories(CurrentUser, Course));
+            Categories.Reset(Category.GetCategories(CurrentUser, Course));
+            RaisePropertyChanged(nameof(Categories));
             //throw new NotImplementedException();
         }
     }

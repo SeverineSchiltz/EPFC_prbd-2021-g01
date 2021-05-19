@@ -15,6 +15,8 @@ namespace prbd_2021_g01.Model {
         public string Title { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
         //public virtual ICollection<QuizQuestion> quizQuestions { get; set; } = new HashSet<QuizQuestion>();
     }
 }

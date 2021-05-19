@@ -15,11 +15,11 @@ namespace prbd_2021_g01.ViewModel
     public class StudentCoursesViewModel : ViewModelCommon
     {
 
-        private ObservableCollection<Course> courses;
-        public ObservableCollection<Course> Courses
+        private ObservableCollectionFast<Course> courses;
+        public ObservableCollectionFast<Course> Courses
         {
             get => courses;
-            set => SetProperty<ObservableCollection<Course>>(ref courses, value);
+            set => SetProperty<ObservableCollectionFast<Course>>(ref courses, value);
         }
 
         private string filter;
@@ -30,7 +30,7 @@ namespace prbd_2021_g01.ViewModel
         private void ApplyFilterAction() {
             var query = from c in Context.Courses where
                         c.Title.Contains(Filter) || c.Description.Contains(Filter) select c;
-            Courses = new ObservableCollection<Course>(query);
+            Courses = new ObservableCollectionFast<Course>(query);
         }
 
         private Course selectedItem = new Course();
@@ -48,7 +48,7 @@ namespace prbd_2021_g01.ViewModel
 
         public StudentCoursesViewModel() : base()
         {
-            Courses = new ObservableCollection<Course>(App.Context.Courses);
+            Courses = new ObservableCollectionFast<Course>(App.Context.Courses);
 
             ClearFilter = new RelayCommand(() => Filter = "");
 
@@ -66,7 +66,7 @@ namespace prbd_2021_g01.ViewModel
         {
             ((Student)CurrentUser).changeRegistrationStatus(course);
             //Pour updater l'écran:
-            Courses.RefreshFromModel(App.Context.Courses);
+            Courses.Reset(App.Context.Courses);
             //Notifie aux autres écrans:
             NotifyColleagues(AppMessages.MSG_REFRESH_REGISTRATION_STATE, null);
 

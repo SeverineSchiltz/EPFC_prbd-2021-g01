@@ -17,6 +17,8 @@ namespace prbd_2021_g01.Model {
         public virtual ICollection<QuizQuestion> QuizQuestions { get; set; } = new HashSet<QuizQuestion>();
         public virtual ICollection<Answer> Answers { get; set; } = new HashSet<Answer>();
         public virtual ICollection<Category> Categories { get; set; } = new HashSet<Category>();
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
 
         public Question(Course course, string title, string content)
         {

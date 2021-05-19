@@ -11,8 +11,8 @@ namespace prbd_2021_g01.ViewModel
 {
     public class TeacherCourseCategoriesViewModel : ViewModelCommon
     {
-        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
-        public ObservableCollection<Category> Categories
+        private ObservableCollectionFast<Category> categories = new ObservableCollectionFast<Category>();
+        public ObservableCollectionFast<Category> Categories
         {
             get => categories;
             set => SetProperty(ref categories, value);
@@ -60,7 +60,7 @@ namespace prbd_2021_g01.ViewModel
         private void LoadCategories()
         {
 
-            Categories.RefreshFromModel(Category.GetCategories(CurrentUser, Course));
+            Categories.Reset(Category.GetCategories(CurrentUser, Course));
 
         }
 
@@ -74,19 +74,30 @@ namespace prbd_2021_g01.ViewModel
 
         private void DeleteCategoriesAction(IList categories)
         {
+            bool isCat = true;
+            for(int i = 0; i< categories.Count; ++i)
+            {
+                if (categories[i].GetType() != typeof(Category))
+                {
+                    isCat = false;
+                }
+            }
+            if (isCat)
+            {
+                var deleted = categories.Cast<Category>().ToArray();
+                Categories.RemoveRange(deleted);
+                Category.removeCategories(deleted);
+                //RaisePropertyChanged(nameof(Categories));
+                NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
+            }
 
-            var deleted = categories.Cast<Category>().ToArray();
-            Categories.RemoveRange(deleted);
-            Category.removeCategories(deleted);
-            RaisePropertyChanged(nameof(Category));
-            NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
         }
 
 
         protected override void OnRefreshData()
         {
             LoadCategories();
-
+            //RaisePropertyChanged(nameof(Categories));
         }
     }
 }
