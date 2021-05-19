@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\RegisteredStudentsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\StudentCourseDetailsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\TeacherCourseCategoriesView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\TeacherCourseDetailView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\TeacherCourseQuestionsView.xaml.cs">
@@ -31,15 +31,18 @@
     <Compile Update="View\StudentMainView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\TeacherRegistrationsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\RegisteredStudentsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\StudentCourseDetailsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TeacherCourseCategoriesView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\TeacherCourseDetailView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TeacherCourseQuestionsView.xaml">
@@ -58,6 +61,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\StudentCoursesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\TeacherRegistrationsView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -41,6 +41,11 @@ namespace prbd_2021_g01.ViewModel
 
         public TeacherCourseCategoriesViewModel()
         {
+
+            //Course est à null...
+            //Categories = new ObservableCollection<Category>(Category.GetCategories(CurrentUser, Course));
+            //LoadCategories();
+
             SaveCategories = new RelayCommand(AddNewCategoryAction);
 
             Cancel = new RelayCommand(LoadCategories);
@@ -54,6 +59,7 @@ namespace prbd_2021_g01.ViewModel
                 if (courseId == Course?.Id.ToString())
                     LoadCategories();
             });
+
 
         }
 
