@@ -23,12 +23,16 @@ namespace prbd_2021_g01.View
 
         private void Vm_DisplayCourse(Course course, bool isNew) {
             if (course != null) {
-                var tab = tabControl.FindByTag(course.Title);
+                // tag has to be unique (ipt when we open tabs)
+                // convention : class name and its id (with "-" between them)
+                var tag = "course-" + course.Id.ToString();
+                var tab = tabControl.FindByTag(tag);
                 if (tab == null)
                     //tabControl.Add(null, "<new course>");
                     tabControl.Add(
                         new TeacherCourseDetailView(course, isNew),
                         isNew ? "<new course>" : course.Title, course.Title
+                        // TODO ask if we have to add a tag as in StudentMainView.xaml.cs
                     );
                 else
                     tabControl.SetFocus(tab);
@@ -40,6 +44,13 @@ namespace prbd_2021_g01.View
             if (tab != null) {
                 tab.Header = tab.Tag = header = string.IsNullOrEmpty(header) ? "<new course>" : header;
             }
+        }
+
+        // TODO: check for tag !
+        private void Vm_CloseTab(Course course) {
+            //var tag = "course-" + course.Id.ToString();
+            var tab = tabControl.FindByTag(course.Title); //tabControl.FindByTag(tag);
+            tabControl.Items.Remove(tab);
         }
 
         private void WindowBase_KeyDown(object sender, KeyEventArgs e) { 

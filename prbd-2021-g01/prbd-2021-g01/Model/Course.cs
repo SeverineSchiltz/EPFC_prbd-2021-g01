@@ -77,6 +77,12 @@ namespace prbd_2021_g01.Model
             return Registration.getNumberOfInactiveStudentsByCourse(this);
         }
 
+        public void Delete() {
+            // delete the course itself
+            Context.Courses.Remove(this);
+            Context.SaveChanges();
+        }
+
 
     }
 
