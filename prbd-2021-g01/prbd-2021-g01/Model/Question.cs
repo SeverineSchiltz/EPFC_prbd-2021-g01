@@ -29,6 +29,45 @@ namespace prbd_2021_g01.Model {
 
         public Question() { }
 
+        public static IQueryable<Question> GetQuestions(Course course, List<Category> listCat)
+        {
+
+            var questions = from q in Context.Questions
+                            where q.Course.Id == course.Id 
+                            select q;
+
+            return questions;
+        }
+
+        public string GetAnswersAsString()
+        {
+            string answers = "";
+            foreach (Answer answer in Answers)
+            {
+                answers += (answer.IsCorrect ? "*" : "") + answer.Content + "\n";
+            }
+
+            return answers;
+        }
+
+        //public static List<Question> GetQuestions(Course course, List<Category> listCat)
+        //{
+        //    var question = new List<Question>();
+        //    foreach (var c in listCat)
+        //    {
+        //        var qt = from q in Context.Questions
+        //                        where q.Course.Id == course.Id && q.Categories.Contains(c)
+        //                        select q;
+        //        foreach (var m in qt)
+        //        {
+        //            question.Add(m);
+        //        }
+
+        //    }
+        //    return question;
+        //}
+
+
 
     }
 }

@@ -17,5 +17,17 @@ namespace prbd_2021_g01.Model {
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
+
+        public Answer(Question question, string content, bool isCorrect)
+        {
+            Question = question;
+            Question.Answers.Add(this);
+            Content = content;
+            IsCorrect = isCorrect;
+        }
+
+        public Answer() { }
+
     }
 }

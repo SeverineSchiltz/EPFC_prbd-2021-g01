@@ -17,63 +17,92 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
         <Grid Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Categorie :" />
-            <ItemsControl Grid.Column="1" ItemsSource="{Binding CategoriesView}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                            <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding NewMessagePrivate}" Margin="5,0,0,0"/>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Categorie :" />
+                <ItemsControl Grid.Column="1" ItemsSource="{Binding CategoriesView}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding IsChecked}" Command="{Binding CheckBox_Click,ElementName=vm}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"  Margin="5,0,0,0"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <WrapPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="166">
-                <Button x:Name="btnCancel" Content="All" Command="{Binding Cancel}" Width="auto" Padding="5,1"/>
-                <Button x:Name="btnSave" Content="None" Command="{Binding Save}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
-            </WrapPanel>
+                </ItemsControl>
+                <WrapPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="166">
+                    <Button x:Name="btnAll" Content="All" Command="{Binding AllCategory}" Width="auto" Padding="5,1"/>
+                    <Button x:Name="btnNone" Content="None" Command="{Binding NoneCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
+                </WrapPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Available questions :" />
+                <ListBox Grid.Row="1"  x:Name="listBox" ItemsSource="{Binding QuestionsView}" MouseDoubleClick="ListView_MouseDoubleClick" SelectedItem="{Binding SelectedItem, ElementName=vm}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Content="{Binding Title}" />
+                                <Label Grid.Row="1" Content="{Binding Content}" />
+                                <ItemsControl Grid.Row="2" ItemsSource="{Binding Answers}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <RadioButton Content="{Binding Content}" IsChecked="{Binding IsCorrect}" IsHitTestVisible="False"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Available questions :" />
-            <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding CategoriesView}">
+            <Label Content="Edit selected question :" />
+            <Label Grid.Row="1" Content="Title" />
+            <TextBox Grid.Row="2" Text="{Binding Title, ElementName=vm}"/>
+            <Label Grid.Row="3" Content="Answers" />
+            <TextBox Grid.Row="4" Height="100" Text="{Binding AnswersText, ElementName=vm}"/>
+            <Label Grid.Row="5" Content="Categories" />
+            <ItemsControl Grid.Row="6" ItemsSource="{Binding CategoriesView}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Label Content="question" />
-                        <!--
-                        <ListBox x:Name="listBox"  />
-                        -->
-                           <ItemsControl Grid.Row="1" ItemsSource="{Binding Questions}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <RadioButton Content="reponse" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                        </Grid>
+                        <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding IsChecked}" Command="{Binding CheckBox_Click,ElementName=vm}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"  Margin="5,0,0,0"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            <WrapPanel Grid.Row="7" HorizontalAlignment="Right" >
+                <Button x:Name="btnNewQuestion" Content="New question" Command="{Binding NewQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnSaveQuestion" Content="Save" Command="{Binding SaveQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnCancelQuestion" Content="Cancel" Command="{Binding CancelQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnDeleteQuestion" Content="Delete" Command="{Binding DeleteQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+            </WrapPanel>
         </Grid>
     </Grid>
 </f:UserControlBase>

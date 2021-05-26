@@ -73,8 +73,8 @@ namespace prbd_2021_g01.ViewModel
         private void AddNewCategoryAction()
         {
 
-            List<Category> test = CategoriesView.SourceCollection.Cast<Category>().ToList();
-            Category.updateOrAddCategoriesInCourse(test, Course);
+            List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
+            Category.updateOrAddCategoriesInCourse(listCat, Course);
             NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
         }
 

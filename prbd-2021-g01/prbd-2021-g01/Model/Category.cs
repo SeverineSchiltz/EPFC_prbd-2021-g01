@@ -20,6 +20,12 @@ namespace prbd_2021_g01.Model {
 
         public int nbOfQuestions{ get => Questions.Count(); }
 
+        private bool isChecked = true;
+        public bool IsChecked
+        {
+            get => isChecked;
+            set => isChecked = value;
+        }
 
         public Category(Course course, string title)
         {
