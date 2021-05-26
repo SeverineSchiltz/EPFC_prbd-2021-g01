@@ -88,6 +88,7 @@ namespace prbd_2021_g01.Model
             var quest2 = new Question(anc3, "Q2", "test2");
             prog.addQuestion(quest2);
             var quest3 = new Question(anc3, "Q3", "test3");
+            analyse.addQuestion(quest3);
             var ans1q1 = new Answer(quest1, "rep1q1_false", false);
             var ans2q1 = new Answer(quest1, "rep2q1_true", true);
             var ans3q1 = new Answer(quest1, "rep3q1_true", true);

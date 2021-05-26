@@ -9,9 +9,6 @@
         xmlns:vw="clr-namespace:prbd_2021_g01.View"
         mc:Ignorable="d"
         FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
-    <UserControl.DataContext>
-        <vm:TeacherCourseQuestionsViewModel x:Name="vm" />
-    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -33,12 +30,13 @@
                 <ItemsControl Grid.Column="1" ItemsSource="{Binding CategoriesView}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding IsChecked}" Command="{Binding CheckBox_Click,ElementName=vm}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"  Margin="5,0,0,0"/>
+                            <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding Path=IsChecked, UpdateSourceTrigger=PropertyChanged}" Margin="5,0,0,0"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
                 <WrapPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="166">
-                    <Button x:Name="btnAll" Content="All" Command="{Binding AllCategory}" Width="auto" Padding="5,1"/>
+                    <Button x:Name="btnCheck" Content="Check" Command="{Binding CheckCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
+                    <Button x:Name="btnAll" Content="All" Command="{Binding AllCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
                     <Button x:Name="btnNone" Content="None" Command="{Binding NoneCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
                 </WrapPanel>
             </Grid>
@@ -49,7 +47,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Content="Available questions :" />
-                <ListBox Grid.Row="1"  x:Name="listBox" ItemsSource="{Binding QuestionsView}" MouseDoubleClick="ListView_MouseDoubleClick" SelectedItem="{Binding SelectedItem, ElementName=vm}">
+                <ListBox Grid.Row="1"  x:Name="listBox" ItemsSource="{Binding QuestionsView}" MouseDoubleClick="ListView_MouseDoubleClick" SelectedItem="{Binding SelectedItem}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -86,14 +84,14 @@
             </Grid.RowDefinitions>
             <Label Content="Edit selected question :" />
             <Label Grid.Row="1" Content="Title" />
-            <TextBox Grid.Row="2" Text="{Binding Title, ElementName=vm}"/>
+            <TextBox Grid.Row="2" Text="{Binding Title}"/>
             <Label Grid.Row="3" Content="Answers" />
-            <TextBox Grid.Row="4" Height="100" Text="{Binding AnswersText, ElementName=vm}"/>
+            <TextBox Grid.Row="4" Height="100" Text="{Binding AnswersText}"/>
             <Label Grid.Row="5" Content="Categories" />
             <ItemsControl Grid.Row="6" ItemsSource="{Binding CategoriesView}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding IsChecked}" Command="{Binding CheckBox_Click,ElementName=vm}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"  Margin="5,0,0,0"/>
+                        <CheckBox Content="{Binding Path=Title}" IsChecked="{Binding IsChecked}" Command="{Binding CheckBox_Click}" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"  Margin="5,0,0,0"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

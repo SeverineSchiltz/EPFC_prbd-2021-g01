@@ -87,6 +87,16 @@ namespace prbd_2021_g01.Model {
 
         }
 
+        public void unSelect()
+        {
+            this.IsChecked = false;
+        }
+
+        public void select()
+        {
+            this.IsChecked = true;
+        }
+
 
     }
 }

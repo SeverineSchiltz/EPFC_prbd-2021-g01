@@ -9,9 +9,6 @@
         xmlns:vw="clr-namespace:prbd_2021_g01.View"
         mc:Ignorable="d"
         FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
-    <UserControl.DataContext>
-        <vm:TeacherCourseCategoriesViewModel x:Name="vm" />
-    </UserControl.DataContext>
     <StackPanel>
         <f:MyDataGrid x:Name="grid" ItemsSource="{Binding CategoriesView}" ToolTip="{x:Static p:Resources.CategoriesView_DeleteTooltip}"
                   AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"

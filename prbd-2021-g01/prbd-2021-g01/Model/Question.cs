@@ -29,12 +29,15 @@ namespace prbd_2021_g01.Model {
 
         public Question() { }
 
-        public static IQueryable<Question> GetQuestions(Course course, List<Category> listCat)
+        public static IQueryable<Question> GetQuestions(Course course)
         {
-
+            //faut d'abord updater en BDD sinon, la requete linq ne fonctionne pas car le IsChecked n'est pas à jour!
+            Context.SaveChanges();
             var questions = from q in Context.Questions
-                            where q.Course.Id == course.Id 
+                            where q.Course.Id == course.Id && q.Categories.Any(c => c.IsChecked && c.Course.Id == course.Id)
                             select q;
+            ////Pour tester
+            //List<Question> test = questions.Cast<Question>().ToList();
 
             return questions;
         }

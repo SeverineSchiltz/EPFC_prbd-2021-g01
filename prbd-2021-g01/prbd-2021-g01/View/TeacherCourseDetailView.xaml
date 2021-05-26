@@ -20,7 +20,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
         <Grid Height="134" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -75,7 +74,7 @@
                 </TabItem>
                 <TabItem x:Name="questions" Header="Questions">
                     <ContentControl>
-                        <vw:TeacherCourseQuestionsView DataContext="{Binding CourseQuestions}" 
+                        <vw:TeacherCourseQuestionsView DataContext="{Binding CourseQuestions }"
                                        Course="{Binding Course}"
                                        Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}"/>
                     </ContentControl>

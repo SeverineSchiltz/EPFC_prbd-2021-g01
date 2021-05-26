@@ -1,5 +1,6 @@
 ﻿using prbd_2021_g01.Model;
 using PRBD_Framework;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ namespace prbd_2021_g01.ViewModel
 {
     public class TeacherCourseQuestionsViewModel : ViewModelCommon
     {
+        public event Action UnSelect;
         private ObservableCollectionFast<Category> categories = new ObservableCollectionFast<Category>();
         public ObservableCollectionFast<Category> Categories
         {
@@ -41,15 +43,6 @@ namespace prbd_2021_g01.ViewModel
             set => SetProperty(ref selectedItem, value, RaisePropertyChanged);
         }
 
-        private ListBox listb;
-
-
-        //public ListBox Listb
-        //{
-        //    get => selectedItem;
-        //    set => SetProperty(ref selectedItem, value, RaisePropertyChanged);
-        //}
-
         public string Title
         {
             get { return selectedItem?.Title; }
@@ -71,9 +64,10 @@ namespace prbd_2021_g01.ViewModel
             }
         }
 
-        public ICommand CheckBox_Click { get; set; }
-        public ICommand DisplayQuestion { get; set; }
-
+        
+        public ICommand AllCategory { get; set; }
+        public ICommand NoneCategory { get; set; }
+        public ICommand CheckCategory { get; set; }
         public ICommand NewQuestion { get; set; }
         public ICommand SaveQuestion { get; set; }
         public ICommand CancelQuestion { get; set; }
@@ -82,54 +76,71 @@ namespace prbd_2021_g01.ViewModel
 
         public TeacherCourseQuestionsViewModel()
         {
+            //Console.WriteLine("TeacherCourseQuestionsViewModel");
+
             Register<string>(this, AppMessages.MSG_REFRESH_CATEGORIES, courseId =>
             {
                 if (courseId == Course?.Id.ToString())
                     OnRefreshData();
             });
 
-            CheckBox_Click = new RelayCommand(loadQuestions);
+            CheckCategory = new RelayCommand(loadQuestions);
+            AllCategory = new RelayCommand(allCategoriesAction);
 
-            DisplayQuestion = new RelayCommand<ListBox>(displayQuestionInRightScreen, listB => {
-                return true;
-            });
+            NoneCategory = new RelayCommand(noneCategoriesAction);
 
             NewQuestion = new RelayCommand(AddNewQuestionAction);
 
             SaveQuestion = new RelayCommand<Question>(SaveQuestionAction, question =>
             {
-                return SelectedItem.Title != null;
+                return SelectedItem != null;
             });
 
             CancelQuestion = new RelayCommand(OnRefreshData);
 
             DeleteQuestion = new RelayCommand<Question>(DeleteQuestionAction, question =>
             {
-                return SelectedItem.Title != null;
+                return SelectedItem != null;
             });
         }
 
 
         protected void loadQuestions()
         {
-            var test = Category.GetCategories(CurrentUser, Course);
-            List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
-            var query = Question.GetQuestions(Course, listCat);
-            Questions = new ObservableCollectionFast<Question>(query);
-
+            //var test = Category.GetCategories(CurrentUser, Course);
+            //List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
+            //var query = Question.GetQuestions(Course, listCat);
+            Questions.Reset(Question.GetQuestions(Course)); //, listCat));
+            //Questions = new ObservableCollectionFast<Question>(query);
+            RaisePropertyChanged();
         }
 
-        protected void displayQuestionInRightScreen(ListBox listbox)
+        protected void allCategoriesAction()
         {
-            listb = listbox;
-
+            foreach(Category c in Categories)
+            {
+                c.select();
+            }
+            loadQuestions();
+            RaisePropertyChanged(nameof(CategoriesView));
+            
         }
+
+        protected void noneCategoriesAction()
+        {
+            foreach (Category c in Categories)
+            {
+                c.unSelect();
+            }
+            loadQuestions();
+            RaisePropertyChanged(nameof(CategoriesView));
+        }
+
 
         public void AddNewQuestionAction()
         {
-            //SelectedItem = new Question(Course, "", "");
-            listb.SelectedIndex = -1;
-            RaisePropertyChanged();
+            SelectedItem = new Question(Course, "", "");
+
         }
         public void SaveQuestionAction(Question q)
         {
@@ -146,7 +157,7 @@ namespace prbd_2021_g01.ViewModel
         {
             Categories.Reset(Category.GetCategories(CurrentUser, Course));
             List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
-            Questions.Reset(Question.GetQuestions(Course, listCat));
+            Questions.Reset(Question.GetQuestions(Course)); //, listCat));
             RaisePropertyChanged(); //refresh toutes les propriétés du viewmodel dans la vue
             //RaisePropertyChanged(nameof(Categories));
             //throw new NotImplementedException();
