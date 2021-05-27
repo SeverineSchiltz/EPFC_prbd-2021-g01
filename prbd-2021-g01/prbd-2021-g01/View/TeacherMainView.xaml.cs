@@ -31,8 +31,8 @@ namespace prbd_2021_g01.View
                     //tabControl.Add(null, "<new course>");
                     tabControl.Add(
                         new TeacherCourseDetailView(course, isNew),
-                        isNew ? "<new course>" : course.Title, course.Title
-                        // TODO ask if we have to add a tag as in StudentMainView.xaml.cs
+                        isNew ? "<new course>" : course.Title, 
+                        tag
                     );
                 else
                     tabControl.SetFocus(tab);
@@ -44,12 +44,13 @@ namespace prbd_2021_g01.View
             if (tab != null) {
                 tab.Header = tab.Tag = header = string.IsNullOrEmpty(header) ? "<new course>" : header;
             }
+            // TODO: check to add red cross to close the tab
+            //tabControl.HasCloseButton = true;
         }
 
-        // TODO: check for tag !
         private void Vm_CloseTab(Course course) {
-            //var tag = "course-" + course.Id.ToString();
-            var tab = tabControl.FindByTag(course.Title); //tabControl.FindByTag(tag);
+            var tag = "course-" + course.Id.ToString();
+            var tab = tabControl.FindByTag(tag);
             tabControl.Items.Remove(tab);
         }
 

@@ -21,6 +21,11 @@ namespace prbd_2021_g01.Model {
 
         public Student() { }
 
+        public void add() {
+            Context.Students.Add(this);
+            Context.SaveChanges();
+        }
+
         public void changeRegistrationStatus(Course course)
         {
             //var filtered = from m in Context.Members
@@ -49,6 +54,14 @@ namespace prbd_2021_g01.Model {
             }
                 Context.SaveChanges();
         }
+
+        /*public static IQueryable<Student> GetInactiveStudentsByCourse(Course course) {
+            var query = from s in Context.Students
+                        where s.registrations.All(
+                            r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive)
+                        select s;
+            return query;
+        }*/
 
 
     }

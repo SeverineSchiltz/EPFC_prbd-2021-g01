@@ -60,12 +60,28 @@ namespace prbd_2021_g01.Model {
         }
 
         public static int getNumberOfInactiveStudentsByCourse(Course course) {
-            var query = from r in Context.Registrations
-                        where r.Course.Id == course.Id && r.State == RegistrationState.Inactive
-                        select r;
+            var query = from s in Context.Students
+                        where s.registrations.All(
+                            r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive) //r => r.Course.Id != course.Id || (r.State == RegistrationState.Inactive && r.Course.Id == course.Id))
+                        select s;
+
+            /*string str = "SELECT FROM Student s" +
+                "         WHERE s.ID NOT IN " +
+                "           (SELECT studentID FROM Registrations" +
+                "            WHERE CourseID = courseID)";*/
+
             return query.Count();
 
         }
+
+        public static IQueryable<Student> GetInactiveStudentsByCourse(Course course) {
+            var query = from s in Context.Students
+                        where s.registrations.All(
+                            r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive)
+                        select s;
+            return query;
+        }
+
 
     }
 

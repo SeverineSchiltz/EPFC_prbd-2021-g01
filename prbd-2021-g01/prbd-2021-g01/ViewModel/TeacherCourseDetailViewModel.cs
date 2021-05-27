@@ -9,8 +9,6 @@ using PRBD_Framework;
 namespace prbd_2021_g01.ViewModel {
     public class TeacherCourseDetailViewModel : ViewModelCommon {
 
-        
-
         private Course course;
         public Course Course { get => course; set => SetProperty(ref course, value); }
         //public Course Course {
@@ -20,6 +18,7 @@ namespace prbd_2021_g01.ViewModel {
         //        RaisePropertyChanged(nameof(Course));
         //    }
         //}
+
 
         private bool isNew;
         public bool IsNew {
@@ -108,10 +107,9 @@ namespace prbd_2021_g01.ViewModel {
 
         private void SaveAction() {
             if (IsNew) {
-                // Un petit raccourci ;-)
-                //Course.Title = Course.Title;
-                //Course course = new Course();
-                Context.Add(Course);
+                Teacher CurrentTeacher = (Teacher) CurrentUser;
+                Course course = new Course(CurrentTeacher, Title, MaxStudent, Description);
+                CurrentTeacher.AddCourse(course);
                 IsNew = false;
             }
             Context.SaveChanges();
@@ -156,66 +154,6 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty<ObservableCollection<Course>>(ref courses, value);
         }
 
-        
-
-        /*private string description;
-
-        public string Description { get => description; set => SetProperty(ref description, value); }
-
-        private string teacher; // TODO: ask question about comment (what about readonly?)
-
-
-        protected override void OnRefreshData() {
-
-        }
-
-        /*Messages = new ObservableCollectionFast<Message>(Message.GetAll());
-           Members = new ObservableCollectionFast<Member>(Member.GetAll());
-
-           DeleteCommand = new RelayCommand(() => {
-               var recipientPseudo = SelectedMessage.Recipient.Pseudo;
-               SelectedMessage.Delete();
-               Messages.Remove(SelectedMessage);
-               SelectedMessage = null;
-               NotifyColleagues(AppMessages.MSG_REFRESH_MESSAGES, recipientPseudo);
-           },
-           () => ReadMode && SelectedMessage != null);
-
-           SaveCommand = new RelayCommand(() => {
-               if (SelectedMessage.MessageId == 0)
-                   Context.Messages.Add(SelectedMessage);
-               Context.SaveChanges();
-               RaisePropertyChanged(nameof(MessagesView));
-               RefreshGrid();
-               EditMode = false;
-               NotifyColleagues(AppMessages.MSG_REFRESH_MESSAGES, SelectedMessage.Recipient.Pseudo);
-           },
-           () => EditMode && Validate());
-
-           CancelCommand = new RelayCommand(() => {
-               Context.Entry(SelectedMessage).Reload();
-               RaisePropertyChanged(nameof(MessagesView));
-               RefreshGrid();
-               EditMode = false;
-               Validate();
-               RaisePropertyChanged();
-           },
-           () => EditMode);*/
-
-        /*RefreshCommand = new RelayCommand(() => {
-            RefreshGrid();
-        },
-        () => ReadMode);
-
-        NewCommand = new RelayCommand(() => {
-            SelectedMessage = new Message();
-            EditMode = true;
-        },
-        () => ReadMode);
-
-        Register<String>(this, AppMessages.MSG_REFRESH_MESSAGES, _ => {
-            RefreshGrid();
-        });*/
     }
 
 }

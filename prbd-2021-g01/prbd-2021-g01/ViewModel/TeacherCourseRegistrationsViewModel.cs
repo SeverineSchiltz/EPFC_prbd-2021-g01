@@ -17,14 +17,32 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty<ObservableCollection<Registration>>(ref registrations, value);
         }
 
+        private ObservableCollectionFast<Student> students;
+        public ObservableCollectionFast<Student> Students {
+            get { return students; }
+            set {
+                students = value;
+                RaisePropertyChanged(nameof(Students));
+            }
+
+        }
+
         private Course course;
         public Course Course {
             get => course;
             set => SetProperty(ref course, value, OnRefreshData);
         }
 
+        /*private string inactiveStudent;
+
+        public string InactiveStudent { 
+            get => inactiveStudent; 
+            set => SetProperty(ref inactiveStudent, value); 
+        }*/
+
         public TeacherCourseRegistrationsViewModel() : base() {
-            Registrations = new ObservableCollection<Registration>(App.Context.Registrations);
+            Registrations = new ObservableCollectionFast<Registration>(App.Context.Registrations);
+            //Students = new ObservableCollectionFast<Student>(Student.GetInactiveStudentsByCourse(course));
         }
 
         protected override void OnRefreshData() {

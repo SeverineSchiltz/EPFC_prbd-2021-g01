@@ -11,7 +11,8 @@ namespace prbd_2021_g01.Model {
 
         public void AddCourse(Course course)
         {
-            Courses.Add(course);
+            Courses.Add(course); 
+            Context.Courses.Add(course);
             Context.SaveChanges();
         }
 

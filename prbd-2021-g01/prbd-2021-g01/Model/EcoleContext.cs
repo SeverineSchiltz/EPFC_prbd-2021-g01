@@ -64,6 +64,7 @@ namespace prbd_2021_g01.Model
             var severine = new Student("Séverine", "Sensei", "se@epfc.eu", "Password2,");
             var sinouhe = new Student("Sinouhé", "Sensei", "si@epfc.eu", "Password2,");
             var ines = new Student("Ines", "Sensei", "in@epfc.eu", "Password2,");
+            var celine = new Student("Céline", "Sensei", "ce@epfc.eu", "Password2,");
 
             var anc3 = new Course(bruno, "2002 - ANC3", 5, "Projet d'analyse et conception");
             var prbd = new Course(bruno, "2007 - PRBD", 5, "Projet de développement SGBD");
@@ -75,10 +76,13 @@ namespace prbd_2021_g01.Model
             var testDelete = new Course(bruno, "2002 - testDelete", 5, "testDelete");
 
 
-            var firstRegistration = new Registration(etudiant, anc3, RegistrationState.Active);
-            var secondRegistration = new Registration(etudiant, prbd, RegistrationState.Pending);
-
-            var thirdRegistration = new Registration(ines, prbd, RegistrationState.Inactive); //à priori, n'était pas nécessaire car on avait dit que si on ne trouvait pas l'enregistrement, c'est que l'étudiant est inactif pour ce cours
+            var registration1 = new Registration(etudiant, anc3, RegistrationState.Active);
+            var registration2 = new Registration(etudiant, prbd, RegistrationState.Pending);
+            var registration3 = new Registration(ines, prbd, RegistrationState.Inactive);
+            //à priori, n'était pas nécessaire car on avait dit que si on ne trouvait pas l'enregistrement, c'est que l'étudiant est inactif pour ce cours
+            var registration4 = new Registration(ines, anc3, RegistrationState.Pending);
+            var registration5 = new Registration(severine, prbd, RegistrationState.Inactive);
+            var registration6 = new Registration(sinouhe, prbd, RegistrationState.Active);
 
             var analyse = new Category(anc3, "analyse");
             var prog = new Category(anc3, "programmation");
@@ -93,10 +97,10 @@ namespace prbd_2021_g01.Model
 
             //bruno.AddCourse(anc3); 
             Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2, testDelete);
-            Users.AddRange(bruno, benoit, boris, etudiant);
+            Users.AddRange(bruno, benoit, boris, etudiant, severine, sinouhe, ines, celine);
             Categories.AddRange(analyse, prog);
             Questions.AddRange(quest1, quest2, quest3);
-            Registrations.AddRange(firstRegistration, secondRegistration, thirdRegistration);
+            Registrations.AddRange(registration1, registration2, registration3, registration4, registration5, registration6);
 
             SaveChanges();
 

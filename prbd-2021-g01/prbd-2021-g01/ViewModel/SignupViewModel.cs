@@ -43,10 +43,12 @@ namespace prbd_2021_g01.ViewModel {
 
         private void SignupAction() {
             if (Validate()) {
-                Student student = new Student(firstname, lastname, Email, password);
+                /*Student student = new Student(Firstname, Lastname, Email, Password);
                 // TODO: question: what's the best place (model?)
                 Context.Students.Add(student);
-                Context.SaveChanges();
+                Context.SaveChanges();*/
+                Student student = new Student(Firstname, Lastname, Email, Password);
+                student.add();
                 var user = (User)student;
                 Login(user);
                 OnSignupSuccess?.Invoke();
