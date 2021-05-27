@@ -6,8 +6,8 @@ namespace prbd_2021_g01.View {
     /// <summary>
     /// Logique d'interaction pour TeacherRegistrationsView.xaml
     /// </summary>
-    public partial class TeacherRegistrationsView : UserControlBase {
-        public TeacherRegistrationsView() {
+    public partial class TeacherCourseRegistrationsView : UserControlBase {
+        public TeacherCourseRegistrationsView() {
             InitializeComponent();
         }
 
@@ -15,7 +15,7 @@ namespace prbd_2021_g01.View {
             DependencyProperty.Register(
             nameof(Course),                 // nom de la propriété
             typeof(Course),                 // type associé à la propriété
-            typeof(TeacherRegistrationsView),     // type "propriétaire" qui déclare la propriété
+            typeof(TeacherCourseRegistrationsView),     // type "propriétaire" qui déclare la propriété
             new PropertyMetadata(null)      // métadonnées associées qui définissent la valeur par défaut (ici null)
         );
 

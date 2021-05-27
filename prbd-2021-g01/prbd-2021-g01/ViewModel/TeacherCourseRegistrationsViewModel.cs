@@ -9,7 +9,7 @@ using System.Windows.Input;
 using prbd_2021_g01.Model;
 
 namespace prbd_2021_g01.ViewModel {
-    public class TeacherRegistrationsViewModel : ViewModelCommon {
+    public class TeacherCourseRegistrationsViewModel : ViewModelCommon {
 
         private ObservableCollection<Registration> registrations;
         public ObservableCollection<Registration> Registrations {
@@ -23,7 +23,7 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty(ref course, value, OnRefreshData);
         }
 
-        public TeacherRegistrationsViewModel() : base() {
+        public TeacherCourseRegistrationsViewModel() : base() {
             Registrations = new ObservableCollection<Registration>(App.Context.Registrations);
         }
 

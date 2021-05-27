@@ -13,6 +13,8 @@ namespace prbd_2021_g01.ViewModel
 
         public event Action<Course, string> RenameTab;
 
+        public event Action<Course> CloseTab; // see Register
+
         public ICommand LogoutCommand { get; set; }
 
         public TeacherMainViewModel() : base()
@@ -30,6 +32,9 @@ namespace prbd_2021_g01.ViewModel
             });
             Register<Course>(this, AppMessages.MSG_TITLE_CHANGED, course => {
                 RenameTab?.Invoke(course, course.Title);
+            });
+            Register<Course>(this, AppMessages.MSG_CLOSE_TAB, course => {
+                CloseTab?.Invoke(course);
             });
         }
 

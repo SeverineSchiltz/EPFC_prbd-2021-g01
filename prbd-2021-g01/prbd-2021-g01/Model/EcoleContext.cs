@@ -72,6 +72,9 @@ namespace prbd_2021_g01.Model
             var prm2 = new Course(boris, "5635 - PRM2", 5, "Principes algorithmiques et programmation");
             var pro2 = new Course(boris, "1995 - PRO2", 5, "Programmation orientée objets");
 
+            var testDelete = new Course(bruno, "2002 - testDelete", 5, "testDelete");
+
+
             var firstRegistration = new Registration(etudiant, anc3, RegistrationState.Active);
             var secondRegistration = new Registration(etudiant, prbd, RegistrationState.Pending);
 
@@ -108,7 +111,7 @@ namespace prbd_2021_g01.Model
 
 
             //bruno.AddCourse(anc3); 
-            Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2);
+            Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2, testDelete);
             Users.AddRange(bruno, benoit, boris, etudiant, severine, ines, sinouhe);
             Categories.AddRange(analyse, prog, analysePRBD, progPRBD);
             Questions.AddRange(quest1, quest2, quest3, quest1PRBD, quest2PRBD, quest3PRBD);

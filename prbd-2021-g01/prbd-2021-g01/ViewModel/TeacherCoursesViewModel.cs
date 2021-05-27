@@ -34,8 +34,8 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty<string>(ref filter, value, ApplyFilterAction);
         }
         private void ApplyFilterAction() {
-            var query = from c in Context.Courses where
-                        c.Title.Contains(Filter) || c.Description.Contains(Filter) select c;
+            var query = from c in Course.GetCoursesByTeacher((Teacher)CurrentUser) //from c in Context.Courses where
+                        where c.Title.Contains(Filter) || c.Description.Contains(Filter) select c;
             Courses = new ObservableCollectionFast<Course>(query);
         }
 
@@ -58,7 +58,7 @@ namespace prbd_2021_g01.ViewModel {
             NewCourse = new RelayCommand(() => { NotifyColleagues(AppMessages.MSG_NEW_COURSE); });
 
             Register<Course>(this, AppMessages.MSG_COURSE_CHANGED, course => {
-                OnRefreshData();
+                ApplyFilterAction();  //OnRefreshData();
             });
             
             DisplayCourseDetails = new RelayCommand<Course>(course => {

@@ -9,12 +9,17 @@ using PRBD_Framework;
 namespace prbd_2021_g01.ViewModel {
     public class TeacherCourseDetailViewModel : ViewModelCommon {
 
-        public ICommand SaveCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
-        public ICommand DeleteCommand { get; set; }
+        
 
         private Course course;
         public Course Course { get => course; set => SetProperty(ref course, value); }
+        //public Course Course {
+        //    get { return Course; }
+        //    set {
+        //        course = value;
+        //        RaisePropertyChanged(nameof(Course));
+        //    }
+        //}
 
         private bool isNew;
         public bool IsNew {
@@ -28,7 +33,7 @@ namespace prbd_2021_g01.ViewModel {
         public TeacherCourseCategoriesViewModel CourseCategories { get; private set; } = new TeacherCourseCategoriesViewModel();
 
 
-        public TeacherRegistrationsViewModel CourseRegistrations { get; private set; } = new TeacherRegistrationsViewModel();
+        public TeacherCourseRegistrationsViewModel CourseRegistrations { get; private set; } = new TeacherCourseRegistrationsViewModel();
 
         public TeacherCourseQuestionsViewModel CourseQuestions { get; private set; } = new TeacherCourseQuestionsViewModel();
 
@@ -44,7 +49,7 @@ namespace prbd_2021_g01.ViewModel {
             }
         }
 
-        private string description;
+        //private string description;
         public string Description {
             get { return Course?.Description; }
             set  { // => SetProperty(ref description, value);
@@ -53,7 +58,7 @@ namespace prbd_2021_g01.ViewModel {
                 }
         }
 
-        public int MaximumCapacity {
+        public int MaxStudent {
             get {
                 if (Course?.MaxStudent == null)
                     return 0;
@@ -61,21 +66,25 @@ namespace prbd_2021_g01.ViewModel {
                     return Course.MaxStudent; }
             set {
                 Course.MaxStudent = value;
-                RaisePropertyChanged(nameof(MaximumCapacity));
+                RaisePropertyChanged(nameof(MaxStudent));
             }
         }
 
         private string teacher;
-        public string Teacher { 
+        public string Teacher {
             get { return CurrentUser.ToString(); }
             set => SetProperty(ref teacher, value);
         }
         //public string Teacher { get { return CurrentUser.ToString(); }  }
 
+        public ICommand SaveCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+
         public TeacherCourseDetailViewModel() : base() {
-            SaveCommand = new RelayCommand(SaveAction, CanSaveAction);
+            SaveCommand = new RelayCommand(SaveAction, CanSaveAction); // CanSaveOrCancelAction);
             CancelCommand = new RelayCommand(CancelAction, CanCancelAction);
-            DeleteCommand = new RelayCommand(DeleteAction, () => !IsNew);
+            DeleteCommand = new RelayCommand(DeleteAction, () => !IsNew); // () => !IsNew bc btn shouldn't be active if we are on a new course
 
         }
 
@@ -116,28 +125,29 @@ namespace prbd_2021_g01.ViewModel {
         }
 
         private void CancelAction() {
-            
-
-            //if (IsNew) {
-            //    NotifyColleagues(AppMessages.MSG_CLOSE_TAB, Member);
-            //} else {
-            //    Context.Reload(Member);
-            //    RaisePropertyChanged();
-            //}
+            if (IsNew) { // close tab if we need to cancel while editing a new course
+                NotifyColleagues(AppMessages.MSG_CLOSE_TAB, Course);
+                // NotifyColleagues because no access to the tab control
+            } else {    // course exists =>
+                Context.Reload(Course); // reload with object to load data from db
+                RaisePropertyChanged(); // notify the view that all bound properties need to be refreshed 
+                // and Context?.Entry(Course)?.State will be "unchanged" so btn will be deactivated
+            }
         }
 
         private bool CanCancelAction() {
-            //return Member != null && (IsNew || Context?.Entry(Member)?.State == EntityState.Modified);
-            return true;
+            // course not null && isnew (new course: btn active) or
+            // course not null && there are changes 
+            // EF is used to know more about the state: enum to know if object is modified
+            // asking to change tracker what is the state, if modified: true
+            return Course != null && (IsNew || Context?.Entry(Course)?.State == EntityState.Modified);
         }
 
         private void DeleteAction() {
-            //CancelAction();
-            //if (File.Exists(PicturePath))
-            //    File.Delete(PicturePath);
-            //Member.Delete();
-            //NotifyColleagues(AppMessages.MSG_MEMBER_CHANGED, Member);
-            //NotifyColleagues(AppMessages.MSG_CLOSE_TAB, Member);
+            CancelAction();
+            Course.Delete();
+            NotifyColleagues(AppMessages.MSG_COURSE_CHANGED, Course);
+            NotifyColleagues(AppMessages.MSG_CLOSE_TAB, Course);
         }
 
         private ObservableCollection<Course> courses;

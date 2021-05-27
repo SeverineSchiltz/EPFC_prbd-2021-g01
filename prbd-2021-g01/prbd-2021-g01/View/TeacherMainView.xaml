@@ -11,7 +11,8 @@
         Title="{Binding Title}" Height="768" Width="1024" WindowStartupLocation="CenterScreen" KeyDown="WindowBase_KeyDown">
 
     <Window.DataContext>
-        <vm:TeacherMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayCourse="Vm_DisplayCourse" RenameTab="Vm_RenameTab" />
+        <vm:TeacherMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayCourse="Vm_DisplayCourse" RenameTab="Vm_RenameTab"
+                                 CloseTab="Vm_CloseTab"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>             
