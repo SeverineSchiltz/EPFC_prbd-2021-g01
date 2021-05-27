@@ -12,7 +12,7 @@ namespace prbd_2021_g01.ViewModel
 {
     public class TeacherCourseQuestionsViewModel : ViewModelCommon
     {
-        public event Action UnSelect;
+        //public event Action UnSelect;
         private ObservableCollectionFast<Category> categories = new ObservableCollectionFast<Category>();
         public ObservableCollectionFast<Category> Categories
         {
@@ -29,6 +29,8 @@ namespace prbd_2021_g01.ViewModel
         public ICollectionView CategoriesView => Categories.GetCollectionView(nameof(Category.Title), ListSortDirection.Descending);
         public ICollectionView QuestionsView => Questions.GetCollectionView(nameof(Question.Title), ListSortDirection.Ascending);
 
+        //public ICollectionView CategoriesViewOfQuestion => Categories.GetCollectionView(nameof(Category.Title), ListSortDirection.Descending);
+
         private Course course;
         public Course Course
         {
@@ -40,7 +42,7 @@ namespace prbd_2021_g01.ViewModel
         public Question SelectedItem
         {
             get => selectedItem;
-            set => SetProperty(ref selectedItem, value, RaisePropertyChanged);
+            set => SetProperty(ref selectedItem, value, Reload);
         }
 
         public string Title
@@ -58,13 +60,18 @@ namespace prbd_2021_g01.ViewModel
             get { return selectedItem?.GetAnswersAsString(); }
             set
             {
-                //selectedItem.Answers = value;
+                selectedItem.SetAnswersAsString(value);
                 RaisePropertyChanged();
                 //NotifyColleagues(AppMessages.MSG_TITLE_CHANGED, Course);
             }
         }
+        public string Type
+        {
+            get { return selectedItem?.GetTypeOfQuestion() == TypeOfQuest.Multi ? "Multi correct answers" : "One correct answer"; }
+        }
 
-        
+
+
         public ICommand AllCategory { get; set; }
         public ICommand NoneCategory { get; set; }
         public ICommand CheckCategory { get; set; }
@@ -84,7 +91,7 @@ namespace prbd_2021_g01.ViewModel
                     OnRefreshData();
             });
 
-            CheckCategory = new RelayCommand(loadQuestions);
+            CheckCategory = new RelayCommand(Reload);
             AllCategory = new RelayCommand(allCategoriesAction);
 
             NoneCategory = new RelayCommand(noneCategoriesAction);
@@ -102,18 +109,21 @@ namespace prbd_2021_g01.ViewModel
             {
                 return SelectedItem != null;
             });
+
+            
+
         }
 
 
-        protected void loadQuestions()
-        {
-            //var test = Category.GetCategories(CurrentUser, Course);
-            //List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
-            //var query = Question.GetQuestions(Course, listCat);
-            Questions.Reset(Question.GetQuestions(Course)); //, listCat));
-            //Questions = new ObservableCollectionFast<Question>(query);
-            RaisePropertyChanged();
-        }
+        //protected void loadQuestions()
+        //{
+        //    //var test = Category.GetCategories(CurrentUser, Course);
+        //    //List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
+        //    //var query = Question.GetQuestions(Course, listCat);
+        //    Questions.Reset(Question.GetQuestions(Course)); //, listCat));
+        //    //Questions = new ObservableCollectionFast<Question>(query);
+        //    RaisePropertyChanged();
+        //}
 
         protected void allCategoriesAction()
         {
@@ -121,9 +131,9 @@ namespace prbd_2021_g01.ViewModel
             {
                 c.select();
             }
-            loadQuestions();
-            RaisePropertyChanged(nameof(CategoriesView));
-            
+            //loadQuestions();
+            //RaisePropertyChanged(nameof(CategoriesView));
+            Reload();
         }
 
         protected void noneCategoriesAction()
@@ -132,35 +142,46 @@ namespace prbd_2021_g01.ViewModel
             {
                 c.unSelect();
             }
-            loadQuestions();
-            RaisePropertyChanged(nameof(CategoriesView));
+            //loadQuestions();
+            //RaisePropertyChanged(nameof(CategoriesView));
+            Reload();
         }
 
 
         public void AddNewQuestionAction()
         {
-            SelectedItem = new Question(Course, "", "");
+
+            SelectedItem = new Question(Course, "");
 
         }
         public void SaveQuestionAction(Question q)
         {
-
+            SelectedItem.save();
+            OnRefreshData();
+            NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
         }
         public void DeleteQuestionAction(Question q)
         {
-
+            SelectedItem.delete();
+            OnRefreshData();
+            NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
         }
 
 
 
         protected override void OnRefreshData()
         {
-            Categories.Reset(Category.GetCategories(CurrentUser, Course));
-            List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
+            SelectedItem = new Question(Course, "");
+            Reload();
+        }
+
+        protected void Reload()
+        {
+            Categories.Reset(Category.GetCategories(Course, SelectedItem));
+            //List<Category> listCat = CategoriesView.SourceCollection.Cast<Category>().ToList();
             Questions.Reset(Question.GetQuestions(Course)); //, listCat));
-            RaisePropertyChanged(); //refresh toutes les propriétés du viewmodel dans la vue
-            //RaisePropertyChanged(nameof(Categories));
-            //throw new NotImplementedException();
+            
+            RaisePropertyChanged(); 
         }
     }
 }

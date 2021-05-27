@@ -82,12 +82,12 @@ namespace prbd_2021_g01.Model
             //cours anc3
             var analyse = new Category(anc3, "analyse");
             var prog = new Category(anc3, "programmation");
-            var quest1 = new Question(anc3, "Q1", "test1");
+            var quest1 = new Question(anc3, "Q1");
             analyse.addQuestion(quest1);
             prog.addQuestion(quest1);
-            var quest2 = new Question(anc3, "Q2", "test2");
+            var quest2 = new Question(anc3, "Q2");
             prog.addQuestion(quest2);
-            var quest3 = new Question(anc3, "Q3", "test3");
+            var quest3 = new Question(anc3, "Q3");
             analyse.addQuestion(quest3);
             var ans1q1 = new Answer(quest1, "rep1q1_false", false);
             var ans2q1 = new Answer(quest1, "rep2q1_true", true);
@@ -98,12 +98,12 @@ namespace prbd_2021_g01.Model
             //cours prbd
             var analysePRBD = new Category(prbd, "analysePRBD");
             var progPRBD = new Category(prbd, "programmationPRBD");
-            var quest1PRBD = new Question(prbd, "Q1", "test1 PRBD");
-            analysePRBD.addQuestion(quest1);
-            progPRBD.addQuestion(quest1);
-            var quest2PRBD = new Question(prbd, "Q2", "test2 PRBD");
-            progPRBD.addQuestion(quest2);
-            var quest3PRBD = new Question(prbd, "Q3", "test3 PRBD");
+            var quest1PRBD = new Question(prbd, "Q1");
+            analysePRBD.addQuestion(quest1PRBD);
+            progPRBD.addQuestion(quest1PRBD);
+            var quest2PRBD = new Question(prbd, "Q2");
+            progPRBD.addQuestion(quest2PRBD);
+            var quest3PRBD = new Question(prbd, "Q3");
 
 
 

@@ -66,8 +66,8 @@ namespace prbd_2021_g01.ViewModel
         private void LoadCategories()
         {
 
-            Categories.Reset(Category.GetCategories(CurrentUser, Course));
-
+            Categories.Reset(Category.GetCategories(Course));
+            RaisePropertyChanged(nameof(Categories));
         }
 
         private void AddNewCategoryAction()

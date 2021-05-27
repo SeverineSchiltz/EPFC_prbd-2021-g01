@@ -13,18 +13,21 @@ namespace prbd_2021_g01.Model {
         public int Id { get; set; }
         public virtual Course Course { get; set; }
         public string Title { get; set; }
-        public string Content { get; set; }
+        //public string Content { get; set; }
+        public virtual TypeOfQuest Type { get => GetTypeOfQuestion(); }
+
+        //public virtual ICollection<Category> GetCategoriesIsChecked { get => GetCategories(); }
+
         public virtual ICollection<QuizQuestion> QuizQuestions { get; set; } = new HashSet<QuizQuestion>();
         public virtual ICollection<Answer> Answers { get; set; } = new HashSet<Answer>();
         public virtual ICollection<Category> Categories { get; set; } = new HashSet<Category>();
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
-        public Question(Course course, string title, string content)
+        public Question(Course course, string title)
         {
             Course = course;
             Title = title;
-            Content = content;
         }
 
         public Question() { }
@@ -47,11 +50,100 @@ namespace prbd_2021_g01.Model {
             string answers = "";
             foreach (Answer answer in Answers)
             {
-                answers += (answer.IsCorrect ? "*" : "") + answer.Content + "\n";
+                answers += (answer.IsCorrect ? "*" : "") + answer.Content + "\r\n";
             }
 
             return answers;
         }
+
+        public void SetAnswersAsString(string answers)
+        {
+            foreach (Answer a in Answers)
+            {
+                Answers.Remove(a);
+                Context.Answers.Remove(a);
+            }
+            
+            string[] asw = answers.Split("\r\n");
+            foreach(string str in asw)
+            {
+                Answer a;
+                if(str != "" && str.Substring(0,1)== "*")
+                {
+                    a = new Answer(this, str.Substring(1, str.Length-1), true);
+                }
+                else
+                {
+                    a = new Answer(this, str, false);
+                }
+                Answers.Add(a);
+                Context.Answers.Add(a);
+            }
+            
+
+        }
+
+        public void save()
+        {
+            if (Context.Questions.Any(q => q.Id == this.Id))
+            {
+                Context.Questions.Update(this);
+            }
+            else
+            {
+                Context.Questions.Add(this);
+            }
+            foreach (Category ca in Category.GetCategories(this.Course))
+            {
+                ca.deleteQuestion(this);
+                if (ca.IsCheckedForQuestion)
+                {
+                    ca.addQuestion(this);
+                }
+            }
+
+            Context.SaveChanges();
+        }
+
+        public void delete()
+        {
+            if (Context.Questions.Any(q => q.Id == this.Id))
+            {
+                Context.Questions.Remove(this);
+            }
+
+            Context.SaveChanges();
+        }
+
+        public TypeOfQuest GetTypeOfQuestion()
+        {
+            var ans = from a in Context.Answers
+                      where a.Question.Id == this.Id && a.IsCorrect
+                      select a;
+
+            return ans.Count() > 1? TypeOfQuest.Multi: TypeOfQuest.One;
+        }
+
+        //public ICollection<Category> GetCategories()
+        //{
+
+        //    var categories = from c in Context.Categories
+        //                    where c.Course.Id == this.Course.Id
+        //                    select c;
+        //    foreach(Category cat in categories)
+        //    {
+        //        if(cat.Questions.Any(q => q.Id == this.Id))
+        //        {
+        //            cat.IsCheckedForQuestion = true;
+        //        }
+        //        else
+        //        {
+        //            cat.IsCheckedForQuestion = false;
+        //        }
+        //    }
+
+        //    return categories.Cast<Category>().ToList();
+        //}
 
         //public static List<Question> GetQuestions(Course course, List<Category> listCat)
         //{
@@ -71,6 +163,13 @@ namespace prbd_2021_g01.Model {
         //}
 
 
+
+    }
+
+    public enum TypeOfQuest
+    {
+        One,
+        Multi
 
     }
 }

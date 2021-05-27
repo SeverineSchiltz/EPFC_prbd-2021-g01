@@ -26,6 +26,14 @@ namespace prbd_2021_g01.Model {
             get => isChecked;
             set => isChecked = value;
         }
+        
+        private bool isCheckedForQuestion = false;
+        public bool IsCheckedForQuestion
+        {
+            get => isCheckedForQuestion;
+            set => isCheckedForQuestion = value;
+        }
+
 
         public Category(Course course, string title)
         {
@@ -35,7 +43,7 @@ namespace prbd_2021_g01.Model {
 
         public Category() { }
 
-        public static IQueryable<Category> GetCategories(User observer, Course course)
+        public static IQueryable<Category> GetCategories(Course course)
         {
 
             var category = from c in Context.Categories
@@ -45,11 +53,45 @@ namespace prbd_2021_g01.Model {
             return category;
         }
 
+
+        public static IQueryable<Category> GetCategories(Course course, Question qt)
+        {
+            var categories = GetCategories(course);
+
+            foreach (Category cat in categories)
+            {
+                if (qt!= null && cat.Questions.Any(q => q.Id == qt.Id))
+                {
+                    cat.IsCheckedForQuestion = true;
+                }
+                else
+                {
+                    cat.IsCheckedForQuestion = false;
+                }
+            }
+
+            return categories;
+        }
+
         public void addQuestion(Question q)
         {
             q.Categories.Add(this);
             this.Questions.Add(q);
-            Context.SaveChanges();
+            //Context.SaveChanges();
+        }
+
+        public void deleteQuestion(Question q)
+        {
+            if(q.Categories.Any(c => c.Id == this.Id))
+            {
+                q.Categories.Remove(this);
+            }
+            if (this.Questions.Any(qt => qt.Id == q.Id))
+            {
+                this.Questions.Remove(q);
+            }
+            
+            //Context.SaveChanges();
         }
 
         public static void updateOrAddCategoriesInCourse(List<Category> listCat, Course course)
@@ -95,6 +137,28 @@ namespace prbd_2021_g01.Model {
         public void select()
         {
             this.IsChecked = true;
+        }
+
+        public static IQueryable<Category> GetCategoriesForQuestion(Course co, Question q)
+        {
+
+            var category = from c in Context.Categories
+                           where c.Course.Id == co.Id
+                           select c;
+
+            foreach(Category ca in category)
+            {
+                if(ca.Questions.Any(qt => qt.Id == q.Id))
+                {
+                    ca.isCheckedForQuestion = true;
+                }
+                else
+                {
+                    ca.isCheckedForQuestion = false;
+                }
+            }
+            //changer checkedfoquest
+            return category;
         }
 
 
