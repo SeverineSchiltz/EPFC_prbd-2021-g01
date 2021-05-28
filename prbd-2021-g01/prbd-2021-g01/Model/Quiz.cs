@@ -17,6 +17,28 @@ namespace prbd_2021_g01.Model {
         public DateTime EndDateTime { get; set; }
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
+        public Quiz(Course course, string title, DateTime startDateTime, DateTime endDateTime)
+        {
+            Course = course;
+            Title = title;
+            StartDateTime = startDateTime;
+            EndDateTime = endDateTime;
+        }
+
+        public Quiz() { }
         //public virtual ICollection<QuizQuestion> quizQuestions { get; set; } = new HashSet<QuizQuestion>();
+
+
+        public static IQueryable<Quiz> GetQuizz(Course course)
+        {
+            //ne peut voir que les quizz passés et présents
+            var quizz = from q in Context.Quizz
+                           where q.Course.Id == course.Id && q.StartDateTime < DateTime.Now
+                           select q;
+
+            return quizz;
+        }
+
     }
 }

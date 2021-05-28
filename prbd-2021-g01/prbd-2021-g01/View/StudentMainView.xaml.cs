@@ -55,5 +55,26 @@ namespace prbd_2021_g01.View
             }
         }
 
+        private void Vm_DisplayStudentQuiz(Quiz quiz)
+        {
+            if (quiz != null)
+            {
+                var tag = "quiz-" + quiz.Id.ToString(); 
+                var tab = tabControl.FindByTag(tag);
+                if (tab == null)
+                {
+                    tabControl.Add(
+                        new StudentQuizView(quiz),
+                        quiz.Title,
+                        tag
+                    );
+                }
+                else
+                {
+                    tabControl.SetFocus(tab);
+                }
+            }
+        }
+
     }
 }

@@ -83,26 +83,33 @@ namespace prbd_2021_g01.Model {
 
         }
 
-        public void save()
+        public bool save()
         {
-            if (Context.Questions.Any(q => q.Id == this.Id))
-            {
-                Context.Questions.Update(this);
-            }
-            else
-            {
-                Context.Questions.Add(this);
-            }
+            bool hasCategory = false;
             foreach (Category ca in Category.GetCategories(this.Course))
             {
                 ca.deleteQuestion(this);
                 if (ca.IsCheckedForQuestion)
                 {
+                    hasCategory = true;
                     ca.addQuestion(this);
                 }
             }
+            if (hasCategory)
+            {
+                if (Context.Questions.Any(q => q.Id == this.Id))
+                {
+                    Context.Questions.Update(this);
+                }
+                else
+                {
+                    Context.Questions.Add(this);
+                    
+                }
+                Context.SaveChanges();
+            }
 
-            Context.SaveChanges();
+            return hasCategory;
         }
 
         public void delete()

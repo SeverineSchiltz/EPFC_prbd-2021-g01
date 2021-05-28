@@ -156,9 +156,13 @@ namespace prbd_2021_g01.ViewModel
         }
         public void SaveQuestionAction(Question q)
         {
-            SelectedItem.save();
-            OnRefreshData();
-            NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
+            bool hasCategory = SelectedItem.save();
+            if (hasCategory)
+            {
+                OnRefreshData();
+                NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
+            }
+
         }
         public void DeleteQuestionAction(Question q)
         {

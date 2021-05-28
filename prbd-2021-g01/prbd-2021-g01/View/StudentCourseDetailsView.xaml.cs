@@ -20,5 +20,10 @@ namespace prbd_2021_g01.View
             vm.Init(course);
         }
 
+        private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            vm.DisplayQuizCourseDetails.Execute(grid.SelectedItem);
+        }
+
     }
 }
