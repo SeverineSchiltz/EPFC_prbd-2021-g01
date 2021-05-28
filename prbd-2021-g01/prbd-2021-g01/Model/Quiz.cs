@@ -18,6 +18,8 @@ namespace prbd_2021_g01.Model {
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
+        public string Status { get => EndDateTime >= DateTime.Now ? "Active" : "Past"; }
+
         public Quiz(Course course, string title, DateTime startDateTime, DateTime endDateTime)
         {
             Course = course;

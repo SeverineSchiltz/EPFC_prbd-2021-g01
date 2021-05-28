@@ -48,6 +48,7 @@
                     <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}" SortDirection="Descending"/>
                     <DataGridTextColumn Header="Start" Binding="{Binding Path=StartDateTime}" />
                     <DataGridTextColumn Header="End" Binding="{Binding Path=EndDateTime}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" />
                 </DataGrid.Columns>
             </f:MyDataGrid>
         </Grid >

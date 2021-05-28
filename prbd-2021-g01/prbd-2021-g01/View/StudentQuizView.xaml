@@ -12,5 +12,7 @@
     <UserControl.DataContext>
         <vm:StudentQuizViewModel x:Name="vm"/>
     </UserControl.DataContext>
-   
+    <Grid>
+        
+    </Grid>
 </f:UserControlBase>
