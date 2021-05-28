@@ -177,6 +177,12 @@
   <data name="Menu_Logout" xml:space="preserve">
     <value>Déc_onnexion</value>
   </data>
+  <data name="Menu_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="ProfileView_Title" xml:space="preserve">
+    <value>Profil du membre</value>
+  </data>
   <data name="SignupView_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>

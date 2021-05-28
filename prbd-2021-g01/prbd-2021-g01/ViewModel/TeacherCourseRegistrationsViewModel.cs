@@ -39,7 +39,10 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty(ref registration, value); 
         }
 
-        public string State {
+         public RegistrationState getRegisteredStatus(Course c) {
+            return Registration.getRegistrationState(this, c);
+        }
+        public RegistrationState Status {
             get { 
                 return Registration?.State.ToString(); }
             *//*set {

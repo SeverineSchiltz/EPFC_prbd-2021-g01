@@ -295,6 +295,24 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Profile.
+        /// </summary>
+        public static string Menu_Profile {
+            get {
+                return ResourceManager.GetString("Menu_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Member&apos;s profile.
+        /// </summary>
+        public static string ProfileView_Title {
+            get {
+                return ResourceManager.GetString("ProfileView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Cancel.
         /// </summary>
         public static string SignupView_Cancel {

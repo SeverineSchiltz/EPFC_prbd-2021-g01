@@ -55,13 +55,13 @@ namespace prbd_2021_g01.Model {
                 Context.SaveChanges();
         }
 
-        /*public RegistrationState Status { 
-            get => getRegisteredStatus(c);  // not ok
-        }
+        /*public RegistrationState Status {
+            get => getRegisteredStatus(Course c);  // not ok
+        }*/
 
         public RegistrationState getRegisteredStatus(Course c) {
             return Registration.getRegistrationState(this, c);
-        }*/
+        }
 
     }
 }

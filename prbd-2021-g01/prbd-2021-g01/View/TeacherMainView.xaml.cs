@@ -64,6 +64,9 @@ namespace prbd_2021_g01.View
             Settings.Default.Save(); 
         }
 
+        private void Vm_OnProfile() {
+            App.NavigateTo<ProfileView>();
+        }
 
 
     }

@@ -195,6 +195,12 @@
   <data name="Menu_Logout" xml:space="preserve">
     <value>Log_out</value>
   </data>
+  <data name="Menu_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ProfileView_Title" xml:space="preserve">
+    <value>Member's profile</value>
+  </data>
   <data name="SignupView_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>

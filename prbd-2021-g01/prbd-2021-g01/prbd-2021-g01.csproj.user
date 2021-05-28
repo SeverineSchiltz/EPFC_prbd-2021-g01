@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\ProfileView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\StudentCourseDetailsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -33,6 +36,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\ProfileView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\StudentCourseDetailsView.xaml">
       <SubType>Designer</SubType>
     </Page>
