@@ -74,11 +74,26 @@ namespace prbd_2021_g01.Model {
 
         }
 
+        /*// To remove - just to check 
+        public static int getNumberOfActiveAndPendingStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
+                        select r;
+            return query.Count();
+        }*/
+
         public static IQueryable<Student> GetInactiveStudentsByCourse(Course course) {
             var query = from s in Context.Students
                         where s.registrations.All(
                             r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive)
                         select s;
+            return query;
+        }
+
+        public static IQueryable<Student> GetActiveAndPendingStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
+                        select r.Student;
             return query;
         }
 

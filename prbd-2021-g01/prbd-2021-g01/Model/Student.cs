@@ -55,14 +55,13 @@ namespace prbd_2021_g01.Model {
                 Context.SaveChanges();
         }
 
-        /*public static IQueryable<Student> GetInactiveStudentsByCourse(Course course) {
-            var query = from s in Context.Students
-                        where s.registrations.All(
-                            r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive)
-                        select s;
-            return query;
-        }*/
+        /*public RegistrationState Status { 
+            get => getRegisteredStatus(c);  // not ok
+        }
 
+        public RegistrationState getRegisteredStatus(Course c) {
+            return Registration.getRegistrationState(this, c);
+        }*/
 
     }
 }

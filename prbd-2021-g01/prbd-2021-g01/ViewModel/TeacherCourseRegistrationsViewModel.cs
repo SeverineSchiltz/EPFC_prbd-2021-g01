@@ -7,25 +7,66 @@ using PRBD_Framework;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using prbd_2021_g01.Model;
+using System.Collections;
 
 namespace prbd_2021_g01.ViewModel {
     public class TeacherCourseRegistrationsViewModel : ViewModelCommon {
 
-        private ObservableCollection<Registration> registrations;
-        public ObservableCollection<Registration> Registrations {
+        private ObservableCollectionFast<Registration> registrations; // = new ObservableCollectionFast<Registration>();
+        public ObservableCollectionFast<Registration> Registrations {
             get => registrations;
-            set => SetProperty<ObservableCollection<Registration>>(ref registrations, value);
+            set => SetProperty(ref registrations, value);
         }
 
-        private ObservableCollectionFast<Student> students;
-        public ObservableCollectionFast<Student> Students {
-            get { return students; }
+        private string filter;
+        public string Filter {
+            get => filter;
+            set => SetProperty<string>(ref filter, value, ApplyFilterAction);
+        }
+
+        private void ApplyFilterAction() {
+            var query = from s in Registration.GetInactiveStudentsByCourse(course) 
+                        where s.Firstname.Contains(Filter) || s.Lastname.Contains(Filter) 
+                        select s;
+            InactiveStudents = new ObservableCollectionFast<Student>(query);
+        }
+
+        public ICommand ClearFilter { get; set; }
+
+        /*private Registration registration;
+        public Registration Registration { 
+            get => registration; 
+            set => SetProperty(ref registration, value); 
+        }
+
+        public string State {
+            get { 
+                return Registration?.State.ToString(); }
+            *//*set {
+                Registration.State = (String)value;
+                RaisePropertyChanged(nameof(State));
+                //NotifyColleagues(AppMessages.MSG_TITLE_CHANGED, Course);
+            }*//*
+        }*/
+
+        private ObservableCollectionFast<Student> inactiveStudents;
+        public ObservableCollectionFast<Student> InactiveStudents {
+            get { return inactiveStudents; }
             set {
-                students = value;
-                RaisePropertyChanged(nameof(Students));
+                inactiveStudents = value;
+                RaisePropertyChanged(nameof(InactiveStudents));
             }
-
         }
+
+        private ObservableCollectionFast<Student> activeOrPendingStudents;
+        public ObservableCollectionFast<Student> ActiveOrPendingStudents {
+            get { return activeOrPendingStudents; }
+            set {
+                activeOrPendingStudents = value;
+                RaisePropertyChanged(nameof(ActiveOrPendingStudents));
+            }
+        }
+
 
         private Course course;
         public Course Course {
@@ -33,19 +74,74 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty(ref course, value, OnRefreshData);
         }
 
-        /*private string inactiveStudent;
+        private IList inactiveStudentSelectedItems = new ArrayList();
+        public IList InactiveStudentSelectedItems {
+            get => inactiveStudentSelectedItems;
+            set => SetProperty(ref inactiveStudentSelectedItems, value);
+        }
 
-        public string InactiveStudent { 
-            get => inactiveStudent; 
-            set => SetProperty(ref inactiveStudent, value); 
-        }*/
+        private IList activeOrPendingStudentSelectedItems = new ArrayList();
+        public IList ActiveOrPendingStudentSelectedItems {
+            get => activeOrPendingStudentSelectedItems;
+            set => SetProperty(ref activeOrPendingStudentSelectedItems, value);
+        }
+
+        public ICommand UnregAllSelect { get; set; }
+        public ICommand UnregSelect { get; set; }
+        public ICommand RegSelect { get; set; }
+        public ICommand RegAllSelect { get; set; }
+
 
         public TeacherCourseRegistrationsViewModel() : base() {
-            Registrations = new ObservableCollectionFast<Registration>(App.Context.Registrations);
-            //Students = new ObservableCollectionFast<Student>(Student.GetInactiveStudentsByCourse(course));
+            UnregAllSelect = new RelayCommand(MakeThemAllInactiveAction);
+            UnregSelect = new RelayCommand(MakeInactiveAction);
+            RegSelect = new RelayCommand(MakeActiveAction);
+            RegAllSelect = new RelayCommand(MakeThemAllActiveAction);
+
+            ClearFilter = new RelayCommand(() => Filter = "");
         }
 
         protected override void OnRefreshData() {
+            InactiveStudents = new ObservableCollectionFast<Student>(Registration.GetInactiveStudentsByCourse(course));
+            ActiveOrPendingStudents = new ObservableCollectionFast<Student>(Registration.GetActiveAndPendingStudentsByCourse(course));
         }
+
+        public void MakeThemAllInactiveAction() {
+            course.makeInactiveStudents(activeOrPendingStudents);
+            ResetAndNotify();
+        }
+
+        public void MakeInactiveAction() {
+            course.makeInactiveStudents(activeOrPendingStudentSelectedItems);
+            ResetAndNotify();
+            /*InactiveStudents.Reset(Registration.GetInactiveStudentsByCourse(course));
+            ActiveOrPendingStudents.Reset(Registration.GetActiveOrPendingStudentsByCourse(course));
+            RaisePropertyChanged();
+            notify();*/
+        }
+
+        public void MakeActiveAction() {
+            course.makeActiveStudents(inactiveStudentSelectedItems);
+            //course.makeInactiveStudents(activeOrPendingStudentSelectedItems);
+            ResetAndNotify();
+            /*InactiveStudents.Reset(Registration.GetInactiveStudentsByCourse(course)); 
+            ActiveOrPendingStudents.Reset(Registration.GetActiveOrPendingStudentsByCourse(course));
+            RaisePropertyChanged();
+            notify();*/
+        }
+
+        public void MakeThemAllActiveAction() {
+            course.makeActiveStudents(inactiveStudents);
+            ResetAndNotify();
+        }
+
+        public void ResetAndNotify() { // notify() {
+            InactiveStudents.Reset(Registration.GetInactiveStudentsByCourse(course)); // check if refresh in db or cache ?
+            ActiveOrPendingStudents.Reset(Registration.GetActiveAndPendingStudentsByCourse(course));
+            RaisePropertyChanged();
+            NotifyColleagues(AppMessages.MSG_STUDENT_CHANGED);
+        }
+
+
     }
 }
