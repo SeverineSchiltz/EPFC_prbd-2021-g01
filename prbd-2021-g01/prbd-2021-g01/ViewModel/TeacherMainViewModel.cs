@@ -9,7 +9,7 @@ namespace prbd_2021_g01.ViewModel
     {
         public event Action OnLogout;
 
-        public event Action OnProfile;
+        //public event Action OnProfile;
 
         public event Action<Course, bool> DisplayCourse;
 
@@ -18,12 +18,12 @@ namespace prbd_2021_g01.ViewModel
         public event Action<Course> CloseTab; // see Register
 
         public ICommand LogoutCommand { get; set; }
-        public ICommand ProfileCommand { get; set; }
+        //public ICommand ProfileCommand { get; set; }
 
         public TeacherMainViewModel() : base()
         {
             LogoutCommand = new RelayCommand(LogoutAction);
-            ProfileCommand = new RelayCommand(ProfileAction);
+            //ProfileCommand = new RelayCommand(ProfileAction);
             Register(this, AppMessages.MSG_NEW_COURSE, () => {
                 // crée une nouvelle instance pour un nouveau cours "vide"
                 var course = new Course();
@@ -52,9 +52,9 @@ namespace prbd_2021_g01.ViewModel
             OnLogout?.Invoke(); 
         }
 
-        private void ProfileAction() {
-            OnProfile?.Invoke();
-        }
+        //private void ProfileAction() {
+        //    OnProfile?.Invoke();
+        //}
 
         public string Title { 
             get => $"AppSchool ({CurrentUser.Firstname} {CurrentUser.Lastname} - Teacher)"; 

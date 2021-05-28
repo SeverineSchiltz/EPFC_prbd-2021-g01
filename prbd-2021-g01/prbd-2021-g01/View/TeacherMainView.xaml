@@ -12,7 +12,7 @@
 
     <Window.DataContext>
         <vm:TeacherMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayCourse="Vm_DisplayCourse" RenameTab="Vm_RenameTab"
-                                 CloseTab="Vm_CloseTab" OnProfile="Vm_OnProfile"/>
+                                 CloseTab="Vm_CloseTab" />
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>             
@@ -20,7 +20,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Menu>
-            <MenuItem Header="{x:Static p:Resources.Menu_Profile}" Command="{Binding ProfileCommand}" />
+            <MenuItem Header="{x:Static p:Resources.Menu_Profile}" Click="Menu_Profile_Click" />
             <MenuItem Header="{x:Static p:Resources.Menu_Logout}" Command="{Binding LogoutCommand}" />
             <MenuItem Header="{x:Static p:Resources.Menu_Languages}">
                     <MenuItem Header="{x:Static p:Resources.Menu_Languages_English}" CommandParameter="en" Click="Language_Click" />
