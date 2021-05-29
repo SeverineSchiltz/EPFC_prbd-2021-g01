@@ -26,17 +26,17 @@
             <!-- col 1 Registered students -->
             <StackPanel>
                 <TextBlock Text="Registered Students" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
-            <f:MyDataGrid x:Name="gridToCheck" ItemsSource="{Binding ActiveOrPendingStudents}"
+            <f:MyDataGrid x:Name="gridToCheck" ItemsSource="{Binding ActiveAndPendingStudents}"
                       AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
-                      SelectedItemsList="{Binding ActiveOrPendingStudentSelectedItems}">
+                      SelectedItemsList="{Binding ActiveAndPendingStudentSelectedItems}">
                     <DataGrid.Columns>
-                    <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Firstname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Lastname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
-                    <DataGridTextColumn Header="State" Binding="{Binding Path=Status}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Student.Firstname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Student.Lastname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Header="State" Binding="{Binding Path=State}" IsReadOnly="True" />
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="btnValidateOrDeactivate" Content="Deactivate" />
+                                <Button x:Name="btnValidateOrDeactivate" Content="{Binding Path=strButton}" Command="{Binding UpdateState, ElementName=vm}" />
                                 <!--Content="{Binding ValidateOrDeactivate}"-->
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

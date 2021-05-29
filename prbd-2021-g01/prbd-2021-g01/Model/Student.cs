@@ -59,9 +59,9 @@ namespace prbd_2021_g01.Model {
             get => getRegisteredStatus(Course c);  // not ok
         }*/
 
-        public RegistrationState getRegisteredStatus(Course c) {
+        /*public RegistrationState getRegisteredStatus(Course c) {
             return Registration.getRegistrationState(this, c);
-        }
+        }*/
 
     }
 }

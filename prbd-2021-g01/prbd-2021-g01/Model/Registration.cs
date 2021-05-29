@@ -18,6 +18,11 @@ namespace prbd_2021_g01.Model {
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
+        // btn content on the list of registered students (pending or active)
+        public string strButton { 
+            get => State == RegistrationState.Active ? "Deactivate" : "Activate"; 
+        }
+
         public Registration() { }
 
         public Registration(Student s, Course c, RegistrationState rs )
@@ -90,10 +95,25 @@ namespace prbd_2021_g01.Model {
             return query;
         }
 
-        public static IQueryable<Student> GetActiveAndPendingStudentsByCourse(Course course) {
+        /*public static IQueryable<Student> GetActiveAndPendingStudentsByCourse(Course course) {
             var query = from r in Context.Registrations
                         where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
                         select r.Student;
+            return query;
+        }*/
+
+        //public static IQueryable<Registration> GetInactiveRegistrationsByCourse(Course course)
+        //{
+        //    var query = from r in Context.Registrations
+        //                where r.Student || r.State == RegistrationState.Inactive
+        //                select r;
+        //    return query;
+        //}
+
+        public static IQueryable<Registration> GetActiveAndPendingRegistrationsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
+                        select r;
             return query;
         }
 
