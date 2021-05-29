@@ -234,4 +234,28 @@
   <data name="SignupView_Title" xml:space="preserve">
     <value>Signup</value>
   </data>
+  <data name="Student_Courses_AllQuizz" xml:space="preserve">
+    <value>All quizz :</value>
+  </data>
+  <data name="Student_Courses_Filter" xml:space="preserve">
+    <value>Courses filter :</value>
+  </data>
+  <data name="Student_Courses_QuizEndDate" xml:space="preserve">
+    <value>EndDate</value>
+  </data>
+  <data name="Student_Courses_QuizStartDate" xml:space="preserve">
+    <value>StartDate</value>
+  </data>
+  <data name="Student_Courses_QuizStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Student_Courses_QuizTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Student_Courses_Teacher" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="Student_Courses_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
 </root>

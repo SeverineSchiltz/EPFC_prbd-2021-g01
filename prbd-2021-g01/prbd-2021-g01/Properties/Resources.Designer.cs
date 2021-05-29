@@ -410,5 +410,77 @@ namespace prbd_2021_g01.Properties {
                 return ResourceManager.GetString("SignupView_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à All quizz :.
+        /// </summary>
+        public static string Student_Courses_AllQuizz {
+            get {
+                return ResourceManager.GetString("Student_Courses_AllQuizz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Courses filter :.
+        /// </summary>
+        public static string Student_Courses_Filter {
+            get {
+                return ResourceManager.GetString("Student_Courses_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à EndDate.
+        /// </summary>
+        public static string Student_Courses_QuizEndDate {
+            get {
+                return ResourceManager.GetString("Student_Courses_QuizEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à StartDate.
+        /// </summary>
+        public static string Student_Courses_QuizStartDate {
+            get {
+                return ResourceManager.GetString("Student_Courses_QuizStartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Status.
+        /// </summary>
+        public static string Student_Courses_QuizStatus {
+            get {
+                return ResourceManager.GetString("Student_Courses_QuizStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Title.
+        /// </summary>
+        public static string Student_Courses_QuizTitle {
+            get {
+                return ResourceManager.GetString("Student_Courses_QuizTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Teacher.
+        /// </summary>
+        public static string Student_Courses_Teacher {
+            get {
+                return ResourceManager.GetString("Student_Courses_Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Title.
+        /// </summary>
+        public static string Student_Courses_Title {
+            get {
+                return ResourceManager.GetString("Student_Courses_Title", resourceCulture);
+            }
+        }
     }
 }
