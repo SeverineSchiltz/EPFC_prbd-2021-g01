@@ -39,8 +39,6 @@ namespace prbd_2021_g01.Model
         public int NumberOfPendingStudents { get => getNumberOfPendingStudentsByCourse(); }
         public int NumberOfInactiveStudents { get => getNumberOfInactiveStudentsByCourse(); }
 
-        /*public int NumberOfActiveAndPendingStudents { get => getNumberOfActiveAndPendingStudentsByCourse(); }*/
-
         public bool HasRegistration { get => !isRegistered((Student)App.CurrentUser); }
         public virtual ICollection<Registration> registrations { get; set; } = new HashSet<Registration>();
 
@@ -71,7 +69,6 @@ namespace prbd_2021_g01.Model
             return Registration.getRegistrationState(s, this);
         }
 
-
         public static IQueryable<Course> GetCoursesByTeacher(Teacher teacher) {
             var query = from c in Context.Courses
                         where teacher.Id == c.Teacher.Id
@@ -90,10 +87,6 @@ namespace prbd_2021_g01.Model
         public int getNumberOfInactiveStudentsByCourse() {
             return Registration.getNumberOfInactiveStudentsByCourse(this);
         }
-
-        /*public int getNumberOfActiveAndPendingStudentsByCourse() {
-            return Registration.getNumberOfActiveAndPendingStudentsByCourse(this);
-        }*/
 
         public void makeActiveStudents(IList selectedStudents) {
             if (NumberOfActiveStudents + selectedStudents.Count <= MaxStudent) {
@@ -114,22 +107,6 @@ namespace prbd_2021_g01.Model
             Context.SaveChanges(); // update in db
         } 
 
-
-        /*public void makeInactiveStudents_oldVersion(IList selectedStudents) {
-            foreach (Student s in selectedStudents) {
-                if (this.getRegisteredStatus(s) == RegistrationState.Active ||
-                    this.getRegisteredStatus(s) == RegistrationState.Pending) {
-                    Registration reg = Context.Registrations.FirstOrDefault(r => r.Student.Id == s.Id && r.Course.Id == this.Id);
-                    if (reg != null) {
-                        //reg.changeStatus(RegistrationState.Inactive);
-                        reg.State = RegistrationState.Inactive;
-                        Context.Registrations.Update(reg);
-                    }
-                }
-            }
-            Context.SaveChanges(); // update in db
-        }*/
-
         public void makeInactiveStudents(IList selectedStudents) { // registrations list
             foreach (Registration r in selectedStudents) {
                 Student s = r.Student;
@@ -146,25 +123,25 @@ namespace prbd_2021_g01.Model
             Context.SaveChanges(); // update in db
         }
 
-        public void changeStatusToInactiveOrActive(Registration registration) { // 1 registration
-            Student student = registration.Student;
-            if (this.getRegisteredStatus(student) == RegistrationState.Active) {
-                registration.State = RegistrationState.Inactive;
-                Context.Registrations.Update(registration);
-            } else if (this.getRegisteredStatus(student) == RegistrationState.Pending) {
-                registration.State = RegistrationState.Active;
-                Context.Registrations.Update(registration);
+        public void activatePending(IList selectedStudents) { // registrations list
+            foreach (Registration r in selectedStudents) {
+                Student s = r.Student;
+                if (this.getRegisteredStatus(s) == RegistrationState.Pending) {
+                    Registration reg = Context.Registrations.FirstOrDefault(r => r.Student.Id == s.Id && r.Course.Id == this.Id);
+                    if (reg != null) {
+                        reg.State = RegistrationState.Active;
+                        Context.Registrations.Update(reg);
+                    }
+                }
             }
             Context.SaveChanges(); // update in db
         }
-
 
         public void Delete() {
             Teacher.Courses.Remove(this);
             Context.Courses.Remove(this);
             Context.SaveChanges();
         }
-
 
     }
 

@@ -31,27 +31,6 @@ namespace prbd_2021_g01.ViewModel {
             InactiveStudents = new ObservableCollectionFast<Student>(query);
         }
 
-        public ICommand ClearFilter { get; set; }
-
-        /*private Registration registration;
-        public Registration Registration { 
-            get => registration; 
-            set => SetProperty(ref registration, value); 
-        }
-
-         public RegistrationState getRegisteredStatus(Course c) {
-            return Registration.getRegistrationState(this, c);
-        }
-        public RegistrationState Status {
-            get { 
-                return Registration?.State.ToString(); }
-            *//*set {
-                Registration.State = (String)value;
-                RaisePropertyChanged(nameof(State));
-                //NotifyColleagues(AppMessages.MSG_TITLE_CHANGED, Course);
-            }*//*
-        }*/
-
         private ObservableCollectionFast<Student> inactiveStudents;
         public ObservableCollectionFast<Student> InactiveStudents {
             get { return inactiveStudents; }
@@ -69,7 +48,6 @@ namespace prbd_2021_g01.ViewModel {
                 RaisePropertyChanged(nameof(ActiveAndPendingStudents));
             }
         }
-
 
         private Course course;
         public Course Course {
@@ -89,26 +67,20 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty(ref activeAndPendingStudentSelectedItems, value);
         }
 
-
         public ICommand UnregAllSelect { get; set; }
         public ICommand UnregSelect { get; set; }
         public ICommand RegSelect { get; set; }
         public ICommand RegAllSelect { get; set; }
-
-        public ICommand UpdateState { get; set; }
-
+        public ICommand ActivateSelect { get; set; }
+        public ICommand ClearFilter { get; set; }
 
         public TeacherCourseRegistrationsViewModel() : base() {
             UnregAllSelect = new RelayCommand(MakeThemAllInactiveAction);
             UnregSelect = new RelayCommand(MakeInactiveAction);
             RegSelect = new RelayCommand(MakeActiveAction);
             RegAllSelect = new RelayCommand(MakeThemAllActiveAction);
-
+            ActivateSelect = new RelayCommand(ActivatePendingAction);
             ClearFilter = new RelayCommand(() => Filter = "");
-
-            UpdateState = new RelayCommand<Registration>(UpdateRegistrationStatusAction, SelectedRegistration => {
-                return !Context.ChangeTracker.HasChanges();
-            });
         }
 
         protected override void OnRefreshData() {
@@ -124,19 +96,11 @@ namespace prbd_2021_g01.ViewModel {
         public void MakeInactiveAction() {
             course.makeInactiveStudents(activeAndPendingStudentSelectedItems);
             ResetAndNotify();
-            /*InactiveStudents.Reset(Registration.GetInactiveStudentsByCourse(course));
-            ActiveOrPendingStudents.Reset(Registration.GetActiveOrPendingStudentsByCourse(course));
-            RaisePropertyChanged();
-            notify();*/
         }
 
         public void MakeActiveAction() {
             course.makeActiveStudents(inactiveStudentSelectedItems);
             ResetAndNotify();
-            /*InactiveStudents.Reset(Registration.GetInactiveStudentsByCourse(course)); 
-            ActiveOrPendingStudents.Reset(Registration.GetActiveOrPendingStudentsByCourse(course));
-            RaisePropertyChanged();
-            notify();*/
         }
 
         public void MakeThemAllActiveAction() {
@@ -151,11 +115,10 @@ namespace prbd_2021_g01.ViewModel {
             NotifyColleagues(AppMessages.MSG_STUDENT_CHANGED);
         }
 
-        public void UpdateRegistrationStatusAction(Registration r) {
-            course.changeStatusToInactiveOrActive(r);
+        public void ActivatePendingAction() {
+            course.activatePending(activeAndPendingStudents);
             ResetAndNotify();
         }
-
 
     }
 }
