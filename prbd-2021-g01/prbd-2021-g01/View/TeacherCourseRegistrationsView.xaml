@@ -34,14 +34,7 @@
                     <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Student.Firstname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
                     <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Student.Lastname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
                     <DataGridTextColumn Header="State" Binding="{Binding Path=State}" IsReadOnly="True" />
-                    <DataGridTemplateColumn Header="Actions">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="btnValidateOrDeactivate" Content="{Binding Path=strButton}" Command="{Binding UpdateState, ElementName=DataContext.reg_vm}" CommandParameter="{Binding SelectedRegistration, ElementName=gridRegistration}"/>
-                                <!--Content="{Binding ValidateOrDeactivate}"-->
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                   
                 </DataGrid.Columns>
 
                 </f:MyDataGrid>
@@ -49,12 +42,11 @@
        
             <!-- col 2 Display buttons -->
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-
+            <Button x:Name="btnActivatePending" Content="Activate&#xa;pending" Command="{Binding ActivateSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Height="45"  Grid.Row="1" Margin="5"/>
             <Button x:Name="btnUnregAllStudents" Content=">>" Command="{Binding UnregAllSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
             <Button x:Name="btnbtnUnregAStudent" Content=">" Command="{Binding UnregSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
             <Button x:Name="btnRegAStudent" Content="&lt;" Command="{Binding RegSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
             <Button x:Name="btnRegAllStudents" Content="&lt;&lt;" Command="{Binding RegAllSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
-            
         </StackPanel>
 
             <!-- col 3 Unregistered students -->
