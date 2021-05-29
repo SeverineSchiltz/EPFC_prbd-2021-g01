@@ -131,11 +131,8 @@ namespace prbd_2021_g01.Model
         }*/
 
         public void makeInactiveStudents(IList selectedStudents) { // registrations list
-            IList students = new ArrayList();
             foreach (Registration r in selectedStudents) {
-                students.Add(r.Student);
-            }
-            foreach (Student s in students) {
+                Student s = r.Student;
                 if (this.getRegisteredStatus(s) == RegistrationState.Active ||
                     this.getRegisteredStatus(s) == RegistrationState.Pending) {
                     Registration reg = Context.Registrations.FirstOrDefault(r => r.Student.Id == s.Id && r.Course.Id == this.Id);

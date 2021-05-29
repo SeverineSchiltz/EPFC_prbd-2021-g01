@@ -10,6 +10,7 @@
         mc:Ignorable="d"
         FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
     <UserControl.Resources>
+        <vm:TeacherCourseRegistrationsViewModel x:Name="reg_vm" x:Key="reg_vm" />
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
 
@@ -26,7 +27,7 @@
             <!-- col 1 Registered students -->
             <StackPanel>
                 <TextBlock Text="Registered Students" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
-            <f:MyDataGrid x:Name="gridToCheck" ItemsSource="{Binding ActiveAndPendingStudents}"
+            <f:MyDataGrid x:Name="gridRegistration" ItemsSource="{Binding ActiveAndPendingStudents}"
                       AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
                       SelectedItemsList="{Binding ActiveAndPendingStudentSelectedItems}">
                     <DataGrid.Columns>
@@ -36,7 +37,7 @@
                     <DataGridTemplateColumn Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="btnValidateOrDeactivate" Content="{Binding Path=strButton}" Command="{Binding UpdateState, ElementName=vm}" />
+                                <Button x:Name="btnValidateOrDeactivate" Content="{Binding Path=strButton}" Command="{Binding UpdateState, ElementName=DataContext.reg_vm}" CommandParameter="{Binding SelectedRegistration, ElementName=gridRegistration}"/>
                                 <!--Content="{Binding ValidateOrDeactivate}"-->
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

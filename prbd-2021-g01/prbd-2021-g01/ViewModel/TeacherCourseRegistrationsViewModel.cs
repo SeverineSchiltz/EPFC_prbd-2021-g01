@@ -89,12 +89,6 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty(ref activeAndPendingStudentSelectedItems, value);
         }
 
-        // here it is only 1 registration in the list of registered students
-        private Registration activeAndPendingStudentSelectedItem = new Registration();
-        public Registration ActiveAndPendingStudentSelectedItem {
-            get => activeAndPendingStudentSelectedItem;
-            set => SetProperty(ref activeAndPendingStudentSelectedItem, value);
-        }
 
         public ICommand UnregAllSelect { get; set; }
         public ICommand UnregSelect { get; set; }
@@ -112,7 +106,7 @@ namespace prbd_2021_g01.ViewModel {
 
             ClearFilter = new RelayCommand(() => Filter = "");
 
-            UpdateState = new RelayCommand<Course>(UpdateRegistrationStatusAction, ActiveAndPendingStudentSelectedItem => {
+            UpdateState = new RelayCommand<Registration>(UpdateRegistrationStatusAction, SelectedRegistration => {
                 return !Context.ChangeTracker.HasChanges();
             });
         }
@@ -157,8 +151,8 @@ namespace prbd_2021_g01.ViewModel {
             NotifyColleagues(AppMessages.MSG_STUDENT_CHANGED);
         }
 
-        public void UpdateRegistrationStatusAction(Course course) {
-            course.changeStatusToInactiveOrActive(activeAndPendingStudentSelectedItem);
+        public void UpdateRegistrationStatusAction(Registration r) {
+            course.changeStatusToInactiveOrActive(r);
             ResetAndNotify();
         }
 
