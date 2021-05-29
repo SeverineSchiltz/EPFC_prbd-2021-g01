@@ -13,29 +13,44 @@
         <vm:StudentCourseDetailsViewModel x:Name="vm"/>
     </UserControl.DataContext>
     <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <!-- ROW #1 -->
-        <Label Content="{Binding Title}" />
-        <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1">
-            <TabItem x:Name="test1" Header="test1">
-                <ContentControl>
-                    
-                </ContentControl>
-            </TabItem>
-            <TabItem x:Name="test2" Header="test2">
-                <ContentControl>
-                    
-                </ContentControl>
-            </TabItem>
-        </f:MyTabControl>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Course title " VerticalAlignment="Center" Grid.Row="0" />
+            <TextBlock x:Name="txtTitle"  Text="{Binding Title}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="5" />
+            <Label Content="Description " VerticalAlignment="Center" Grid.Row="1" />
+            <TextBlock x:Name="txtDescription" Text="{Binding Description}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="5" />
+            <Label Content="Teacher " VerticalAlignment="Center" Grid.Row="2" />
+            <TextBlock x:Name="txtTeacher" Text="{Binding Teacher}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="5" />
+        </Grid >
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="All quizzes :" VerticalAlignment="Center"  />
+            <f:MyDataGrid x:Name="grid" Grid.Row="1" ItemsSource="{Binding QuizzView}" ToolTip="{x:Static p:Resources.CategoriesView_DeleteTooltip}"
+                  AutoGenerateColumns="False" FontSize="12" IsReadOnly="True" Margin="5" CanUserAddRows="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
+                  MouseDoubleClick="ListView_MouseDoubleClick" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}" SortDirection="Descending"/>
+                    <DataGridTextColumn Header="Start" Binding="{Binding Path=StartDateTime}" />
+                    <DataGridTextColumn Header="End" Binding="{Binding Path=EndDateTime}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" />
+                </DataGrid.Columns>
+            </f:MyDataGrid>
+        </Grid >
     </Grid>
 </f:UserControlBase>

@@ -75,32 +75,56 @@ namespace prbd_2021_g01.Model
 
             var testDelete = new Course(bruno, "2002 - testDelete", 5, "testDelete");
 
+            var firstRegistration = new Registration(etudiant, anc3, RegistrationState.Active);
+            var secondRegistration = new Registration(etudiant, prbd, RegistrationState.Pending);
 
-            var registration1 = new Registration(etudiant, anc3, RegistrationState.Active);
-            var registration2 = new Registration(etudiant, prbd, RegistrationState.Pending);
-            var registration3 = new Registration(ines, prbd, RegistrationState.Inactive);
-            //à priori, n'était pas nécessaire car on avait dit que si on ne trouvait pas l'enregistrement, c'est que l'étudiant est inactif pour ce cours
-            var registration4 = new Registration(ines, anc3, RegistrationState.Pending);
-            var registration5 = new Registration(severine, prbd, RegistrationState.Inactive);
+            var thirdRegistration = new Registration(ines, prbd, RegistrationState.Inactive); //à priori, n'était pas nécessaire car on avait dit que si on ne trouvait pas l'enregistrement, c'est que l'étudiant est inactif pour ce cours
+            var fourthRegistration = new Registration(ines, anc3, RegistrationState.Pending);
+            var fifthRegistration = new Registration(severine, prbd, RegistrationState.Inactive);
+
             var registration6 = new Registration(sinouhe, prbd, RegistrationState.Active);
 
+            //cours anc3
             var analyse = new Category(anc3, "analyse");
             var prog = new Category(anc3, "programmation");
-
-            var quest1 = new Question(anc3, "Q1", "test1");
+            var quest1 = new Question(anc3, "Q1");
             analyse.addQuestion(quest1);
             prog.addQuestion(quest1);
-            var quest2 = new Question(anc3, "Q2", "test2");
+            var quest2 = new Question(anc3, "Q2");
             prog.addQuestion(quest2);
-            var quest3 = new Question(anc3, "Q3", "test3");
+            var quest3 = new Question(anc3, "Q3");
+            analyse.addQuestion(quest3);
+            var ans1q1 = new Answer(quest1, "rep1q1_false", false);
+            var ans2q1 = new Answer(quest1, "rep2q1_true", true);
+            var ans3q1 = new Answer(quest1, "rep3q1_true", true);
+            var ans1q2 = new Answer(quest2, "rep1q2_true", true);
+            var ans2q2 = new Answer(quest2, "rep2q2_false", false);
+
+            var quiz1 = new Quiz(anc3, "quiz1", new DateTime(2021,05,27), new DateTime(2021, 05, 30));
+            var quiz2 = new Quiz(anc3, "quiz2", new DateTime(2021, 05, 10), new DateTime(2021, 05, 15));
+            var quiz3 = new Quiz(anc3, "quiz3", new DateTime(2021, 06, 01), new DateTime(2021, 06, 05));
+
+            //cours prbd
+            var analysePRBD = new Category(prbd, "analysePRBD");
+            var progPRBD = new Category(prbd, "programmationPRBD");
+            var quest1PRBD = new Question(prbd, "Q1");
+            analysePRBD.addQuestion(quest1PRBD);
+            progPRBD.addQuestion(quest1PRBD);
+            var quest2PRBD = new Question(prbd, "Q2");
+            progPRBD.addQuestion(quest2PRBD);
+            var quest3PRBD = new Question(prbd, "Q3");
+
 
 
             //bruno.AddCourse(anc3); 
             Courses.AddRange(anc3, prbd, prwb, tgpr, prm2, pro2, testDelete);
-            Users.AddRange(bruno, benoit, boris, etudiant, severine, sinouhe, ines, celine);
-            Categories.AddRange(analyse, prog);
-            Questions.AddRange(quest1, quest2, quest3);
-            Registrations.AddRange(registration1, registration2, registration3, registration4, registration5, registration6);
+
+            Users.AddRange(bruno, benoit, boris, etudiant, severine, ines, sinouhe, celine);
+            Categories.AddRange(analyse, prog, analysePRBD, progPRBD);
+            Questions.AddRange(quest1, quest2, quest3, quest1PRBD, quest2PRBD, quest3PRBD);
+            Registrations.AddRange(firstRegistration, secondRegistration, thirdRegistration, fourthRegistration, fifthRegistration, registration6);
+            Answers.AddRange(ans1q1, ans2q1, ans3q1, ans1q2, ans2q2);
+            Quizz.AddRange(quiz1, quiz2, quiz3);
 
             SaveChanges();
 

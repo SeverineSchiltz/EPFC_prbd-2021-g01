@@ -9,6 +9,7 @@ namespace prbd_2021_g01.ViewModel
     {
         public event Action OnLogout;
         public event Action<Course, Student> DisplayStudentCourseDetails;
+        public event Action<Quiz> OnDisplayStudentQuiz;
 
         public ICommand LogoutCommand { get; set; }
 
@@ -18,6 +19,11 @@ namespace prbd_2021_g01.ViewModel
 
             Register<Course>(this, AppMessages.MSG_DISPLAY_STUDENT_COURSE, course => {
                 DisplayStudentCourseDetails?.Invoke(course, (Student) CurrentUser);
+            });
+
+            Register<Quiz>(this, AppMessages.MSG_DISPLAY_STUDENT_QUIZ, quiz => {
+                // demande à la vue de créer dynamiquement un nouvel onglet avec le titre du course (sur lequel on double clique)
+                OnDisplayStudentQuiz?.Invoke(quiz); // false: not a new course
             });
 
 

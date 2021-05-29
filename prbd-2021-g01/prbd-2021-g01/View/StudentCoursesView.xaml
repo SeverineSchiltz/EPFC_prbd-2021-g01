@@ -56,7 +56,7 @@
                         <StackPanel Height="150" Width="200" >
                             <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Description}" FontSize="12" FontStyle="Italic" Height="40" TextAlignment="Center" TextWrapping="Wrap" />
-                            <TextBlock Text="{Binding OneRegistration}" FontSize="12" TextAlignment="Center" Height="20" />
+                            <TextBlock Background="AntiqueWhite" Text="{Binding OneRegistration}" FontSize="12" TextAlignment="Center" Height="20" />
                             <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
                             <Button x:Name="btnRegistration" Content="{Binding OneRegistration}" Command="{Binding RegiState, ElementName=vm}" Height="20" Width="75" Visibility="{Binding HasRegistration, Converter={StaticResource BoolToVis}}" CommandParameter="{Binding}"/> 

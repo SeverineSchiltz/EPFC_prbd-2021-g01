@@ -28,5 +28,16 @@ namespace prbd_2021_g01.View
             get { return (Course)GetValue(CourseProperty); }
             set { SetValue(CourseProperty, value); }
         }
+
+        private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //vm.DisplayQuestion.Execute(listBox);
+            
+        }
+
+        private void Vm_UnSelect()
+        {
+            listBox.SelectedIndex = -1;
+        }
     }
 }

@@ -1,0 +1,18 @@
+﻿<f:UserControlBase x:Class="prbd_2021_g01.View.StudentQuizView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:prbd_2021_g01.ViewModel"
+        xmlns:vw="clr-namespace:prbd_2021_g01.View"
+        xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+        xmlns:p="clr-namespace:prbd_2021_g01.Properties"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:StudentQuizViewModel x:Name="vm"/>
+    </UserControl.DataContext>
+    <Grid>
+        
+    </Grid>
+</f:UserControlBase>
