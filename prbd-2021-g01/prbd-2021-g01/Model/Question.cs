@@ -67,19 +67,26 @@ namespace prbd_2021_g01.Model {
             string[] asw = answers.Split("\r\n");
             foreach(string str in asw)
             {
-                Answer a;
-                if(str != "" && str.Substring(0,1)== "*")
+                
+                if (str != "")
                 {
-                    a = new Answer(this, str.Substring(1, str.Length-1), true);
+                    Answer a;
+                    if (str.Substring(0, 1) == "*")
+                    {
+                        a = new Answer(this, str.Substring(1, str.Length - 1), true);
+                    }
+                    else
+                    {
+                        a = new Answer(this, str, false);
+                    }
+
+                    Answers.Add(a);
+                    Context.Answers.Add(a);
                 }
-                else
-                {
-                    a = new Answer(this, str, false);
-                }
-                Answers.Add(a);
-                Context.Answers.Add(a);
+
             }
-            
+            Context.SaveChanges();
+
 
         }
 
@@ -88,15 +95,21 @@ namespace prbd_2021_g01.Model {
             bool hasCategory = false;
             foreach (Category ca in Category.GetCategories(this.Course))
             {
-                ca.deleteQuestion(this);
                 if (ca.IsCheckedForQuestion)
                 {
                     hasCategory = true;
-                    ca.addQuestion(this);
                 }
             }
             if (hasCategory)
             {
+                foreach (Category ca in Category.GetCategories(this.Course))
+                {
+                    ca.deleteQuestion(this);
+                    if (ca.IsCheckedForQuestion)
+                    {
+                        ca.addQuestion(this);
+                    }
+                }
                 if (Context.Questions.Any(q => q.Id == this.Id))
                 {
                     Context.Questions.Update(this);

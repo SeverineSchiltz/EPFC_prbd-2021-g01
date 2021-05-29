@@ -65,7 +65,10 @@ namespace prbd_2021_g01.ViewModel
 
         private void LoadCategories()
         {
-
+            foreach(Category c in Categories)
+            {
+                Context.Reload(c);
+            }
             Categories.Reset(Category.GetCategories(Course));
             RaisePropertyChanged(nameof(Categories));
         }
