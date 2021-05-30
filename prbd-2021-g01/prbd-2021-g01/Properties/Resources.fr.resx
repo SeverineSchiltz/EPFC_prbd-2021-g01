@@ -201,6 +201,42 @@
   <data name="ProfileView_Title" xml:space="preserve">
     <value>Profil du membre</value>
   </data>
+  <data name="QuestionsView_AllCategories" xml:space="preserve">
+    <value>Tout</value>
+  </data>
+  <data name="QuestionsView_Answers" xml:space="preserve">
+    <value>Les réponses</value>
+  </data>
+  <data name="QuestionsView_AvailableQuest" xml:space="preserve">
+    <value>Les questions</value>
+  </data>
+  <data name="QuestionsView_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="QuestionsView_Categories" xml:space="preserve">
+    <value>Les categories :</value>
+  </data>
+  <data name="QuestionsView_CheckCategories" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="QuestionsView_Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="QuestionsView_EditSelectedQuestion" xml:space="preserve">
+    <value>Editer la question sélectionnée</value>
+  </data>
+  <data name="QuestionsView_NewQuestion" xml:space="preserve">
+    <value>Nouvelle question</value>
+  </data>
+  <data name="QuestionsView_NoneCategories" xml:space="preserve">
+    <value>Rien</value>
+  </data>
+  <data name="QuestionsView_QuestTitle" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="QuestionsView_Save" xml:space="preserve">
+    <value>Sauver</value>
+  </data>
   <data name="SignupView_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>

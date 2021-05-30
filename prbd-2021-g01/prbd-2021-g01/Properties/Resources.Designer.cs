@@ -313,6 +313,114 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à All.
+        /// </summary>
+        public static string QuestionsView_AllCategories {
+            get {
+                return ResourceManager.GetString("QuestionsView_AllCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Answers.
+        /// </summary>
+        public static string QuestionsView_Answers {
+            get {
+                return ResourceManager.GetString("QuestionsView_Answers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Available questions :.
+        /// </summary>
+        public static string QuestionsView_AvailableQuest {
+            get {
+                return ResourceManager.GetString("QuestionsView_AvailableQuest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cancel.
+        /// </summary>
+        public static string QuestionsView_Cancel {
+            get {
+                return ResourceManager.GetString("QuestionsView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Categories :.
+        /// </summary>
+        public static string QuestionsView_Categories {
+            get {
+                return ResourceManager.GetString("QuestionsView_Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Check.
+        /// </summary>
+        public static string QuestionsView_CheckCategories {
+            get {
+                return ResourceManager.GetString("QuestionsView_CheckCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete.
+        /// </summary>
+        public static string QuestionsView_Delete {
+            get {
+                return ResourceManager.GetString("QuestionsView_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit selected questions :.
+        /// </summary>
+        public static string QuestionsView_EditSelectedQuestion {
+            get {
+                return ResourceManager.GetString("QuestionsView_EditSelectedQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à New question.
+        /// </summary>
+        public static string QuestionsView_NewQuestion {
+            get {
+                return ResourceManager.GetString("QuestionsView_NewQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à None.
+        /// </summary>
+        public static string QuestionsView_NoneCategories {
+            get {
+                return ResourceManager.GetString("QuestionsView_NoneCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Title.
+        /// </summary>
+        public static string QuestionsView_QuestTitle {
+            get {
+                return ResourceManager.GetString("QuestionsView_QuestTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save.
+        /// </summary>
+        public static string QuestionsView_Save {
+            get {
+                return ResourceManager.GetString("QuestionsView_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Cancel.
         /// </summary>
         public static string SignupView_Cancel {
