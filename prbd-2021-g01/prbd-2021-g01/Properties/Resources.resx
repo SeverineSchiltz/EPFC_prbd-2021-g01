@@ -198,6 +198,27 @@
   <data name="Menu_Profile" xml:space="preserve">
     <value>Profile</value>
   </data>
+  <data name="ProfileView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ProfileView_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ProfileView_Firstname" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="ProfileView_Lastname" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="ProfileView_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ProfileView_PasswordConfirm" xml:space="preserve">
+    <value>PasswordConfirm</value>
+  </data>
+  <data name="ProfileView_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="ProfileView_Title" xml:space="preserve">
     <value>Member's profile</value>
   </data>
@@ -318,6 +339,15 @@
   <data name="SignupView_Title" xml:space="preserve">
     <value>Signup</value>
   </data>
+  <data name="StudentCoursesView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="StudentCoursesView_Teacher" xml:space="preserve">
+    <value>Teacher :</value>
+  </data>
+  <data name="StudentMainView_Courses" xml:space="preserve">
+    <value>Courses</value>
+  </data>
   <data name="Student_Courses_AllQuizz" xml:space="preserve">
     <value>All quizz :</value>
   </data>
@@ -341,5 +371,83 @@
   </data>
   <data name="Student_Courses_Title" xml:space="preserve">
     <value>Title</value>
+  </data>
+  <data name="TeacherCourseDetailView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TeacherCourseDetailView_Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="TeacherCourseDetailView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="TeacherCourseDetailView_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TeacherCourseDetailView_Grades" xml:space="preserve">
+    <value>Grades</value>
+  </data>
+  <data name="TeacherCourseDetailView_Maximum_capacity" xml:space="preserve">
+    <value>Maximum capacity</value>
+  </data>
+  <data name="TeacherCourseDetailView_Questions" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="TeacherCourseDetailView_Quizzes" xml:space="preserve">
+    <value>Quizzes</value>
+  </data>
+  <data name="TeacherCourseDetailView_Registrations" xml:space="preserve">
+    <value>Registrations</value>
+  </data>
+  <data name="TeacherCourseDetailView_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TeacherCourseDetailView_Teacher" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="TeacherCourseDetailView_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Filter" xml:space="preserve">
+    <value>Filter :</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Firstname" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Lastname" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Registered_students" xml:space="preserve">
+    <value>Registered students</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="TeacherCourseRegistrationsView_Unregistered_students" xml:space="preserve">
+    <value>Unregistered students</value>
+  </data>
+  <data name="TeacherCoursesView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="TeacherCoursesView_New_course" xml:space="preserve">
+    <value>New course</value>
+  </data>
+  <data name="TeacherCoursesView_Students" xml:space="preserve">
+    <value>Students :</value>
+  </data>
+  <data name="TeacherCoursesView_Teacher" xml:space="preserve">
+    <value>Teacher :</value>
+  </data>
+  <data name="TeacherCoursesView_Text_filter" xml:space="preserve">
+    <value>Text filter :</value>
+  </data>
+  <data name="TeacherMainView_Courses" xml:space="preserve">
+    <value>Courses</value>
   </data>
 </root>

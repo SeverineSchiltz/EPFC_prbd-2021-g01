@@ -100,7 +100,7 @@ namespace prbd_2021_g01.Model
             var ans1q2 = new Answer(quest2, "rep1q2_true", true);
             var ans2q2 = new Answer(quest2, "rep2q2_false", false);
 
-            var quiz1 = new Quiz(anc3, "quiz1", new DateTime(2021,05,27), new DateTime(2021, 05, 30));
+            var quiz1 = new Quiz(anc3, "quiz1", new DateTime(2021,05,27), new DateTime(2021, 06, 30));
             var quiz2 = new Quiz(anc3, "quiz2", new DateTime(2021, 05, 10), new DateTime(2021, 05, 15));
             var quiz3 = new Quiz(anc3, "quiz3", new DateTime(2021, 06, 01), new DateTime(2021, 06, 05));
 

@@ -25,14 +25,14 @@
         
             <!-- col 1 Registered students -->
             <StackPanel>
-                <TextBlock Text="Registered Students" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
+            <TextBlock Text="{x:Static p:Resources.TeacherCourseRegistrationsView_Registered_students}" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
             <f:MyDataGrid x:Name="gridRegistration" ItemsSource="{Binding ActiveAndPendingStudents}"
                       AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
                       SelectedItemsList="{Binding ActiveAndPendingStudentSelectedItems}">
                     <DataGrid.Columns>
-                    <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Student.Firstname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
-                    <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Student.Lastname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
-                    <DataGridTextColumn Header="State" Binding="{Binding Path=State}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static p:Resources.TeacherCourseRegistrationsView_Firstname}" Binding="{Binding Path=Student.Firstname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static p:Resources.TeacherCourseRegistrationsView_Lastname}" Binding="{Binding Path=Student.Lastname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static p:Resources.TeacherCourseRegistrationsView_State}" Binding="{Binding Path=State}" IsReadOnly="True" />
                    
                 </DataGrid.Columns>
 
@@ -50,21 +50,21 @@
 
             <!-- col 3 Unregistered students -->
             <StackPanel Grid.Column="2" >
-                <TextBlock Text="Unregistered Students" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
+            <TextBlock Text="{x:Static p:Resources.TeacherCourseRegistrationsView_Unregistered_students}" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Filter :" />
+                <Label Content="{x:Static p:Resources.TeacherCourseRegistrationsView_Filter}" />
                     <TextBox Grid.Column="1" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" FontSize="14" />
-                    <Button Content="Clear" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
+                    <Button Content="{x:Static p:Resources.TeacherCourseRegistrationsView_Clear}" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
                 </Grid>
                 <f:MyDataGrid x:Name="grid" ItemsSource="{Binding InactiveStudents}" SelectedItemsList="{Binding InactiveStudentSelectedItems}" AutoGenerateColumns="False" >
                     <DataGrid.Columns >
-                        <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Firstname}" IsReadOnly="True"  />
-                        <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Lastname}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="{x:Static p:Resources.TeacherCourseRegistrationsView_Firstname}" Binding="{Binding Path=Firstname}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="{x:Static p:Resources.TeacherCourseRegistrationsView_Lastname}" Binding="{Binding Path=Lastname}" IsReadOnly="True"  />
                     </DataGrid.Columns>
                 </f:MyDataGrid>
             </StackPanel>

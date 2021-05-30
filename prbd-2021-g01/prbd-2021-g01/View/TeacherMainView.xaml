@@ -28,7 +28,7 @@
             </MenuItem>
         </Menu>
         <f:MyTabControl x:Name="tabControl" Margin="10" Grid.Row="1" HasCloseButton="True">
-            <TabItem x:Name="coursesViewTab" Header="Courses" Tag="Courses">
+            <TabItem x:Name="coursesViewTab" Header="{x:Static p:Resources.TeacherMainView_Courses}" Tag="Courses">
                 <ContentControl>
                     <vw:TeacherCoursesView/>
                 </ContentControl>

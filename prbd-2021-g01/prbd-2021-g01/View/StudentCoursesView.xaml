@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="{x:Static p:Resources.Student_Courses_Filter}" />
             <TextBox Grid.Column="1" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" FontSize="14" />
-            <Button Content="Clear" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
+            <Button Content="{x:Static p:Resources.StudentCoursesView_Clear}" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
         </Grid>
         <ListView x:Name="listView" ItemsSource="{Binding Courses}" Grid.Row="2" BorderBrush="Transparent" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListView_MouseDoubleClick" SelectedItem="{Binding SelectedItem, ElementName=vm}">
             <!--<i:Interaction.Triggers>
@@ -57,7 +57,7 @@
                             <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Description}" FontSize="12" FontStyle="Italic" Height="40" TextAlignment="Center" TextWrapping="Wrap" />
                             <TextBlock FontWeight="Bold" Text="{Binding OneRegistration}" FontSize="12" TextAlignment="Center" Height="20" />
-                            <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
+                            <TextBlock Text="{x:Static p:Resources.StudentCoursesView_Teacher}" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
                             <Button x:Name="btnRegistration" Content="{Binding OneRegistration}" Command="{Binding RegiState, ElementName=vm}" Height="20" Width="75" Visibility="{Binding HasRegistration, Converter={StaticResource BoolToVis}}" CommandParameter="{Binding}"/> 
                         </StackPanel>
