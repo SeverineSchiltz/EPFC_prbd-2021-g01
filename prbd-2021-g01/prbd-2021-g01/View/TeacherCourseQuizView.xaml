@@ -19,8 +19,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{x:Static p:Resources.QuizView_Title}" Binding="{Binding Path=Title}" IsReadOnly="True" SortDirection="Descending"/>
                 <DataGridTextColumn Header="{x:Static p:Resources.QuizView_NbQuestions}" Binding="{Binding Path=nbOfQuestions}" IsReadOnly="True" />
-                <DataGridTextColumn Header="{x:Static p:Resources.QuizView_Start}" Binding="{Binding Path=startDate}" IsReadOnly="True" />
-                <DataGridTextColumn Header="{x:Static p:Resources.QuizView_End}" Binding="{Binding Path=endDate}" IsReadOnly="True" />
+                <DataGridTextColumn Header="{x:Static p:Resources.QuizView_Start}" Binding="{Binding Path=StartDateTime}" IsReadOnly="True" />
+                <DataGridTextColumn Header="{x:Static p:Resources.QuizView_End}" Binding="{Binding Path=EndDateTime}" IsReadOnly="True" />
             </DataGrid.Columns>
         </f:MyDataGrid>
         <WrapPanel Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="166">
