@@ -22,9 +22,9 @@ namespace prbd_2021_g01
             // Définit l'intervalle de temps (en secondes) pour le rafraîchissement des données
             //RefreshDelay = Settings.Default.RefreshDelay;
 
-            Context.Database.EnsureDeleted();
+            //Context.Database.EnsureDeleted();
             Context.Database.EnsureCreated();
-            Context.SeedData();
+            //Context.SeedData();
 
         }
 

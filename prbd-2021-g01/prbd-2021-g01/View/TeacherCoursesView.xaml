@@ -25,9 +25,9 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Text Filter :" />
+            <Label Content="{x:Static p:Resources.TeacherCoursesView_Text_filter}" />
             <TextBox Grid.Column="1" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" FontSize="14" />
-            <Button Content="Clear" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
+            <Button Content="{x:Static p:Resources.TeacherCoursesView_Clear}" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
         </Grid>
         <ListView x:Name="listView" ItemsSource="{Binding Courses}" Grid.Row="2" BorderBrush="Transparent" SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListView_MouseDoubleClick" >
             <!--<i:interaction.triggers>
@@ -47,9 +47,9 @@
                             <!-- Height="200" Width="300"-->
                             <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Description}" FontSize="12" FontStyle="Italic" Height="40" TextAlignment="Center" TextWrapping="Wrap" />
-                            <TextBlock Text="Teacher:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
+                            <TextBlock Text="{x:Static p:Resources.TeacherCoursesView_Teacher}" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <TextBlock Text="{Binding Teacher}" FontSize="12" TextAlignment="Center" />
-                            <TextBlock Text="Students:" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
+                            <TextBlock Text="{x:Static p:Resources.TeacherCoursesView_Students}" FontSize="12" TextDecorations="Underline"  TextAlignment="Center" />
                             <WrapPanel Margin="5">
                                 <Label Content="{Binding NumberOfActiveStudents}" ContentStringFormat=" {0} Active" />
                                 <Label Content="{Binding NumberOfPendingStudents}" ContentStringFormat=" {0} Pending" />
@@ -61,6 +61,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="btnNew" Content="New Course" Command="{Binding NewCourse}" HorizontalAlignment="Left" Margin="10,10" Grid.Row="3" Padding="5,1"/>
+        <Button x:Name="btnNew" Content="{x:Static p:Resources.TeacherCoursesView_New_course}" Command="{Binding NewCourse}" HorizontalAlignment="Left" Margin="10,10" Grid.Row="3" Padding="5,1"/>
     </Grid>
 </f:UserControlBase>

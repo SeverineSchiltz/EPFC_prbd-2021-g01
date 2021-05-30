@@ -37,19 +37,19 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="Title " VerticalAlignment="Center" Grid.Row="0" />
+                <Label Content="{x:Static p:Resources.TeacherCourseDetailView_Title}" VerticalAlignment="Center" Grid.Row="0" />
                 <TextBox x:Name="txtTitle" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" IsReadOnly="{Binding IsExisting}" Grid.Row="0" Grid.Column="1" Margin="5" />
-                <Label Content="Description " VerticalAlignment="Center" Grid.Row="1" />
+                <Label Content="{x:Static p:Resources.TeacherCourseDetailView_Description}" VerticalAlignment="Center" Grid.Row="1" />
                 <TextBox x:Name="txtDescription" Text="{Binding Description}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="5" />
-                <Label Content="Maximum capacity " VerticalAlignment="Center" Grid.Row="2" />
+                <Label Content="{x:Static p:Resources.TeacherCourseDetailView_Maximum_capacity}" VerticalAlignment="Center" Grid.Row="2" />
                 <TextBox x:Name="txtMaximumCapacity" Text="{Binding MaxStudent}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="5" />
-                <Label Content="Teacher " VerticalAlignment="Center" Grid.Row="3" />
+                <Label Content="{x:Static p:Resources.TeacherCourseDetailView_Teacher}" VerticalAlignment="Center" Grid.Row="3" />
                 <TextBox x:Name="txtTeacher" Text="{Binding Teacher}" VerticalAlignment="Center" IsReadOnly="{Binding IsExisting}" Grid.Row="3" Grid.Column="1" Margin="5" />
             </Grid>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Button x:Name="btnSave" Content="Save" VerticalAlignment="Center" Command="{Binding SaveCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
-                <Button x:Name="btnCancel" Content="Cancel" VerticalAlignment="Center" Command="{Binding CancelCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
-                <Button x:Name="btnDelete" Content="Delete" VerticalAlignment="Center" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
+                <Button x:Name="btnSave" Content="{x:Static p:Resources.TeacherCourseDetailView_Save}" VerticalAlignment="Center" Command="{Binding SaveCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
+                <Button x:Name="btnCancel" Content="{x:Static p:Resources.TeacherCourseDetailView_Cancel}" VerticalAlignment="Center" Command="{Binding CancelCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
+                <Button x:Name="btnDelete" Content="{x:Static p:Resources.TeacherCourseDetailView_Delete}" VerticalAlignment="Center" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Width="75" Grid.Row="1" Margin="5"/>
             </StackPanel>
         </Grid>
         <Grid Margin="0,134,0,20">
@@ -58,35 +58,35 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <f:MyTabControl x:Name="tabControl" Margin="10" >
-                <TabItem x:Name="registrations" Header="Registrations">
+                <TabItem x:Name="registrations" Header="{x:Static p:Resources.TeacherCourseDetailView_Registrations}">
                     <ContentControl>
-                        <vw:TeacherCourseRegistrationsView DataContext="{Binding CourseRegistrations}" x:Name="reg_vm"
+                        <vw:TeacherCourseRegistrationsView DataContext="{Binding CourseRegistrations}" 
                                        Course="{Binding Course}"
                                        Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}" />
                     </ContentControl>
                 </TabItem>
-                <TabItem x:Name="categories" Header="Categories">
+                <TabItem x:Name="categories" Header="{x:Static p:Resources.TeacherCourseDetailView_Categories}">
                     <ContentControl>
                         <vw:TeacherCourseCategoriesView DataContext="{Binding CourseCategories}" 
                                        Course="{Binding Course}"
                                        Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}"/>
                     </ContentControl>
                 </TabItem>
-                <TabItem x:Name="questions" Header="Questions">
+                <TabItem x:Name="questions" Header="{x:Static p:Resources.TeacherCourseDetailView_Questions}">
                     <ContentControl>
                         <vw:TeacherCourseQuestionsView DataContext="{Binding CourseQuestions }"
                                        Course="{Binding Course}"
                                        Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}"/>
                     </ContentControl>
                 </TabItem>
-                <TabItem x:Name="quizzes" Header="Quizzes">
+                <TabItem x:Name="quizzes" Header="{x:Static p:Resources.TeacherCourseDetailView_Quizzes}">
                     <ContentControl>
                         <vw:TeacherCourseQuizzesView DataContext="{Binding CourseQuizzes }"
                                        Course="{Binding Course}"
                                        Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}"/>
                     </ContentControl>
                 </TabItem>
-                <TabItem x:Name="grades" Header="Grades">
+                <TabItem x:Name="grades" Header="{x:Static p:Resources.TeacherCourseDetailView_Grades}">
                     <ContentControl>
 
                     </ContentControl>

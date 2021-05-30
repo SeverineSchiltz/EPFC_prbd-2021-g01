@@ -304,6 +304,69 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cancel.
+        /// </summary>
+        public static string ProfileView_Cancel {
+            get {
+                return ResourceManager.GetString("ProfileView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Email.
+        /// </summary>
+        public static string ProfileView_Email {
+            get {
+                return ResourceManager.GetString("ProfileView_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Firstname.
+        /// </summary>
+        public static string ProfileView_Firstname {
+            get {
+                return ResourceManager.GetString("ProfileView_Firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Lastname.
+        /// </summary>
+        public static string ProfileView_Lastname {
+            get {
+                return ResourceManager.GetString("ProfileView_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Password.
+        /// </summary>
+        public static string ProfileView_Password {
+            get {
+                return ResourceManager.GetString("ProfileView_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à PasswordConfirm.
+        /// </summary>
+        public static string ProfileView_PasswordConfirm {
+            get {
+                return ResourceManager.GetString("ProfileView_PasswordConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save.
+        /// </summary>
+        public static string ProfileView_Save {
+            get {
+                return ResourceManager.GetString("ProfileView_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Member&apos;s profile.
         /// </summary>
         public static string ProfileView_Title {
@@ -480,6 +543,267 @@ namespace prbd_2021_g01.Properties {
         public static string Student_Courses_Title {
             get {
                 return ResourceManager.GetString("Student_Courses_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Clear.
+        /// </summary>
+        public static string StudentCoursesView_Clear {
+            get {
+                return ResourceManager.GetString("StudentCoursesView_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Teacher :.
+        /// </summary>
+        public static string StudentCoursesView_Teacher {
+            get {
+                return ResourceManager.GetString("StudentCoursesView_Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Courses.
+        /// </summary>
+        public static string StudentMainView_Courses {
+            get {
+                return ResourceManager.GetString("StudentMainView_Courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cancel.
+        /// </summary>
+        public static string TeacherCourseDetailView_Cancel {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Categories.
+        /// </summary>
+        public static string TeacherCourseDetailView_Categories {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete.
+        /// </summary>
+        public static string TeacherCourseDetailView_Delete {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Description.
+        /// </summary>
+        public static string TeacherCourseDetailView_Description {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Grades.
+        /// </summary>
+        public static string TeacherCourseDetailView_Grades {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Grades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Maximum capacity.
+        /// </summary>
+        public static string TeacherCourseDetailView_Maximum_capacity {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Maximum_capacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Questions.
+        /// </summary>
+        public static string TeacherCourseDetailView_Questions {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Questions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Quizzes.
+        /// </summary>
+        public static string TeacherCourseDetailView_Quizzes {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Quizzes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Registrations.
+        /// </summary>
+        public static string TeacherCourseDetailView_Registrations {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Registrations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save.
+        /// </summary>
+        public static string TeacherCourseDetailView_Save {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Teacher.
+        /// </summary>
+        public static string TeacherCourseDetailView_Teacher {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Title.
+        /// </summary>
+        public static string TeacherCourseDetailView_Title {
+            get {
+                return ResourceManager.GetString("TeacherCourseDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Activate.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Activate {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Activate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Clear.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Clear {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Filter :.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Filter {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Firstname.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Firstname {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Lastname.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Lastname {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Registered students.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Registered_students {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Registered_students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à State.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_State {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Unregistered students.
+        /// </summary>
+        public static string TeacherCourseRegistrationsView_Unregistered_students {
+            get {
+                return ResourceManager.GetString("TeacherCourseRegistrationsView_Unregistered_students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Clear.
+        /// </summary>
+        public static string TeacherCoursesView_Clear {
+            get {
+                return ResourceManager.GetString("TeacherCoursesView_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à New course.
+        /// </summary>
+        public static string TeacherCoursesView_New_course {
+            get {
+                return ResourceManager.GetString("TeacherCoursesView_New_course", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Students :.
+        /// </summary>
+        public static string TeacherCoursesView_Students {
+            get {
+                return ResourceManager.GetString("TeacherCoursesView_Students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Teacher :.
+        /// </summary>
+        public static string TeacherCoursesView_Teacher {
+            get {
+                return ResourceManager.GetString("TeacherCoursesView_Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Text filter :.
+        /// </summary>
+        public static string TeacherCoursesView_Text_filter {
+            get {
+                return ResourceManager.GetString("TeacherCoursesView_Text_filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Courses.
+        /// </summary>
+        public static string TeacherMainView_Courses {
+            get {
+                return ResourceManager.GetString("TeacherMainView_Courses", resourceCulture);
             }
         }
     }
