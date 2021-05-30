@@ -195,6 +195,33 @@
   <data name="Menu_Logout" xml:space="preserve">
     <value>Déc_onnexion</value>
   </data>
+  <data name="QuizView_Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="QuizView_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="QuizView_Delete" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="QuizView_DeleteTooltip" xml:space="preserve">
+    <value>Sélectionner le quiz et appuyer sur 'Suppr' pour effacer</value>
+  </data>
+  <data name="QuizView_Edit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="QuizView_End" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="QuizView_NbQuestions" xml:space="preserve">
+    <value>Nb de questions</value>
+  </data>
+  <data name="QuizView_Start" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="QuizView_Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
   <data name="Menu_Profile" xml:space="preserve">
     <value>Profil</value>
   </data>
@@ -222,6 +249,42 @@
   <data name="ProfileView_Title" xml:space="preserve">
     <value>Profil du membre</value>
   </data>
+  <data name="QuestionsView_AllCategories" xml:space="preserve">
+    <value>Tout</value>
+  </data>
+  <data name="QuestionsView_Answers" xml:space="preserve">
+    <value>Les réponses</value>
+  </data>
+  <data name="QuestionsView_AvailableQuest" xml:space="preserve">
+    <value>Les questions</value>
+  </data>
+  <data name="QuestionsView_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="QuestionsView_Categories" xml:space="preserve">
+    <value>Les categories :</value>
+  </data>
+  <data name="QuestionsView_CheckCategories" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="QuestionsView_Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="QuestionsView_EditSelectedQuestion" xml:space="preserve">
+    <value>Editer la question sélectionnée</value>
+  </data>
+  <data name="QuestionsView_NewQuestion" xml:space="preserve">
+    <value>Nouvelle question</value>
+  </data>
+  <data name="QuestionsView_NoneCategories" xml:space="preserve">
+    <value>Rien</value>
+  </data>
+  <data name="QuestionsView_QuestTitle" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="QuestionsView_Save" xml:space="preserve">
+    <value>Sauver</value>
+  </data>
   <data name="SignupView_Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
@@ -247,7 +310,7 @@
     <value>Mot de passe</value>
   </data>
   <data name="SignupView_PasswordConfirm" xml:space="preserve">
-    <value>Mot de passe de confirmation</value>
+    <value>Confirmation du mot de passe</value>
   </data>
   <data name="SignupView_Signup" xml:space="preserve">
     <value>S'enregistrer</value>

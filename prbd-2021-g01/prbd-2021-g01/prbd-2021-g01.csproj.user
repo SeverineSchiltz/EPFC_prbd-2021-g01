@@ -51,6 +51,9 @@
     <Page Update="View\StudentQuizView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\TeacherCourseQuizView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\TeacherCourseCategoriesView.xaml">
       <SubType>Designer</SubType>
     </Page>

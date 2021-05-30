@@ -1,5 +1,6 @@
 ﻿using prbd_2021_g01.Model;
 using PRBD_Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,6 +47,9 @@ namespace prbd_2021_g01.ViewModel
             //Categories = new ObservableCollection<Category>(Category.GetCategories(CurrentUser, Course));
             //LoadCategories();
 
+
+            Console.WriteLine("cat vm constr");
+
             SaveCategories = new RelayCommand(AddNewCategoryAction);
 
             Cancel = new RelayCommand(LoadCategories);
@@ -59,8 +63,6 @@ namespace prbd_2021_g01.ViewModel
                 if (courseId == Course?.Id.ToString())
                     LoadCategories();
             });
-
-
         }
 
         private void LoadCategories()
@@ -105,6 +107,7 @@ namespace prbd_2021_g01.ViewModel
 
         protected override void OnRefreshData()
         {
+            Console.WriteLine("cat vm refresh");
             LoadCategories();
             //RaisePropertyChanged(nameof(Categories));
         }

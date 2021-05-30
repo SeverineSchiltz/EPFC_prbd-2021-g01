@@ -11,7 +11,6 @@ namespace prbd_2021_g01.Model {
     {
         [Key]
         public int Id { get; set; }
-        public virtual Quiz Quiz { get; set; }
         public virtual Question Question { get; set; }
         public int Weight { get; set; }
         [Timestamp]

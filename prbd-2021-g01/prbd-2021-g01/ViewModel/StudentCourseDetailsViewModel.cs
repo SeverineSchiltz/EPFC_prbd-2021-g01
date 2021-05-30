@@ -65,7 +65,7 @@ namespace prbd_2021_g01.ViewModel
 
         protected override void OnRefreshData()
         {
-            Quizz.Reset(Quiz.GetQuizz(Course));
+            Quizz.Reset(Quiz.GetQuizzStudent(Course));
             RaisePropertyChanged();
             //throw new NotImplementedException();
         }
