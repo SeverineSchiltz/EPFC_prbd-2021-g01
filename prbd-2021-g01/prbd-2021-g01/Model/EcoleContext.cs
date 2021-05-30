@@ -13,7 +13,7 @@ namespace prbd_2021_g01.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ecole")
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ecole;MultipleActiveResultSets=true")
                 .EnableSensitiveDataLogging()
                 //.UseLoggerFactory(_loggerFactory)
                 .UseLazyLoadingProxies(true)
