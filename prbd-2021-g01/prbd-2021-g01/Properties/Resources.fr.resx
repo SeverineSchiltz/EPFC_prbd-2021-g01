@@ -121,7 +121,7 @@
     <value>n'existe pas</value>
   </data>
   <data name="Error_EmailAlreadyInUse" xml:space="preserve">
-    <value>Email already in use</value>
+    <value>L'adresse email est déjà utilisée</value>
   </data>
   <data name="Error_LengthGreaterEqual3" xml:space="preserve">
     <value>le nombre de caractères doit être &gt;= 3</value>
@@ -177,35 +177,62 @@
   <data name="Menu_Logout" xml:space="preserve">
     <value>Déc_onnexion</value>
   </data>
+  <data name="QuizView_Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="QuizView_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="QuizView_Delete" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="QuizView_DeleteTooltip" xml:space="preserve">
+    <value>Sélectionner le quiz et appuyer sur 'Suppr' pour effacer</value>
+  </data>
+  <data name="QuizView_Edit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="QuizView_End" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="QuizView_NbQuestions" xml:space="preserve">
+    <value>Nb de questions</value>
+  </data>
+  <data name="QuizView_Start" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="QuizView_Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
   <data name="SignupView_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Annuler</value>
   </data>
   <data name="SignupView_Email" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="SignupView_Firstname" xml:space="preserve">
-    <value>Firstname</value>
+    <value>Prénom</value>
   </data>
   <data name="SignupView_Lastname" xml:space="preserve">
-    <value>Lastname</value>
+    <value>Nom</value>
   </data>
   <data name="SignupView_Message_1" xml:space="preserve">
-    <value>If you already have an account, click</value>
+    <value>Si vous avez déjà un compte, appuyez</value>
   </data>
   <data name="SignupView_Message_2" xml:space="preserve">
-    <value>here</value>
+    <value>ici</value>
   </data>
   <data name="SignupView_Message_3" xml:space="preserve">
-    <value>to sign in.</value>
+    <value>pour vous connecter.</value>
   </data>
   <data name="SignupView_Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Mot de passe</value>
   </data>
   <data name="SignupView_PasswordConfirm" xml:space="preserve">
-    <value>PasswordConfirm</value>
+    <value>Confirmation du mot de passe</value>
   </data>
   <data name="SignupView_Signup" xml:space="preserve">
-    <value>Sign up</value>
+    <value>S'enregistrer</value>
   </data>
   <data name="SignupView_Title" xml:space="preserve">
     <value>Enregistrement</value>
