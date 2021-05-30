@@ -115,6 +115,16 @@ namespace prbd_2021_g01.Model {
             Context.SaveChanges(); // update in db
         }
 
+        public void addQuestion(Question q, int weight)
+        {
+            this.Questions.Add(new QuizQuestion(q, weight));
+        }
+
+        public void deleteQuestion(Question question)
+        {
+            Questions.RemoveWhere(q => q.Question.Equals(question));
+        }
+
     }
 }
 

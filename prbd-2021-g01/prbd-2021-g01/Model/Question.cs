@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -44,6 +45,17 @@ namespace prbd_2021_g01.Model {
 
             return questions;
         }
+
+        public static IEnumerable<Question> GetQuestionsExcept(IList questions, Course course)
+        {
+            return GetQuestionsCourse(course).Where(question => !questions.Contains(question));
+        }
+
+        public static IEnumerable<Question> GetQuestionsCourse(Course course)
+        {
+            return Context.Questions.Where(q => q.Course.Id == course.Id);
+        }
+
         public static IQueryable<Question> GetAllQuestions()
         {
             //faut d'abord updater en BDD sinon, la requete linq ne fonctionne pas car le IsChecked n'est pas à jour!

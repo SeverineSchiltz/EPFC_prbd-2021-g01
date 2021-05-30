@@ -4,6 +4,7 @@ using PRBD_Framework;
 using System.Windows.Input;
 using prbd_2021_g01.Model;
 using System.Collections;
+using System.ComponentModel;
 
 namespace prbd_2021_g01.ViewModel {
     public class TeacherCourseQuizDetailViewModel : ViewModelCommon
@@ -28,14 +29,26 @@ namespace prbd_2021_g01.ViewModel {
         public void Init(Quiz quiz, bool isNew)
         {
 
-            // Il faut recharger ce cours dans le contexte courant pour pouvoir le modifier
-            Quiz = isNew ? quiz : Quiz.GetById(quiz.Id);
+            // Il faut recharger ce quiz dans le contexte courant pour pouvoir le modifier
+            //Quiz = isNew ? quiz : Quiz.GetById(quiz.Id);
+            Quiz = quiz;
             IsNew = isNew;
+            if(!isNew)
+            {
+                Title = quiz.Title;
+                Start = quiz.StartDateTime;
+                End = quiz.EndDateTime;
+                QuizQuestions = new ObservableCollectionFast<QuizQuestion>(quiz.Questions);
+                IList questions = new ArrayList();
+                foreach (var qq in quiz.Questions)
+                    questions.Add(qq.Question);
+                OtherQuestions = new ObservableCollectionFast<Question>(Question.GetQuestionsExcept(questions, course));
+            }
 
             RaisePropertyChanged();
         }
-
-
+        public ICollectionView QuizQuestionsView => QuizQuestions.GetCollectionView(nameof(Quiz.Title), ListSortDirection.Descending);
+        public ICollectionView OtherQuestionsView => OtherQuestions.GetCollectionView(nameof(Quiz.Title), ListSortDirection.Descending);
 
         private ObservableCollectionFast<Question> otherQuestions;
         public ObservableCollectionFast<Question> OtherQuestions {
@@ -43,8 +56,8 @@ namespace prbd_2021_g01.ViewModel {
             set => SetProperty(ref otherQuestions, value);
         }
 
-        private ObservableCollectionFast<Question> quizQuestions;
-        public ObservableCollectionFast<Question> QuizQuestions
+        private ObservableCollectionFast<QuizQuestion> quizQuestions;
+        public ObservableCollectionFast<QuizQuestion> QuizQuestions
         {
             get => quizQuestions;
             set => SetProperty(ref quizQuestions, value);

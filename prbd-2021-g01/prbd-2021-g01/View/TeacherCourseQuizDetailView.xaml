@@ -37,46 +37,44 @@
         <StackPanel Grid.Column="0">
             <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_Title}" VerticalAlignment="Center" Padding="5" />
             <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <TextBox x:Name="txtLastname" TextWrapping="Wrap" Grid.Column="1" 
-                     Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox x:Name="txtTitle" TextWrapping="Wrap" Grid.Column="1" 
+                     Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
             </f:ValidatedField>
             <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_Start}" VerticalAlignment="Center" Padding="5" />
             <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <TextBox x:Name="txtLastname1" TextWrapping="Wrap" Grid.Column="1" 
-                     Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DatePicker x:Name="dpStart" SelectedDate="{Binding Path=Start, Mode=TwoWay}"/>
             </f:ValidatedField>
-            <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_End}" VerticalAlignment="Center" Padding="5" />
+            <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_Start}" VerticalAlignment="Center" Padding="5" />
             <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <TextBox x:Name="txtLastname2" TextWrapping="Wrap" Grid.Column="1" 
-                     Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DatePicker x:Name="dpEnd" SelectedDate="{Binding Path=End, Mode=TwoWay}"/>
             </f:ValidatedField>
         </StackPanel>
 
         <!-- col 2 quiz questions -->
         <StackPanel Grid.Column="1">
             <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="16" ><Run Language="fr-be" Text="Quiz questions"/></TextBlock>
-            <f:MyDataGrid x:Name="gridRegistration" ItemsSource="{Binding ActiveAndPendingStudents}"
+            <f:MyDataGrid x:Name="quizQuestions" ItemsSource="{Binding QuizQuestionsView}"
                       AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
-                      SelectedItemsList="{Binding ActiveAndPendingStudentSelectedItems}">
+                      SelectedItemsList="{Binding SelectedQuizQuestions}">
                 <f:MyDataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static p:Resources.QuizDetailView_Title}" Binding="{Binding Student.Firstname}" IsReadOnly="True" />
-                    <DataGridTextColumn Header="{x:Static p:Resources.QuizDetailView_Weight}" Binding="{Binding Student.Lastname}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static p:Resources.QuizDetailView_Title}" Binding="{Binding Path=Question.Title}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static p:Resources.QuizDetailView_Weight}" Binding="{Binding Path=Weight}" IsReadOnly="True" />
                 </f:MyDataGrid.Columns>
             </f:MyDataGrid>
         </StackPanel>
 
         <!-- col 3 buttons -->
         <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="66">
-            <Button x:Name="btnbtnUnregAStudent" Content=">" Command="{Binding UnregSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
-            <Button x:Name="btnRegAStudent" Content="&lt;" Command="{Binding RegSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnAddQuestions" Content=">" Command="{Binding AddQuestions}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnRemoveQuestions" Content="&lt;" Command="{Binding RemoveQuestions}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
         </StackPanel>
 
         <!-- col 4 other questions -->
         <StackPanel Grid.Column="3" >
             <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="16" ><Run Text="Other questions"/></TextBlock>
-            <f:MyDataGrid x:Name="grid" ItemsSource="{Binding InactiveStudents}" SelectedItemsList="{Binding InactiveStudentSelectedItems}" AutoGenerateColumns="False" Margin="5">
+            <f:MyDataGrid x:Name="grid" ItemsSource="{Binding OtherQuestionsView}" SelectedItemsList="{Binding SelectedOtherQuestions}" AutoGenerateColumns="False" Margin="5">
                 <f:MyDataGrid.Columns >
-                    <DataGridTextColumn Header="Title" Binding="{Binding Title}" IsReadOnly="True"  />
+                    <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}" IsReadOnly="True"  />
                 </f:MyDataGrid.Columns>
             </f:MyDataGrid>
             <Grid Margin="10">

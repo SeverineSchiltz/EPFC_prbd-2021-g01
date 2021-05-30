@@ -104,6 +104,13 @@ namespace prbd_2021_g01.Model
             var quiz2 = new Quiz(anc3, "quiz2", new DateTime(2021, 05, 10), new DateTime(2021, 05, 15));
             var quiz3 = new Quiz(anc3, "quiz3", new DateTime(2021, 06, 01), new DateTime(2021, 06, 05));
 
+            quiz1.addQuestion(quest1, 3);
+            quiz1.addQuestion(quest2, 5);
+
+            quiz2.addQuestion(quest1, 7);
+
+            quiz3.addQuestion(quest3, 8);
+
             //cours prbd
             var analysePRBD = new Category(prbd, "analysePRBD");
             var progPRBD = new Category(prbd, "programmationPRBD");

@@ -22,6 +22,12 @@ namespace prbd_2021_g01.Model {
             Weight = 1;
         }
 
+        public QuizQuestion(Question question, int weight)
+        {
+            Question = question;
+            Weight = weight;
+        }
+
         public QuizQuestion()
         {
 
