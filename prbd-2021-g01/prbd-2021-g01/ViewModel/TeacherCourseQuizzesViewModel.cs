@@ -30,7 +30,7 @@ namespace prbd_2021_g01.ViewModel
 
         protected override void OnRefreshData()
         {
-            Quizz.Reset(Quiz.GetQuizzTeacher(Course));
+            Quizz.Reset(Quiz.GetQuizzes(Course));
             //throw new NotImplementedException();
         }
     }
