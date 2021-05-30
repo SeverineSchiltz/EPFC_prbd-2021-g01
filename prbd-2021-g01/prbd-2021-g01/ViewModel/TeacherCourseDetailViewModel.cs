@@ -36,6 +36,7 @@ namespace prbd_2021_g01.ViewModel {
 
         public TeacherCourseQuestionsViewModel CourseQuestions { get; private set; } = new TeacherCourseQuestionsViewModel();
 
+        public TeacherCourseQuizzesViewModel CourseQuizzes { get; private set; } = new TeacherCourseQuizzesViewModel();
 
         public bool IsExisting { get => !isNew; }
 
@@ -94,6 +95,9 @@ namespace prbd_2021_g01.ViewModel {
             this.BindOneWay(nameof(Course), CourseRegistrations, nameof(CourseRegistrations.Course));
 
             this.BindOneWay(nameof(Course), CourseQuestions, nameof(CourseQuestions.Course));
+            
+            this.BindOneWay(nameof(Course), CourseQuizzes, nameof(CourseQuizzes.Course));
+
 
             // Il faut recharger ce cours dans le contexte courant pour pouvoir le modifier
             Course = isNew ? course : Course.GetByTitle(course.Title);

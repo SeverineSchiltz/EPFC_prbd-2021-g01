@@ -32,12 +32,21 @@ namespace prbd_2021_g01.Model {
         //public virtual ICollection<QuizQuestion> quizQuestions { get; set; } = new HashSet<QuizQuestion>();
 
 
-        public static IQueryable<Quiz> GetQuizz(Course course)
+        public static IQueryable<Quiz> GetQuizz(Course course) //Pour les students
         {
             //ne peut voir que les quizz passés et présents
             var quizz = from q in Context.Quizz
                            where q.Course.Id == course.Id && q.StartDateTime < DateTime.Now
                            select q;
+
+            return quizz;
+        }
+
+        public static IQueryable<Quiz> GetQuizzTeacher(Course course)
+        {
+            var quizz = from q in Context.Quizz
+                        where q.Course.Id == course.Id
+                        select q;
 
             return quizz;
         }
