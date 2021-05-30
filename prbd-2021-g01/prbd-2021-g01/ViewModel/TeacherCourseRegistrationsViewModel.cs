@@ -116,7 +116,7 @@ namespace prbd_2021_g01.ViewModel {
         }
 
         public void ActivatePendingAction() {
-            course.activatePending(activeAndPendingStudents);
+            course.activatePending(activeAndPendingStudentSelectedItems);
             ResetAndNotify();
         }
 

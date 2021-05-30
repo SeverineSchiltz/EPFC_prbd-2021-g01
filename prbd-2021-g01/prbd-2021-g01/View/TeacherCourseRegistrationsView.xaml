@@ -10,7 +10,6 @@
         mc:Ignorable="d"
         FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
     <UserControl.Resources>
-        <vm:TeacherCourseRegistrationsViewModel x:Name="reg_vm" x:Key="reg_vm" />
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
 
