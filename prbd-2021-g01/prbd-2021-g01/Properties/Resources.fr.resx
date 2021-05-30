@@ -321,4 +321,25 @@
   <data name="Student_Courses_Title" xml:space="preserve">
     <value>Titre</value>
   </data>
+  <data name="QuizDetailView_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="QuizDetailView_Confirm" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="QuizDetailView_Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="QuizDetailView_End" xml:space="preserve">
+    <value>Fin</value>
+  </data>
+  <data name="QuizDetailView_Start" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="QuizDetailView_Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="QuizDetailView_Weight" xml:space="preserve">
+    <value>Poids</value>
+  </data>
 </root>

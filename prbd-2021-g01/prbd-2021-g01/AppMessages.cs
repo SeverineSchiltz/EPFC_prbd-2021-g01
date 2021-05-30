@@ -15,5 +15,8 @@ namespace prbd_2021_g01
         MSG_DISPLAY_STUDENT_QUIZ,
         MSG_REFRESH_QUIZ,
         MSG_STUDENT_CHANGED,
+        MSG_DISPLAY_QUIZ,
+        MSG_QUIZ_CHANGED,
+        MSG_NEW_QUIZ
     }
 }

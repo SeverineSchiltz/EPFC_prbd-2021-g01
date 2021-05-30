@@ -39,6 +39,26 @@ namespace prbd_2021_g01.View
             }
         }
 
+        private void Vm_DisplayQuiz(Quiz quiz, bool isNew)
+        {
+            if (quiz != null)
+            {
+                // tag has to be unique (ipt when we open tabs)
+                // convention : class name and its id (with "-" between them)
+                var tag = "quiz-" + quiz.Id.ToString();
+                var tab = tabControl.FindByTag(tag);
+                if (tab == null)
+                    //tabControl.Add(null, "<new course>");
+                    tabControl.Add(
+                        new TeacherCourseQuizDetailView(quiz, isNew),
+                        isNew ? "<new quiz>" : quiz.Title,
+                        tag
+                    );
+                else
+                    tabControl.SetFocus(tab);
+            }
+        }
+
         private void Vm_RenameTab(Course course, string header) {
             var tab = tabControl.SelectedItem as TabItem;
             if (tab != null) {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,12 +17,17 @@ namespace prbd_2021_g01.Model {
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         [Timestamp]
-        public virtual ICollection<QuizQuestion> Questions { get; set; } = new HashSet<QuizQuestion>();
+        public virtual HashSet<QuizQuestion> Questions { get; set; } = new HashSet<QuizQuestion>();
 
         public int nbOfQuestions { get => Questions.Count(); }
         public byte[] Timestamp { get; set; }
 
         public string Status { get => EndDateTime >= DateTime.Now ? "Active" : "Past"; }
+
+        public Quiz GetById(int id)
+        {
+            return Context.Quizz.SingleOrDefault(q => q.Id == id);
+        }
 
         public Quiz(Course course, string title, DateTime startDateTime, DateTime endDateTime)
         {
@@ -88,5 +94,39 @@ namespace prbd_2021_g01.Model {
             }
 
         }
+
+        public void addQuestions(IList<Question> listQuestions)
+        {
+            ICollection<QuizQuestion> listQuizQuestions = new HashSet<QuizQuestion>();
+            foreach (var q in listQuestions)
+            {
+                listQuizQuestions.Add(new QuizQuestion(q));
+            }
+            Extensions.AddRange(Questions, listQuizQuestions);
+            Context.SaveChanges(); // update in db
+        }
+
+        public void removeQuestions(IList listQuestions)
+        {
+            if (listQuestions != null)
+            {
+                Questions.RemoveWhere(q => listQuestions.Contains(q.Question));
+            }
+            Context.SaveChanges(); // update in db
+        }
+
+    }
+}
+
+public static class Extensions
+{
+    public static bool AddRange<T>(this HashSet<T> source, IEnumerable<T> items)
+    {
+        bool allAdded = true;
+        foreach (T item in items)
+        {
+            allAdded &= source.Add(item);
+        }
+        return allAdded;
     }
 }

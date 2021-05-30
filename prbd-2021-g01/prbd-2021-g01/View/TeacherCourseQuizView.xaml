@@ -9,10 +9,13 @@
         xmlns:vw="clr-namespace:prbd_2021_g01.View"
         mc:Ignorable="d"
         FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
+    <UserControl.DataContext>
+        <vm:TeacherCourseQuizViewModel x:Name="vm"/>
+    </UserControl.DataContext>
     <StackPanel>
-        <f:MyDataGrid x:Name="grid" ItemsSource="{Binding QuizView}" ToolTip="{x:Static p:Resources.QuizView_DeleteTooltip}"
-                  AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
-                  SelectedItemsList="{Binding SelectedItems}" >
+        <f:MyDataGrid x:Name="grid" ItemsSource="{Binding QuizView}"
+                  IsReadOnly="True" Margin="5"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" AutoGenerateColumns="False"
+                  SelectedItemsList="{Binding SelectedItems}" MouseDoubleClick="Quiz_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{x:Static p:Resources.QuizView_Title}" Binding="{Binding Path=Title}" IsReadOnly="True" SortDirection="Descending"/>
                 <DataGridTextColumn Header="{x:Static p:Resources.QuizView_NbQuestions}" Binding="{Binding Path=nbOfQuestions}" IsReadOnly="True" />
@@ -22,9 +25,8 @@
         </f:MyDataGrid>
         <WrapPanel Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="166">
             <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.QuizView_Add}" Margin="5" Command="{Binding AddQuiz}"/>
-            <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.QuizView_Edit}" Margin="5" Command="{Binding EditQuiz}"/>
             <!--<Button HorizontalAlignment="Right" Content="{x:Static p:Resources.QuizView_Cancel}" Margin="5" Command="{Binding Cancel}" />-->
-            <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.QuizView_Delete}" Margin="5" Command="{Binding DeleteQuiz}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
+            <Button HorizontalAlignment="Right" Content="{x:Static p:Resources.QuizView_Delete}" Margin="5" Command="{Binding DeleteQuizzes}" CommandParameter="{Binding SelectedItemsList, ElementName=grid}"/>
         </WrapPanel>
     </StackPanel>
 </f:UserControlBase>

@@ -237,6 +237,27 @@
   <data name="QuestionsView_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="QuizDetailView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="QuizDetailView_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="QuizDetailView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="QuizDetailView_End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="QuizDetailView_Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="QuizDetailView_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="QuizDetailView_Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
   <data name="QuizView_Add" xml:space="preserve">
     <value>Add</value>
   </data>

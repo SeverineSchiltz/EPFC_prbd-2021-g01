@@ -31,34 +31,28 @@ namespace prbd_2021_g01.ViewModel
             get => course;
             set => SetProperty(ref course, value, OnRefreshData);
         }
-
-        public ICommand SaveQuizzes { get; set; }
-        public ICommand Cancel { get; set; }
+        public ICommand AddQuiz { get; set; }
         public ICommand DeleteQuizzes { get; set; }
-
-
+        public ICommand DisplayQuizDetails { get; set; }
         public ICollectionView QuizView => Quizzes.GetCollectionView(nameof(Quiz.Title), ListSortDirection.Descending);
 
         public TeacherCourseQuizViewModel()
         {
 
-            //Course est à null...
-            //Quizzes = new ObservableCollection<Quiz>(Quiz.GetQuizzes(CurrentUser, Course));
-            //LoadQuizzes();
-
-            Console.WriteLine("quiz vm constr");
-
-            SaveQuizzes = new RelayCommand(AddNewQuizzesAction);
-
-            Cancel = new RelayCommand(LoadQuizzes);
+            AddQuiz = new RelayCommand(() => {
+                NotifyColleagues(AppMessages.MSG_NEW_QUIZ); 
+            });
 
             DeleteQuizzes = new RelayCommand<IList>(DeleteQuizzesAction, selectedItems => {
                 return !Context.ChangeTracker.HasChanges() && selectedItems?.Count > 0;
             });
 
+            DisplayQuizDetails = new RelayCommand<Quiz>(quiz => {
+                NotifyColleagues(AppMessages.MSG_DISPLAY_QUIZ, quiz);
+            });
+
             Register<string>(this, AppMessages.MSG_REFRESH_QUIZ, courseId =>
             {
-                Console.WriteLine("quiz vm register");
                 if (courseId == Course?.Id.ToString())
                     LoadQuizzes();
             });
@@ -68,7 +62,6 @@ namespace prbd_2021_g01.ViewModel
 
         private void LoadQuizzes()
         {
-            Console.WriteLine("quiz vm load");
             Quizzes.Reset(Quiz.GetQuizzes(Course));
             RaisePropertyChanged(nameof(Quizzes));
         }
@@ -102,10 +95,8 @@ namespace prbd_2021_g01.ViewModel
 
         }
 
-
         protected override void OnRefreshData()
         {
-            Console.WriteLine("quiz vm refresh");
             LoadQuizzes();
             //RaisePropertyChanged(nameof(Quizzes));
         }

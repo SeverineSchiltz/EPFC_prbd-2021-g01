@@ -13,6 +13,8 @@ namespace prbd_2021_g01.ViewModel
 
         public event Action<Course, bool> DisplayCourse;
 
+        public event Action<Quiz, bool> DisplayQuiz;
+
         public event Action<Course, string> RenameTab;
 
         public event Action<Course> CloseTab; // see Register
@@ -39,6 +41,16 @@ namespace prbd_2021_g01.ViewModel
             });
             Register<Course>(this, AppMessages.MSG_CLOSE_TAB, course => {
                 CloseTab?.Invoke(course);
+            });
+            Register<Quiz>(this, AppMessages.MSG_DISPLAY_QUIZ, quiz => {
+                // demande à la vue de créer dynamiquement un nouvel onglet avec le titre du quiz (sur lequel on double clique)
+                DisplayQuiz?.Invoke(quiz, false); // false: not a new quiz
+            });
+            Register(this, AppMessages.MSG_NEW_QUIZ, () => {
+                // crée une nouvelle instance pour un nouveau quiz "vide"
+                var quiz = new Quiz();
+                // demande à la vue de créer dynamiquement un nouvel onglet avec le titre "<new quiz>"
+                DisplayQuiz?.Invoke(quiz, true);
             });
         }
 

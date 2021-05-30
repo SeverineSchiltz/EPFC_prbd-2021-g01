@@ -22,9 +22,6 @@
     <Compile Update="View\TeacherCourseQuestionsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\TeacherCourseQuizzesView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\TeacherCoursesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +37,11 @@
     <Compile Update="View\TeacherCourseRegistrationsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.fr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\ProfileView.xaml">
@@ -60,7 +62,7 @@
     <Page Update="View\TeacherCourseQuestionsView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\TeacherCourseQuizzesView.xaml">
+    <Page Update="View\TeacherCourseQuizDetailView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\TeacherCoursesView.xaml">

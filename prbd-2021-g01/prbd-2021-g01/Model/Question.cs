@@ -44,6 +44,17 @@ namespace prbd_2021_g01.Model {
 
             return questions;
         }
+        public static IQueryable<Question> GetAllQuestions()
+        {
+            //faut d'abord updater en BDD sinon, la requete linq ne fonctionne pas car le IsChecked n'est pas à jour!
+            Context.SaveChanges();
+            var questions = from q in Context.Questions
+                            select q;
+            ////Pour tester
+            //List<Question> test = questions.Cast<Question>().ToList();
+
+            return questions;
+        }
 
         public string GetAnswersAsString()
         {

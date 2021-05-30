@@ -12,7 +12,7 @@
 
     <Window.DataContext>
         <vm:TeacherMainViewModel x:Name="vm" OnLogout="Vm_OnLogout" DisplayCourse="Vm_DisplayCourse" RenameTab="Vm_RenameTab"
-                                 CloseTab="Vm_CloseTab" />
+                                 CloseTab="Vm_CloseTab" DisplayQuiz="Vm_DisplayQuiz"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>             

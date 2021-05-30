@@ -1,0 +1,92 @@
+﻿<f:UserControlBase x:Class="prbd_2021_g01.View.TeacherCourseQuizDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:f="clr-namespace:PRBD_Framework;assembly=PRBD_Framework"
+        xmlns:p="clr-namespace:prbd_2021_g01.Properties"
+        xmlns:vm="clr-namespace:prbd_2021_g01.ViewModel"
+        xmlns:vw="clr-namespace:prbd_2021_g01.View"
+        mc:Ignorable="d"
+        FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
+    <UserControl.DataContext>
+        <vm:TeacherCourseQuizDetailViewModel x:Name="vm" />
+    </UserControl.DataContext>
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <!-- col 1 attributes-->
+            <ColumnDefinition Width="120*"/>
+            <!-- col 2 quiz questions -->
+            <ColumnDefinition Width="120"/>
+            <!-- col 3 buttons-->
+            <ColumnDefinition Width="50*"/>
+            <!-- col 4 other questions-->
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <!-- row 1 main -->
+            <RowDefinition Height="300*"/>
+            <!-- row 2 button-->
+            <RowDefinition Height="75*"/>
+        </Grid.RowDefinitions>
+
+        <!-- col 1 attributes -->
+
+        <StackPanel Grid.Column="0">
+            <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_Title}" VerticalAlignment="Center" Padding="5" />
+            <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox x:Name="txtLastname" TextWrapping="Wrap" Grid.Column="1" 
+                     Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+            </f:ValidatedField>
+            <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_Start}" VerticalAlignment="Center" Padding="5" />
+            <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox x:Name="txtLastname1" TextWrapping="Wrap" Grid.Column="1" 
+                     Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+            </f:ValidatedField>
+            <Label Grid.Row="1" Content="{x:Static p:Resources.QuizDetailView_End}" VerticalAlignment="Center" Padding="5" />
+            <f:ValidatedField Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox x:Name="txtLastname2" TextWrapping="Wrap" Grid.Column="1" 
+                     Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+            </f:ValidatedField>
+        </StackPanel>
+
+        <!-- col 2 quiz questions -->
+        <StackPanel Grid.Column="1">
+            <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="16" ><Run Language="fr-be" Text="Quiz questions"/></TextBlock>
+            <f:MyDataGrid x:Name="gridRegistration" ItemsSource="{Binding ActiveAndPendingStudents}"
+                      AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
+                      SelectedItemsList="{Binding ActiveAndPendingStudentSelectedItems}">
+                <f:MyDataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static p:Resources.QuizDetailView_Title}" Binding="{Binding Student.Firstname}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static p:Resources.QuizDetailView_Weight}" Binding="{Binding Student.Lastname}" IsReadOnly="True" />
+                </f:MyDataGrid.Columns>
+            </f:MyDataGrid>
+        </StackPanel>
+
+        <!-- col 3 buttons -->
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="66">
+            <Button x:Name="btnbtnUnregAStudent" Content=">" Command="{Binding UnregSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnRegAStudent" Content="&lt;" Command="{Binding RegSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+        </StackPanel>
+
+        <!-- col 4 other questions -->
+        <StackPanel Grid.Column="3" >
+            <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="16" ><Run Text="Other questions"/></TextBlock>
+            <f:MyDataGrid x:Name="grid" ItemsSource="{Binding InactiveStudents}" SelectedItemsList="{Binding InactiveStudentSelectedItems}" AutoGenerateColumns="False" Margin="5">
+                <f:MyDataGrid.Columns >
+                    <DataGridTextColumn Header="Title" Binding="{Binding Title}" IsReadOnly="True"  />
+                </f:MyDataGrid.Columns>
+            </f:MyDataGrid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</f:UserControlBase>

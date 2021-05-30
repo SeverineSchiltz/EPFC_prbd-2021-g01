@@ -48,8 +48,6 @@ namespace prbd_2021_g01.ViewModel
             //LoadCategories();
 
 
-            Console.WriteLine("cat vm constr");
-
             SaveCategories = new RelayCommand(AddNewCategoryAction);
 
             Cancel = new RelayCommand(LoadCategories);
@@ -107,7 +105,6 @@ namespace prbd_2021_g01.ViewModel
 
         protected override void OnRefreshData()
         {
-            Console.WriteLine("cat vm refresh");
             LoadCategories();
             //RaisePropertyChanged(nameof(Categories));
         }

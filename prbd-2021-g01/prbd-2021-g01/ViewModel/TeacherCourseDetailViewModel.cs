@@ -19,7 +19,6 @@ namespace prbd_2021_g01.ViewModel {
         //    }
         //}
 
-
         private bool isNew;
         public bool IsNew {
             get { return isNew; }
@@ -36,8 +35,6 @@ namespace prbd_2021_g01.ViewModel {
         public TeacherCourseRegistrationsViewModel CourseRegistrations { get; private set; } = new TeacherCourseRegistrationsViewModel();
 
         public TeacherCourseQuestionsViewModel CourseQuestions { get; private set; } = new TeacherCourseQuestionsViewModel();
-
-        public TeacherCourseQuizzesViewModel CourseQuizzes { get; private set; } = new TeacherCourseQuizzesViewModel();
 
         public bool IsExisting { get => !isNew; }
 
@@ -86,7 +83,6 @@ namespace prbd_2021_g01.ViewModel {
             SaveCommand = new RelayCommand(SaveAction, CanSaveAction); // CanSaveOrCancelAction);
             CancelCommand = new RelayCommand(CancelAction, CanCancelAction);
             DeleteCommand = new RelayCommand(DeleteAction, () => !IsNew); // () => !IsNew bc btn shouldn't be active if we are on a new course
-
         }
 
         public void Init(Course course, bool isNew) {
@@ -96,9 +92,6 @@ namespace prbd_2021_g01.ViewModel {
             this.BindOneWay(nameof(Course), CourseRegistrations, nameof(CourseRegistrations.Course));
 
             this.BindOneWay(nameof(Course), CourseQuestions, nameof(CourseQuestions.Course));
-            
-            this.BindOneWay(nameof(Course), CourseQuizzes, nameof(CourseQuizzes.Course));
-
 
             this.BindOneWay(nameof(Course), CourseQuiz, nameof(CourseQuiz.Course));
 

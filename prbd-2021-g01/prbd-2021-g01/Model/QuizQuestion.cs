@@ -15,5 +15,16 @@ namespace prbd_2021_g01.Model {
         public int Weight { get; set; }
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
+        public QuizQuestion(Question question)
+        {
+            Question = question;
+            Weight = 1;
+        }
+
+        public QuizQuestion()
+        {
+
+        }
     }
 }

@@ -295,7 +295,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Profile.
+        ///   Looks up a localized string similar to Profile.
         /// </summary>
         public static string Menu_Profile {
             get {
@@ -304,7 +304,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Member&apos;s profile.
+        ///   Looks up a localized string similar to Member&apos;s profile.
         /// </summary>
         public static string ProfileView_Title {
             get {
@@ -313,7 +313,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à All.
+        ///   Looks up a localized string similar to All.
         /// </summary>
         public static string QuestionsView_AllCategories {
             get {
@@ -322,7 +322,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Answers.
+        ///   Looks up a localized string similar to Answers.
         /// </summary>
         public static string QuestionsView_Answers {
             get {
@@ -331,7 +331,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Available questions :.
+        ///   Looks up a localized string similar to Available questions :.
         /// </summary>
         public static string QuestionsView_AvailableQuest {
             get {
@@ -340,7 +340,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Cancel.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string QuestionsView_Cancel {
             get {
@@ -349,7 +349,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Categories :.
+        ///   Looks up a localized string similar to Categories :.
         /// </summary>
         public static string QuestionsView_Categories {
             get {
@@ -358,7 +358,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Check.
+        ///   Looks up a localized string similar to Check.
         /// </summary>
         public static string QuestionsView_CheckCategories {
             get {
@@ -367,7 +367,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Delete.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string QuestionsView_Delete {
             get {
@@ -376,7 +376,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Edit selected questions :.
+        ///   Looks up a localized string similar to Edit selected questions :.
         /// </summary>
         public static string QuestionsView_EditSelectedQuestion {
             get {
@@ -385,7 +385,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à New question.
+        ///   Looks up a localized string similar to New question.
         /// </summary>
         public static string QuestionsView_NewQuestion {
             get {
@@ -394,7 +394,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à None.
+        ///   Looks up a localized string similar to None.
         /// </summary>
         public static string QuestionsView_NoneCategories {
             get {
@@ -403,7 +403,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Title.
+        ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string QuestionsView_QuestTitle {
             get {
@@ -412,7 +412,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Save.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string QuestionsView_Save {
             get {
@@ -421,7 +421,69 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Cancel.
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string QuizDetailView_Cancel {
+            get {
+                return ResourceManager.GetString("QuizDetailView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string QuizDetailView_Confirm {
+            get {
+                return ResourceManager.GetString("QuizDetailView_Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string QuizDetailView_Delete {
+            get {
+                return ResourceManager.GetString("QuizDetailView_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End.
+        /// </summary>
+        public static string QuizDetailView_End {
+            get {
+                return ResourceManager.GetString("QuizDetailView_End", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        public static string QuizDetailView_Start {
+            get {
+                return ResourceManager.GetString("QuizDetailView_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string QuizDetailView_Title {
+            get {
+                return ResourceManager.GetString("QuizDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight.
+        /// </summary>
+        public static string QuizDetailView_Weight {
+            get {
+                return ResourceManager.GetString("QuizDetailView_Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string QuizView_Add {
@@ -602,7 +664,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à All quizz :.
+        ///   Looks up a localized string similar to All quizz :.
         /// </summary>
         public static string Student_Courses_AllQuizz {
             get {
@@ -611,7 +673,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Courses filter :.
+        ///   Looks up a localized string similar to Courses filter :.
         /// </summary>
         public static string Student_Courses_Filter {
             get {
@@ -620,7 +682,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à EndDate.
+        ///   Looks up a localized string similar to EndDate.
         /// </summary>
         public static string Student_Courses_QuizEndDate {
             get {
@@ -629,7 +691,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à StartDate.
+        ///   Looks up a localized string similar to StartDate.
         /// </summary>
         public static string Student_Courses_QuizStartDate {
             get {
@@ -638,7 +700,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Status.
+        ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string Student_Courses_QuizStatus {
             get {
@@ -647,7 +709,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Title.
+        ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string Student_Courses_QuizTitle {
             get {
@@ -656,7 +718,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Teacher.
+        ///   Looks up a localized string similar to Teacher.
         /// </summary>
         public static string Student_Courses_Teacher {
             get {
@@ -665,7 +727,7 @@ namespace prbd_2021_g01.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Title.
+        ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string Student_Courses_Title {
             get {
