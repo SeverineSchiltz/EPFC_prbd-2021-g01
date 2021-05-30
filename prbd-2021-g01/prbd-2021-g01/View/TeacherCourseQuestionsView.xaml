@@ -26,7 +26,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Categorie :" />
+                <Label Content="{x:Static p:Resources.QuestionsView_Categories}" />
                 <ItemsControl Grid.Column="1" ItemsSource="{Binding CategoriesView}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -35,9 +35,9 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
                 <WrapPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="166">
-                    <Button x:Name="btnCheck" Content="Check" Command="{Binding CheckCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
-                    <Button x:Name="btnAll" Content="All" Command="{Binding AllCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
-                    <Button x:Name="btnNone" Content="None" Command="{Binding NoneCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
+                    <Button x:Name="btnCheck" Content="{x:Static p:Resources.QuestionsView_CheckCategories}" Command="{Binding CheckCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
+                    <Button x:Name="btnAll" Content="{x:Static p:Resources.QuestionsView_AllCategories}" Command="{Binding AllCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
+                    <Button x:Name="btnNone" Content="{x:Static p:Resources.QuestionsView_NoneCategories}" Command="{Binding NoneCategory}" Width="auto" Margin="10,0,0,0" Padding="5,1"/>
                 </WrapPanel>
             </Grid>
             <Grid Grid.Row="1">
@@ -46,7 +46,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Content="Available questions :" />
+                <Label Content="{x:Static p:Resources.QuestionsView_AvailableQuest}" />
                 <ListBox Grid.Row="1"  x:Name="listBox" ItemsSource="{Binding QuestionsView}" MouseDoubleClick="ListView_MouseDoubleClick" SelectedItem="{Binding SelectedItem}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="350">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -57,7 +57,7 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Label Grid.Row="0" Content="{Binding Title}" />
-                                <Label Grid.Row="1" Content="{Binding Content}" />
+                                <Label Grid.Row="1"  />
                                 <ItemsControl Grid.Row="2" ItemsSource="{Binding Answers}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
@@ -83,13 +83,13 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Edit selected question :" />
-            <Label Grid.Row="1" Content="Title" />
+            <Label Content="{x:Static p:Resources.QuestionsView_EditSelectedQuestion}" />
+            <Label Grid.Row="1" Content="{x:Static p:Resources.QuestionsView_QuestTitle}" />
             <TextBox Grid.Row="2" Text="{Binding Title}"/>
-            <Label Grid.Row="3" Content="Answers" />
+            <Label Grid.Row="3" Content="{x:Static p:Resources.QuestionsView_Answers}" />
             <TextBox Grid.Row="4" Height="100" Text="{Binding AnswersText}" AcceptsReturn="true"/>
             <Label Grid.Row="5" Content="{Binding Type}" />
-            <Label Grid.Row="6" Content="Categories" />
+            <Label Grid.Row="6" Content="{x:Static p:Resources.QuestionsView_Categories}" />
             <ItemsControl Grid.Row="7" ItemsSource="{Binding CategoriesView}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -98,10 +98,10 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
             <WrapPanel Grid.Row="8" HorizontalAlignment="Right" >
-                <Button x:Name="btnNewQuestion" Content="New question" Command="{Binding NewQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
-                <Button x:Name="btnSaveQuestion" Content="Save" Command="{Binding SaveQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
-                <!--<Button x:Name="btnCancelQuestion" Content="Cancel" Command="{Binding CancelQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>-->
-                <Button x:Name="btnDeleteQuestion" Content="Delete" Command="{Binding DeleteQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnNewQuestion" Content="{x:Static p:Resources.QuestionsView_NewQuestion}" Command="{Binding NewQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnSaveQuestion" Content="{x:Static p:Resources.QuestionsView_Save}" Command="{Binding SaveQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnCancelQuestion" Content="{x:Static p:Resources.QuestionsView_Cancel}" Command="{Binding CancelQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
+                <Button x:Name="btnDeleteQuestion" Content="{x:Static p:Resources.QuestionsView_Delete}" Command="{Binding DeleteQuestion}" Width="auto" Margin="10,0,0,0" Padding="5"/>
             </WrapPanel>
         </Grid>
     </Grid>

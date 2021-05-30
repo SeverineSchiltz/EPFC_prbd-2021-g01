@@ -4,6 +4,7 @@ using prbd_2021_g01.Model;
 using prbd_2021_g01.Properties;
 using PRBD_Framework;
 
+
 namespace prbd_2021_g01.ViewModel {
     public class LoginViewModel : ViewModelCommon {
 
@@ -36,7 +37,7 @@ namespace prbd_2021_g01.ViewModel {
                 var user = User.GetByEmail(Email);
                 //var user = Context.Users.Find(Email);
                 Login(user);
-                if (user.GetType() == typeof(Teacher))
+                if (user.GetType() == typeof(Teacher) || user.GetType().BaseType == typeof(Teacher))
                 {
                     OnTeacherLoginSuccess?.Invoke();
                 }

@@ -60,7 +60,7 @@
             <f:MyTabControl x:Name="tabControl" Margin="10" >
                 <TabItem x:Name="registrations" Header="Registrations">
                     <ContentControl>
-                        <vw:TeacherCourseRegistrationsView DataContext="{Binding CourseRegistrations}" 
+                        <vw:TeacherCourseRegistrationsView DataContext="{Binding CourseRegistrations}" x:Name="reg_vm"
                                        Course="{Binding Course}"
                                        Visibility="{Binding IsExisting, ElementName=vm, Converter={StaticResource BoolToVis}}" />
                     </ContentControl>

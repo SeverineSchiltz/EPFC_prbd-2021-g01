@@ -18,6 +18,11 @@ namespace prbd_2021_g01.Model {
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
+        // btn content on the list of registered students (pending or active)
+        public string strButton { 
+            get => State == RegistrationState.Active ? "Deactivate" : "Activate"; 
+        }
+
         public Registration() { }
 
         public Registration(Student s, Course c, RegistrationState rs )
@@ -60,12 +65,58 @@ namespace prbd_2021_g01.Model {
         }
 
         public static int getNumberOfInactiveStudentsByCourse(Course course) {
-            var query = from r in Context.Registrations
-                        where r.Course.Id == course.Id && r.State == RegistrationState.Inactive
-                        select r;
+            var query = from s in Context.Students
+                        where s.registrations.All(
+                            r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive) //r => r.Course.Id != course.Id || (r.State == RegistrationState.Inactive && r.Course.Id == course.Id))
+                        select s;
+
+            /*string str = "SELECT FROM Student s" +
+                "         WHERE s.ID NOT IN " +
+                "           (SELECT studentID FROM Registrations" +
+                "            WHERE CourseID = courseID)";*/
+
             return query.Count();
 
         }
+
+        /*// To remove - just to check 
+        public static int getNumberOfActiveAndPendingStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
+                        select r;
+            return query.Count();
+        }*/
+
+        public static IQueryable<Student> GetInactiveStudentsByCourse(Course course) {
+            var query = from s in Context.Students
+                        where s.registrations.All(
+                            r => r.Course.Id != course.Id || r.State == RegistrationState.Inactive)
+                        select s;
+            return query;
+        }
+
+        /*public static IQueryable<Student> GetActiveAndPendingStudentsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
+                        select r.Student;
+            return query;
+        }*/
+
+        //public static IQueryable<Registration> GetInactiveRegistrationsByCourse(Course course)
+        //{
+        //    var query = from r in Context.Registrations
+        //                where r.Student || r.State == RegistrationState.Inactive
+        //                select r;
+        //    return query;
+        //}
+
+        public static IQueryable<Registration> GetActiveAndPendingRegistrationsByCourse(Course course) {
+            var query = from r in Context.Registrations
+                        where r.Course.Id == course.Id && (r.State == RegistrationState.Active || r.State == RegistrationState.Pending)
+                        select r;
+            return query;
+        }
+
 
     }
 

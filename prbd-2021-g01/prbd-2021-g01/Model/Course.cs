@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using PRBD_Framework;
 using prbd_2021_g01;
 using prbd_2021_g01.ViewModel;
+using System.Collections;
 
 namespace prbd_2021_g01.Model
 {
@@ -17,7 +18,18 @@ namespace prbd_2021_g01.Model
         public virtual Teacher Teacher { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public int MaxStudent { get; set; }
+
+        //public int MaxStudent { get; set; }
+        private int maxStudent;
+        public int MaxStudent {
+            get { return maxStudent; }
+            set {
+                if (NumberOfActiveStudents <= value) {
+                    maxStudent = value;
+                }
+            }
+        }
+
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
@@ -57,7 +69,6 @@ namespace prbd_2021_g01.Model
             return Registration.getRegistrationState(s, this);
         }
 
-
         public static IQueryable<Course> GetCoursesByTeacher(Teacher teacher) {
             var query = from c in Context.Courses
                         where teacher.Id == c.Teacher.Id
@@ -77,12 +88,60 @@ namespace prbd_2021_g01.Model
             return Registration.getNumberOfInactiveStudentsByCourse(this);
         }
 
+        public void makeActiveStudents(IList selectedStudents) {
+            if (NumberOfActiveStudents + selectedStudents.Count <= MaxStudent) {
+                foreach (Student s in selectedStudents) {
+                    if (this.getRegisteredStatus(s) == RegistrationState.Inactive) {
+                        Registration reg = Context.Registrations.FirstOrDefault(r => r.Student.Id == s.Id && r.Course.Id == this.Id);
+                        if (reg != null) {
+                            reg.State = RegistrationState.Active;
+                            Context.Registrations.Update(reg);
+
+                        } else {
+                            reg = new Registration(s, this, RegistrationState.Active);
+                            Context.Registrations.AddRange(reg);
+                        }
+                    }
+                }
+            }
+            Context.SaveChanges(); // update in db
+        } 
+
+        public void makeInactiveStudents(IList selectedStudents) { // registrations list
+            foreach (Registration r in selectedStudents) {
+                Student s = r.Student;
+                if (this.getRegisteredStatus(s) == RegistrationState.Active ||
+                    this.getRegisteredStatus(s) == RegistrationState.Pending) {
+                    Registration reg = Context.Registrations.FirstOrDefault(r => r.Student.Id == s.Id && r.Course.Id == this.Id);
+                    if (reg != null) {
+                        //reg.changeStatus(RegistrationState.Inactive);
+                        reg.State = RegistrationState.Inactive;
+                        Context.Registrations.Update(reg);
+                    }
+                }
+            }
+            Context.SaveChanges(); // update in db
+        }
+
+        public void activatePending(IList selectedStudents) { // registrations list
+            foreach (Registration r in selectedStudents) {
+                Student s = r.Student;
+                if (this.getRegisteredStatus(s) == RegistrationState.Pending) {
+                    Registration reg = Context.Registrations.FirstOrDefault(r => r.Student.Id == s.Id && r.Course.Id == this.Id);
+                    if (reg != null) {
+                        reg.State = RegistrationState.Active;
+                        Context.Registrations.Update(reg);
+                    }
+                }
+            }
+            Context.SaveChanges(); // update in db
+        }
+
         public void Delete() {
-            // delete the course itself
+            Teacher.Courses.Remove(this);
             Context.Courses.Remove(this);
             Context.SaveChanges();
         }
-
 
     }
 

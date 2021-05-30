@@ -42,7 +42,7 @@ namespace prbd_2021_g01.ViewModel
         public Question SelectedItem
         {
             get => selectedItem;
-            set => SetProperty(ref selectedItem, value, Reload);
+            set => SetProperty(ref selectedItem, value, changeAnswers);
         }
 
         public string Title
@@ -55,12 +55,14 @@ namespace prbd_2021_g01.ViewModel
                 //NotifyColleagues(AppMessages.MSG_TITLE_CHANGED, Course);
             }
         }
+
+        private string answersText;
         public string AnswersText
         {
-            get { return selectedItem?.GetAnswersAsString(); }
+            get { return answersText; }
             set
             {
-                selectedItem.SetAnswersAsString(value);
+                answersText = value;
                 RaisePropertyChanged();
                 //NotifyColleagues(AppMessages.MSG_TITLE_CHANGED, Course);
             }
@@ -103,7 +105,7 @@ namespace prbd_2021_g01.ViewModel
                 return SelectedItem != null;
             });
 
-            CancelQuestion = new RelayCommand(OnRefreshData);
+            CancelQuestion = new RelayCommand(CancelAction);
 
             DeleteQuestion = new RelayCommand<Question>(DeleteQuestionAction, question =>
             {
@@ -147,6 +149,16 @@ namespace prbd_2021_g01.ViewModel
             Reload();
         }
 
+        protected void CancelAction()
+        {
+            Context.Reload(SelectedItem);
+            //foreach(Answer a in SelectedItem.Answers)
+            //{
+            //    Context.Reload(a);
+            //}
+            OnRefreshData();
+        }
+
 
         public void AddNewQuestionAction()
         {
@@ -156,9 +168,11 @@ namespace prbd_2021_g01.ViewModel
         }
         public void SaveQuestionAction(Question q)
         {
+            
             bool hasCategory = SelectedItem.save();
             if (hasCategory)
             {
+                SelectedItem.SetAnswersAsString(answersText);
                 OnRefreshData();
                 NotifyColleagues(AppMessages.MSG_REFRESH_CATEGORIES, Course.Id.ToString());
             }
@@ -186,6 +200,12 @@ namespace prbd_2021_g01.ViewModel
             Questions.Reset(Question.GetQuestions(Course)); //, listCat));
             
             RaisePropertyChanged(); 
+        }
+
+        protected void changeAnswers()
+        {
+            answersText = selectedItem?.GetAnswersAsString();
+            Reload();
         }
     }
 }

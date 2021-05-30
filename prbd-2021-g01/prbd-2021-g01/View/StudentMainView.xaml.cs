@@ -55,6 +55,16 @@ namespace prbd_2021_g01.View
             }
         }
 
+        private void Menu_Profile_Click(object sender, RoutedEventArgs e) {
+            var tag = "Profile";
+            var tab = tabControl.FindByTag(tag);
+            if (tab == null)
+                tabControl.Add(new ProfileView(), Properties.Resources.Menu_Profile, tag);
+            else
+                tabControl.SetFocus(tab);
+        }
+
+
         private void Vm_DisplayStudentQuiz(Quiz quiz)
         {
             if (quiz != null)

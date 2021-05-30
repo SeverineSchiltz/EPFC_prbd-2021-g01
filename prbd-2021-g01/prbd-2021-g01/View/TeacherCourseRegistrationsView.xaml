@@ -9,9 +9,6 @@
         xmlns:vw="clr-namespace:prbd_2021_g01.View"
         mc:Ignorable="d"
         FontSize="14" d:DesignHeight="390" d:DesignWidth="528">
-    <UserControl.DataContext>
-        <vm:TeacherCourseRegistrationsViewModel x:Name="vm" />
-    </UserControl.DataContext>
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
@@ -25,39 +22,31 @@
             <!-- col 1 Unregistered students-->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <!--<Grid>
-            --><!-- col 1 Registered students--><!--
-            <Grid.RowDefinitions>
-                --><!-- row 1 Header: Registered students --><!--
-                <RowDefinition Height="*"/>
-                --><!-- row 2: Display students --><!--
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            
-        </Grid>-->
+        
             <!-- col 1 Registered students -->
             <StackPanel>
                 <TextBlock Text="Registered Students" TextAlignment="Center" FontWeight="Bold" Margin="5,20,0,0" FontSize="16" />
-                <f:MyDataGrid x:Name="gridToCheck" ItemsSource="{Binding Registrations}"
+            <f:MyDataGrid x:Name="gridRegistration" ItemsSource="{Binding ActiveAndPendingStudents}"
                       AutoGenerateColumns="False" FontSize="12" IsReadOnly="False" Margin="5" CanUserAddRows="False" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MaxHeight="160"
-                      SelectedItemsList="{Binding SelectedItems}">
+                      SelectedItemsList="{Binding ActiveAndPendingStudentSelectedItems}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Student" Width="*" IsReadOnly="True" />
-                        <DataGridTextColumn Header="State" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Actions" IsReadOnly="True"/>
-                    </DataGrid.Columns>
+                    <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Student.Firstname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Student.Lastname}" SortDirection="Descending" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Header="State" Binding="{Binding Path=State}" IsReadOnly="True" />
+                   
+                </DataGrid.Columns>
 
                 </f:MyDataGrid>
             </StackPanel>
        
             <!-- col 2 Display buttons -->
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <Button x:Name="btn1" Content=">>" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
-            <Button x:Name="btn2" Content=">" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
-            <Button x:Name="btn3" Content="&lt;" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
-            <Button x:Name="btn4" Content="&lt;&lt;" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
-                <!-- Command="{Binding ToADD}"-->
-            </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Button x:Name="btnActivatePending" Content="Activate&#xa;pending" Command="{Binding ActivateSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Height="45"  Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnUnregAllStudents" Content=">>" Command="{Binding UnregAllSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnbtnUnregAStudent" Content=">" Command="{Binding UnregSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnRegAStudent" Content="&lt;" Command="{Binding RegSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+            <Button x:Name="btnRegAllStudents" Content="&lt;&lt;" Command="{Binding RegAllSelect}" VerticalAlignment="Center"  HorizontalAlignment="Center" Width="75" Grid.Row="1" Margin="5"/>
+        </StackPanel>
 
             <!-- col 3 Unregistered students -->
             <StackPanel Grid.Column="2" >
@@ -72,9 +61,10 @@
                     <TextBox Grid.Column="1" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" FontSize="14" />
                     <Button Content="Clear" Grid.Column="2" Command="{Binding ClearFilter}" Margin="5,0,0,0" />
                 </Grid>
-                <f:MyDataGrid x:Name="grid" ItemsSource="{Binding RegisteredStudents}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Student" Binding="{Binding RegisteredStudents}" IsReadOnly="True" />
+                <f:MyDataGrid x:Name="grid" ItemsSource="{Binding InactiveStudents}" SelectedItemsList="{Binding InactiveStudentSelectedItems}" AutoGenerateColumns="False" >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Firstname" Binding="{Binding Path=Firstname}" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Lastname" Binding="{Binding Path=Lastname}" IsReadOnly="True"  />
                     </DataGrid.Columns>
                 </f:MyDataGrid>
             </StackPanel>

@@ -21,6 +21,11 @@ namespace prbd_2021_g01.Model {
 
         public Student() { }
 
+        public void add() {
+            Context.Students.Add(this);
+            Context.SaveChanges();
+        }
+
         public void changeRegistrationStatus(Course course)
         {
             //var filtered = from m in Context.Members
@@ -50,6 +55,13 @@ namespace prbd_2021_g01.Model {
                 Context.SaveChanges();
         }
 
+        /*public RegistrationState Status {
+            get => getRegisteredStatus(Course c);  // not ok
+        }*/
+
+        /*public RegistrationState getRegisteredStatus(Course c) {
+            return Registration.getRegistrationState(this, c);
+        }*/
 
     }
 }

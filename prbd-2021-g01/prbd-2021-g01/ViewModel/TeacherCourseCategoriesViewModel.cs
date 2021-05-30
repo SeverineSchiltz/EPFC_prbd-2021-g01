@@ -67,7 +67,10 @@ namespace prbd_2021_g01.ViewModel
 
         private void LoadCategories()
         {
-            Console.WriteLine("cat vm load");
+            foreach(Category c in Categories)
+            {
+                Context.Reload(c);
+            }
             Categories.Reset(Category.GetCategories(Course));
             RaisePropertyChanged(nameof(Categories));
         }

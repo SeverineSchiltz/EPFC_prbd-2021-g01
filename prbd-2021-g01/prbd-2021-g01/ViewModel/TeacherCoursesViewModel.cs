@@ -50,8 +50,8 @@ namespace prbd_2021_g01.ViewModel {
 
             //CoursesByTeacher = new ObservableCollection<Course>(CoursesByTeacherAction());
 
-            
-            Courses = new ObservableCollectionFast<Course>(Course.GetCoursesByTeacher((Teacher) CurrentUser));
+
+            Courses = new ObservableCollectionFast<Course>(Course.GetCoursesByTeacher((Teacher)CurrentUser));
 
             ClearFilter = new RelayCommand(() => Filter = "");
 
@@ -60,15 +60,22 @@ namespace prbd_2021_g01.ViewModel {
             Register<Course>(this, AppMessages.MSG_COURSE_CHANGED, course => {
                 ApplyFilterAction();  //OnRefreshData();
             });
-            
+
             DisplayCourseDetails = new RelayCommand<Course>(course => {
                 NotifyColleagues(AppMessages.MSG_DISPLAY_COURSE, course);
+            });
+
+            Register(this, AppMessages.MSG_STUDENT_CHANGED, () => {
+                OnRefreshData();
             });
 
             //AllSelected = true;
         }
 
         protected override void OnRefreshData() {
+            //reset properties
+            Courses.Reset(Course.GetCoursesByTeacher((Teacher)CurrentUser));
+            RaisePropertyChanged();
         }
     }
 }
