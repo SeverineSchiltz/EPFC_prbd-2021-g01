@@ -1,7 +1,7 @@
 # Projet PRBD 2021 - AppSchool
 
 ## Description du projet
-- Il s'agit d'une application desktop en C# .net. Le but est de permettre aux professeurs de gérer leur cours et les étudiants associés. Les étudiants peuvent également s'y inscrire et gérer leurs cours et leurs tests.
+- Il s'agit d'une application desktop en C# .net. Le but est de permettre aux professeurs de gérer leurs cours et les étudiants associés. Les étudiants peuvent également s'y inscrire et gérer leurs cours et leurs tests.
 - L'application a été codée sous visual studio 2019.
 - La solution se trouve dans le dossier prbd-2021-g01.
 - La documentation se trouve dans les dossiers Manuel et Diagrammes.
