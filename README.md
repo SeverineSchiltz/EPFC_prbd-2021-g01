@@ -1,5 +1,11 @@
 # Projet PRBD 2021 - AppSchool
 
+## Description du projet
+- Il s'agit d'une application desktop en C# .net. Le but est de permettre aux professeurs de gérer leur cours et les étudiants associés. Les étudiants peuvent également s'y inscrire et gérer leurs cours et leurs tests.
+- L'application a été codée sous visual studio 2019.
+- La solution se trouve dans le dossier prbd-2021-g01.
+- La documentation se trouve dans les dossiers Manuel et Diagrammes.
+
 ## Notes de livraison
 - L'application n'est pas complète.
 - Dans EcoleContext, on a ajouté "MultipleActiveResultSets=true" dans les optionsBuilder de la méthode OnConfiguring. On a été contraint de l'ajouter pour que la base de données fonctionne lorsqu'elle n'est pas regénérée via le Context.Database.EnsureDeleted(). La connexion de certaines requêtes semblaient ne pas se fermer correctement.
